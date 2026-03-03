@@ -587,6 +587,97 @@ a:hover {
 }
 
 /* ===== Responsive ===== */
+/* ===== Music Page ===== */
+.music-month {
+  margin-bottom: 2.5rem;
+}
+
+.music-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  background: var(--bg-card);
+  border: 2px solid var(--border-soft);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  margin-bottom: 1.2rem;
+  box-shadow: var(--shadow-card);
+  transition: transform var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.music-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #ffd1dc, var(--green-light), #c5b3e6, var(--green-mid));
+}
+
+.music-card:hover {
+  transform: translateY(-3px);
+}
+
+.music-video {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 */
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  background: #000;
+}
+
+.music-video iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: var(--radius-sm);
+}
+
+.music-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.music-title {
+  font-family: 'Gamja Flower', cursive;
+  font-size: 1.3rem;
+  color: var(--green-dark);
+  margin-bottom: 0.2rem;
+}
+
+.music-artist {
+  font-family: 'Poor Story', cursive;
+  font-size: 1rem;
+  color: var(--text-sub);
+  margin-bottom: 0.5rem;
+}
+
+.music-tags {
+  margin-bottom: 0.8rem;
+}
+
+.music-reason {
+  font-size: 0.93rem;
+  color: var(--text-main);
+  line-height: 1.7;
+  padding: 0.8rem;
+  background: var(--green-pastel);
+  border-radius: var(--radius-sm);
+  border-left: 4px solid var(--green-mid);
+}
+
+.music-reason p {
+  margin: 0;
+}
+
 @media (max-width: 700px) {
   .navbar {
     flex-direction: column;
@@ -626,6 +717,10 @@ a:hover {
   .study-card-date {
     margin-left: 0;
     margin-top: 0.3rem;
+  }
+
+  .music-card {
+    grid-template-columns: 1fr;
   }
 }
 

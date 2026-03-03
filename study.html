@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Study Log · 김가연</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>" />
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <a href="index.html" class="nav-logo">
+      <span class="pixel-star"></span> eiloppang
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="career.html">Career</a></li>
+      <li><a href="study.html" class="active">Study Log</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <h1 class="hero-title">공부 흔적</h1>
+    <p class="hero-sub">논문 리뷰 · 읽은 책 · 배운 것들</p>
+  </section>
+
+  <main class="container">
+
+    <!-- ===== 논문 리뷰 ===== -->
+    <section>
+      <h2 class="section-title"><span class="icon">📑</span> 논문 리뷰 (Paper Reviews)</h2>
+
+      <!-- 예시 카드 1 -->
+      <div class="study-card">
+        <div class="study-card-header">
+          <div class="study-card-title">📄 여기에 논문 제목을 적어주세요</div>
+          <div class="study-card-date">2026.03</div>
+        </div>
+        <div class="study-card-body">
+          <p><span class="card-tag">키워드1</span> <span class="card-tag">키워드2</span></p>
+          <p style="margin-top: 0.6rem;">
+            리뷰 내용 예시: 이 논문은 ~에 대해 다루고 있으며, 주요 기여는 ~이다. 
+            방법론으로는 ~을 사용했고, 한계점으로는 ~가 있다.
+          </p>
+        </div>
+      </div>
+
+      <!-- 빈 카드 영역: 아직 리뷰가 없을 때 표시 -->
+      <!--
+      <div class="study-empty">
+        🌱 아직 논문 리뷰가 없어요. 곧 채워질 거예요!
+      </div>
+      -->
+
+      <!-- ===== 새 리뷰 추가 템플릿 =====
+      아래 블록을 복사해서 위에 붙여넣으면 새 리뷰 카드가 추가됩니다!
+
+      <div class="study-card">
+        <div class="study-card-header">
+          <div class="study-card-title">📄 논문 제목</div>
+          <div class="study-card-date">YYYY.MM</div>
+        </div>
+        <div class="study-card-body">
+          <p><span class="card-tag">키워드</span></p>
+          <p style="margin-top: 0.6rem;">리뷰 내용</p>
+        </div>
+      </div>
+
+      ===== 템플릿 끝 ===== -->
+    </section>
+
+    <!-- ===== 읽은 책 ===== -->
+    <section style="margin-top: 2.5rem;">
+      <h2 class="section-title"><span class="icon">📚</span> 읽은 책 (Book Notes)</h2>
+
+      <div class="study-card">
+        <div class="study-card-header">
+          <div class="study-card-title">📖 여기에 책 제목을 적어주세요</div>
+          <div class="study-card-date">2026.03</div>
+        </div>
+        <div class="study-card-body">
+          <p><span class="card-tag">분류</span></p>
+          <p style="margin-top: 0.6rem;">
+            독서 메모 예시: 이 책에서 인상 깊었던 부분은 ~이다.
+          </p>
+        </div>
+      </div>
+
+      <!-- ===== 새 책 메모 추가 템플릿 =====
+      
+      <div class="study-card">
+        <div class="study-card-header">
+          <div class="study-card-title">📖 책 제목</div>
+          <div class="study-card-date">YYYY.MM</div>
+        </div>
+        <div class="study-card-body">
+          <p><span class="card-tag">분류</span></p>
+          <p style="margin-top: 0.6rem;">독서 메모</p>
+        </div>
+      </div>
+
+      ===== 템플릿 끝 ===== -->
+    </section>
+
+    <!-- ===== 배운 것들 / 메모 ===== -->
+    <section style="margin-top: 2.5rem;">
+      <h2 class="section-title"><span class="icon">💡</span> 배운 것들 (TIL / Memo)</h2>
+
+      <div class="study-card">
+        <div class="study-card-header">
+          <div class="study-card-title">🧪 여기에 주제를 적어주세요</div>
+          <div class="study-card-date">2026.03</div>
+        </div>
+        <div class="study-card-body">
+          <p><span class="card-tag">TIL</span></p>
+          <p style="margin-top: 0.6rem;">
+            오늘 배운 것 예시: TEI/XML에서 &lt;persName&gt; 태그는 인물 이름을 마크업할 때 사용한다.
+          </p>
+        </div>
+      </div>
+
+      <!-- ===== 새 메모 추가 템플릿 =====
+      
+      <div class="study-card">
+        <div class="study-card-header">
+          <div class="study-card-title">🧪 주제</div>
+          <div class="study-card-date">YYYY.MM</div>
+        </div>
+        <div class="study-card-body">
+          <p><span class="card-tag">태그</span></p>
+          <p style="margin-top: 0.6rem;">메모 내용</p>
+        </div>
+      </div>
+
+      ===== 템플릿 끝 ===== -->
+    </section>
+
+    <!-- How to use guide -->
+    <section style="margin-top: 2.5rem;">
+      <div class="card" style="border: 2px dashed var(--green-mid); background: var(--green-pastel);">
+        <div class="card-title">🌱 공부 흔적 추가하는 법</div>
+        <div class="card-body">
+          <ol style="padding-left: 1.2em;">
+            <li>이 HTML 파일을 열어주세요.</li>
+            <li>각 섹션 내부의 <strong>&lt;!-- 템플릿 --&gt;</strong> 주석을 찾아주세요.</li>
+            <li>주석 안의 코드 블록을 <strong>복사</strong>해서 해당 섹션 안에 <strong>붙여넣기</strong> 하세요.</li>
+            <li>제목, 날짜, 키워드, 내용을 수정하면 끝! 🎉</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <div class="cta-area">
+      <a href="index.html" class="btn btn-secondary">🏠 홈으로</a>
+      <a href="career.html" class="btn btn-primary">📄 커리어 보러가기</a>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>© 2026 김가연(Gayeon Kim) · Built with 🌿 and pixels</p>
+    <p><a href="https://github.com/eiloppang" target="_blank">GitHub</a></p>
+  </footer>
+
+  <div class="pixel-deco"></div>
+
+</body>
+</html>

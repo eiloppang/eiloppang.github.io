@@ -1,0 +1,636 @@
+/* ===== Google Fonts ===== */
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Batang&family=Gamja+Flower&family=Poor+Story&display=swap');
+
+/* ===== CSS Variables ===== */
+:root {
+  --bg-main: #f4f9f0;
+  --bg-card: #ffffff;
+  --bg-accent: #d4edda;
+  --bg-accent-hover: #c1e6c9;
+  --green-dark: #4a7c59;
+  --green-mid: #6fae81;
+  --green-light: #a8d5ba;
+  --green-pastel: #e8f5e9;
+  --text-main: #3a3a3a;
+  --text-sub: #6b6b6b;
+  --text-accent: #2d5a3d;
+  --border-soft: #d0e8d6;
+  --shadow-card: 0 4px 16px rgba(74, 124, 89, 0.10);
+  --shadow-hover: 0 8px 28px rgba(74, 124, 89, 0.18);
+  --radius: 16px;
+  --radius-sm: 10px;
+  --transition: 0.3s ease;
+}
+
+/* ===== Reset & Base ===== */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Gowun Batang', serif;
+  background: var(--bg-main);
+  color: var(--text-main);
+  line-height: 1.8;
+  min-height: 100vh;
+}
+
+a {
+  color: var(--green-dark);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+a:hover {
+  color: var(--green-mid);
+}
+
+/* ===== Pixel-art decorative border ===== */
+.pixel-border {
+  border: 3px solid var(--green-light);
+  border-image: repeating-linear-gradient(
+    90deg,
+    var(--green-light) 0px,
+    var(--green-light) 6px,
+    transparent 6px,
+    transparent 10px
+  ) 3;
+}
+
+/* ===== Navigation ===== */
+.navbar {
+  background: var(--bg-card);
+  border-bottom: 3px solid var(--green-light);
+  padding: 0.8rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 8px rgba(74, 124, 89, 0.08);
+}
+
+.nav-logo {
+  font-family: 'Gamja Flower', cursive;
+  font-size: 1.6rem;
+  color: var(--green-dark);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.nav-logo .pixel-star {
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+  background: var(--green-mid);
+  clip-path: polygon(
+    50% 0%, 61% 35%, 98% 35%, 68% 57%,
+    79% 91%, 50% 70%, 21% 91%, 32% 57%,
+    2% 35%, 39% 35%
+  );
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+}
+
+.nav-links a {
+  font-family: 'Poor Story', cursive;
+  font-size: 1.1rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: var(--radius-sm);
+  transition: background var(--transition), color var(--transition);
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  background: var(--bg-accent);
+  color: var(--text-accent);
+}
+
+/* ===== Hero Section ===== */
+.hero {
+  text-align: center;
+  padding: 3rem 2rem 2rem;
+  position: relative;
+}
+
+.hero::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  margin: 1.5rem auto 0;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--green-mid) 0px,
+    var(--green-mid) 8px,
+    transparent 8px,
+    transparent 14px
+  );
+}
+
+.hero-title {
+  font-family: 'Gamja Flower', cursive;
+  font-size: 2.6rem;
+  color: var(--green-dark);
+  margin-bottom: 0.4rem;
+}
+
+.hero-sub {
+  font-family: 'Poor Story', cursive;
+  font-size: 1.2rem;
+  color: var(--text-sub);
+}
+
+.hero-badge {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.3rem 1rem;
+  background: var(--bg-accent);
+  color: var(--text-accent);
+  border-radius: 20px;
+  font-family: 'Poor Story', cursive;
+  font-size: 0.95rem;
+}
+
+/* ===== Container ===== */
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+.container-wide {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+/* ===== Section Title ===== */
+.section-title {
+  font-family: 'Gamja Flower', cursive;
+  font-size: 1.8rem;
+  color: var(--green-dark);
+  margin-bottom: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.section-title .icon {
+  font-size: 1.4rem;
+}
+
+/* ===== Cards ===== */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.card {
+  background: var(--bg-card);
+  border: 2px solid var(--border-soft);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-card);
+  transition: transform var(--transition), box-shadow var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--green-light), var(--green-mid), var(--green-light));
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+}
+
+.card-title {
+  font-family: 'Gamja Flower', cursive;
+  font-size: 1.3rem;
+  color: var(--green-dark);
+  margin-bottom: 0.5rem;
+}
+
+.card-body {
+  font-size: 0.95rem;
+  color: var(--text-sub);
+  line-height: 1.7;
+}
+
+.card-tag {
+  display: inline-block;
+  padding: 0.15rem 0.6rem;
+  background: var(--green-pastel);
+  color: var(--text-accent);
+  border-radius: 12px;
+  font-size: 0.8rem;
+  margin: 0.2rem 0.2rem 0.2rem 0;
+  font-family: 'Poor Story', cursive;
+}
+
+/* ===== Interest Cards (index) ===== */
+.interest-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.interest-card {
+  background: var(--bg-card);
+  border: 2px dashed var(--green-light);
+  border-radius: var(--radius);
+  padding: 1.2rem;
+  text-align: center;
+  transition: transform var(--transition), border-color var(--transition);
+}
+
+.interest-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--green-mid);
+}
+
+.interest-icon {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.interest-label {
+  font-family: 'Gamja Flower', cursive;
+  font-size: 1.15rem;
+  color: var(--green-dark);
+}
+
+.interest-desc {
+  font-size: 0.85rem;
+  color: var(--text-sub);
+  margin-top: 0.3rem;
+}
+
+/* ===== Bio Text Block ===== */
+.bio-block {
+  background: var(--bg-card);
+  border: 2px solid var(--border-soft);
+  border-radius: var(--radius);
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: var(--shadow-card);
+  position: relative;
+}
+
+.bio-block::before {
+  content: '"';
+  position: absolute;
+  top: 0.2rem;
+  left: 1rem;
+  font-size: 3rem;
+  color: var(--green-light);
+  font-family: 'Gamja Flower', cursive;
+  line-height: 1;
+}
+
+.bio-block p {
+  margin-bottom: 1rem;
+  text-indent: 1em;
+}
+
+.bio-block p:last-child {
+  margin-bottom: 0;
+}
+
+.bio-highlight {
+  color: var(--green-dark);
+  font-weight: bold;
+}
+
+/* ===== CTA Buttons ===== */
+.cta-area {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 2rem 0;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.8rem;
+  border-radius: var(--radius);
+  font-family: 'Gamja Flower', cursive;
+  font-size: 1.15rem;
+  border: 2px solid var(--green-mid);
+  cursor: pointer;
+  transition: all var(--transition);
+  text-decoration: none;
+}
+
+.btn-primary {
+  background: var(--green-mid);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: var(--green-dark);
+  border-color: var(--green-dark);
+  color: #fff;
+}
+
+.btn-secondary {
+  background: var(--bg-card);
+  color: var(--green-dark);
+}
+
+.btn-secondary:hover {
+  background: var(--bg-accent);
+}
+
+/* ===== Timeline (career) ===== */
+.timeline {
+  position: relative;
+  padding-left: 2rem;
+  margin-bottom: 2rem;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 8px;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: repeating-linear-gradient(
+    180deg,
+    var(--green-light) 0px,
+    var(--green-light) 8px,
+    transparent 8px,
+    transparent 14px
+  );
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 1.5rem;
+  padding-left: 1.5rem;
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -1.65rem;
+  top: 0.6rem;
+  width: 14px;
+  height: 14px;
+  background: var(--green-mid);
+  border: 3px solid var(--bg-main);
+  border-radius: 50%;
+}
+
+.timeline-date {
+  font-family: 'Poor Story', cursive;
+  font-size: 0.9rem;
+  color: var(--green-mid);
+  margin-bottom: 0.2rem;
+}
+
+.timeline-content {
+  background: var(--bg-card);
+  border: 2px solid var(--border-soft);
+  border-radius: var(--radius-sm);
+  padding: 1rem 1.2rem;
+  box-shadow: var(--shadow-card);
+}
+
+.timeline-title {
+  font-family: 'Gamja Flower', cursive;
+  font-size: 1.15rem;
+  color: var(--green-dark);
+  margin-bottom: 0.3rem;
+}
+
+/* ===== Tables (career) ===== */
+.styled-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  border: 2px solid var(--border-soft);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  margin-bottom: 2rem;
+  background: var(--bg-card);
+}
+
+.styled-table thead {
+  background: var(--bg-accent);
+}
+
+.styled-table th {
+  padding: 0.8rem 1rem;
+  font-family: 'Gamja Flower', cursive;
+  font-size: 1.05rem;
+  color: var(--text-accent);
+  text-align: left;
+}
+
+.styled-table td {
+  padding: 0.7rem 1rem;
+  border-top: 1px solid var(--border-soft);
+  font-size: 0.93rem;
+}
+
+.styled-table tbody tr:hover {
+  background: var(--green-pastel);
+}
+
+/* ===== Study Page ===== */
+.study-card {
+  background: var(--bg-card);
+  border: 2px solid var(--border-soft);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  margin-bottom: 1.2rem;
+  box-shadow: var(--shadow-card);
+  transition: transform var(--transition);
+}
+
+.study-card:hover {
+  transform: translateY(-2px);
+}
+
+.study-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.6rem;
+}
+
+.study-card-title {
+  font-family: 'Gamja Flower', cursive;
+  font-size: 1.2rem;
+  color: var(--green-dark);
+}
+
+.study-card-date {
+  font-family: 'Poor Story', cursive;
+  font-size: 0.9rem;
+  color: var(--green-mid);
+  white-space: nowrap;
+  margin-left: 1rem;
+}
+
+.study-card-body {
+  font-size: 0.93rem;
+  color: var(--text-sub);
+}
+
+.study-empty {
+  text-align: center;
+  padding: 3rem;
+  color: var(--text-sub);
+  font-family: 'Poor Story', cursive;
+  font-size: 1.2rem;
+  border: 2px dashed var(--green-light);
+  border-radius: var(--radius);
+}
+
+/* ===== Skill Tags List ===== */
+.skill-group {
+  margin-bottom: 1.5rem;
+}
+
+.skill-group-title {
+  font-family: 'Gamja Flower', cursive;
+  font-size: 1.1rem;
+  color: var(--text-accent);
+  margin-bottom: 0.5rem;
+}
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.skill-tag {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  background: var(--green-pastel);
+  color: var(--text-accent);
+  border: 1px solid var(--green-light);
+  border-radius: 20px;
+  font-size: 0.88rem;
+  font-family: 'Poor Story', cursive;
+}
+
+/* ===== Footer ===== */
+.footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  margin-top: 2rem;
+  border-top: 3px solid var(--green-light);
+  background: var(--bg-card);
+  font-family: 'Poor Story', cursive;
+  color: var(--text-sub);
+  font-size: 0.95rem;
+}
+
+.footer a {
+  color: var(--green-mid);
+}
+
+/* ===== Floating Pixel Deco ===== */
+.pixel-deco {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 40px;
+  height: 40px;
+  background: var(--green-mid);
+  border-radius: 8px;
+  opacity: 0.3;
+  animation: float 3s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(5deg); }
+}
+
+/* ===== Links list (project, etc) ===== */
+.link-icon {
+  margin-right: 0.3rem;
+  color: var(--green-mid);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 700px) {
+  .navbar {
+    flex-direction: column;
+    gap: 0.6rem;
+    padding: 0.6rem 1rem;
+  }
+
+  .nav-links {
+    gap: 0.8rem;
+  }
+
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .container, .container-wide {
+    padding: 1.2rem 1rem;
+  }
+
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .interest-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .cta-area {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .study-card-header {
+    flex-direction: column;
+  }
+
+  .study-card-date {
+    margin-left: 0;
+    margin-top: 0.3rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .interest-grid {
+    grid-template-columns: 1fr;
+  }
+}

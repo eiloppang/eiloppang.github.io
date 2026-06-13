@@ -516,6 +516,67 @@ a:hover {
   border-radius: var(--radius);
 }
 
+/* ===== Paper Review (rich card) ===== */
+.study-card-body h3 {
+  font-family: 'Gamja Flower', cursive;
+  font-size: 1.1rem;
+  color: var(--green-dark);
+  margin: 1.4rem 0 0.5rem;
+  padding-bottom: 0.3rem;
+  border-bottom: 2px dotted var(--border-soft);
+}
+
+.study-card-body h3:first-child {
+  margin-top: 0.3rem;
+}
+
+.study-card-body p {
+  line-height: 1.7;
+  margin-bottom: 0.6rem;
+}
+
+.study-card-body ul {
+  margin: 0.4rem 0 0.8rem 1.1rem;
+  padding: 0;
+}
+
+.study-card-body li {
+  line-height: 1.7;
+  margin-bottom: 0.35rem;
+}
+
+.study-card-body .ref-note {
+  font-size: 0.82rem;
+  color: var(--green-mid);
+  background: var(--green-pastel);
+  border-radius: 10px;
+  padding: 0.5rem 0.8rem;
+  margin: 0.5rem 0 0.8rem;
+  word-break: break-word;
+}
+
+/* paper figures */
+.paper-figure {
+  margin: 1rem 0 1.2rem;
+  text-align: center;
+}
+
+.paper-figure img {
+  max-width: 100%;
+  height: auto;
+  border: 2px solid var(--border-soft);
+  border-radius: var(--radius);
+  background: #fff;
+  box-shadow: var(--shadow-card);
+}
+
+.paper-figure figcaption {
+  font-family: 'Poor Story', cursive;
+  font-size: 0.85rem;
+  color: var(--green-mid);
+  margin-top: 0.5rem;
+}
+
 /* ===== Skill Tags List ===== */
 .skill-group {
   margin-bottom: 1.5rem;

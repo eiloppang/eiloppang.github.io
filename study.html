@@ -34,17 +34,167 @@
     <section>
       <h2 class="section-title"><span class="icon">📑</span> 논문 리뷰 (Paper Reviews)</h2>
 
-      <!-- 예시 카드 1 -->
+      <!-- ===== Charting mobility patterns in the scientific knowledge landscape ===== -->
       <div class="study-card">
         <div class="study-card-header">
-          <div class="study-card-title">📄 여기에 논문 제목을 적어주세요</div>
-          <div class="study-card-date">2026.03</div>
+          <div class="study-card-title">📄 Charting mobility patterns in the scientific knowledge landscape</div>
+          <div class="study-card-date">2026.06</div>
         </div>
         <div class="study-card-body">
-          <p><span class="card-tag">키워드1</span> <span class="card-tag">키워드2</span></p>
-          <p style="margin-top: 0.6rem;">
-            리뷰 내용 예시: 이 논문은 ~에 대해 다루고 있으며, 주요 기여는 ~이다. 
-            방법론으로는 ~을 사용했고, 한계점으로는 ~가 있다.
+          <p>
+            <span class="card-tag">Science of Science</span>
+            <span class="card-tag">Human Mobility</span>
+            <span class="card-tag">Gravity Model</span>
+            <span class="card-tag">arXiv</span>
+            <span class="card-tag">tSNE</span>
+          </p>
+          <p class="ref-note">
+            Singh, C. K., Tupikina, L., Lécuyer, F., Starnini, M., &amp; Santolini, M. (2024).
+            <em>Charting mobility patterns in the scientific knowledge landscape.</em>
+            EPJ Data Science, 13:12. https://doi.org/10.1140/epjds/s13688-024-00451-8
+          </p>
+
+          <h3>Abstract</h3>
+          <p>
+            본 연구에서는 과학 지식 지형(지식 공간)에서의 이동 패턴을 체계적으로 연구하여,
+            과학적 발견 과정을 공간 이동에 비유하는 은유적인 아이디어들을 공식적이고 과학적인 용어로 구체화했다.
+            low-dimensional embedding techniques를 사용해 물리학·컴퓨터 과학·수학 분야의 150만 개 논문으로
+            구성된 knowledge space를 구축했고, 그 결과 과학적 이동 패턴이 실제 사람들의 물리적 공간 이동과
+            매우 유사하다는 것을 발견했다.
+          </p>
+          <p>
+            새로운 연구로의 도약(이동)은 논문 밀도가 높은(연구가 활발한) 영역에서 일어날 확률이 높고,
+            기존 연구와 거리가 먼 영역으로 이동할 확률은 낮아진다. 연구자는 두 유형으로 나뉜다.
+          </p>
+          <ul>
+            <li><strong>explorers</strong>: 학문을 넘나들며 새로운 분야를 개척하는 역할</li>
+            <li><strong>exploiters</strong>: 특정 전문 분야에 주로 머무르며 지식을 파고드는 역할</li>
+          </ul>
+
+          <figure class="paper-figure">
+            <img src="img/papers/fig1_knowledge_space.png" alt="Figure 1 — Construction of the knowledge space" loading="lazy" />
+            <figcaption>Fig 1. 지식 공간의 구축 — (a) 150만 논문의 tSNE 2차원 임베딩, (b) kNN 분류 혼동 행렬</figcaption>
+          </figure>
+
+          <h3>Introduction</h3>
+          <p>
+            연구자들의 논문 발표 궤적을 연구하는 것은 과학 발전의 근간을 이루는 복잡한 과정을
+            파악하는 데 도움이 된다.
+          </p>
+          <p class="ref-note">
+            📌 참고할 만한 논문: Tuninetti M, Aleta A, Paolotti D, Moreno Y, Starnini M (2021)
+            Prediction of new scientific collaborations through multiplex networks. EPJ Data Sci 10(1):25.
+            https://doi.org/10.1140/epjds/s13688-021-00282-x
+            — 연구자들 간의 과학적 신뢰도와 상호 과학적 관심도(각각 논문 인용 횟수와 키워드로 정량화)를
+            결합하여 새로운 과학적 협력 가능성을 더 정확하게 예측.
+          </p>
+
+          <h3>중력 모델 (Gravity Model)</h3>
+          <p>
+            물리학에서 두 물체 사이의 중력이 질량이 클수록·거리가 가까울수록 강해지는 것과 같은 원리가
+            연구자들의 연구 주제(분야) 이동 패턴에서도 나타난다.
+          </p>
+          <ul>
+            <li>
+              <strong>연구 분야의 인구수 및 밀도(질량 역할)</strong>: 특정 주제·분야에 이미 많은 연구자가
+              방문하여 논문을 출판했을수록 그 분야는 질량이 큰 행성처럼 강한 끌어당기는 힘을 가진다.
+              연구자들은 이미 활발하게 연구되어 논문 밀도가 높은 영역으로 이동할 확률이 높다.
+            </li>
+            <li>
+              <strong>연구 주제 간의 인지적 거리</strong>: 거리가 멀어질수록 중력이 약해지는 것처럼,
+              연구자들은 자신의 기존 연구에서 너무 멀리 떨어진 생소한 분야로 한 번에 건너뛸 확률은 낮다.
+            </li>
+          </ul>
+
+          <h3>연구 방법 (Method)</h3>
+          <p>
+            arXiv에 게재된 논문들의 고유한 특성을 활용했다. arXiv 프리프린트의 출판 메타데이터
+            (1992~2018년 사이 온라인 게재된 1,456,403개 논문)에 임베딩 기법을 적용해, 서로 다른 주제와
+            연구 분야 사이의 관계를 정량화하고 과학적 지형의 본질을 포착하는 저차원 지식 공간을 구축했다.
+            이렇게 도출된 저차원 임베딩을 바탕으로, 저자 식별(disambiguation)을 거친 연구자들의 출판 기록을
+            이용하여 이 공간 속에서 그들의 이동을 추적했다.
+          </p>
+          <p class="ref-note">
+            📌 참고할 만한 논문: Clement CB, Bierbaum M, O'Keeffe KP, Alemi AA (2019)
+            On the use of arXiv as a dataset. arXiv preprint. arXiv:1905.00075
+          </p>
+
+          <h3>Result</h3>
+          <p>
+            tSNE 알고리즘을 통해 초기 공간을 저차원(2차원) 공간에 임베딩하여 차원을 축소했고,
+            관찰된 클러스터링을 정량적으로 검증(정확도 측정)하기 위해 데이터의 70%로
+            k-Nearest Neighbors classification을 수행했다.
+          </p>
+
+          <figure class="paper-figure">
+            <img src="img/papers/fig2_scientific_mobility.png" alt="Figure 2 — Scientific mobility in the knowledge space" loading="lazy" />
+            <figcaption>Fig 2. 지식 공간에서의 과학적 이동 — 점프 거리 분포가 거듭제곱 법칙(power-law)을 따른다</figcaption>
+          </figure>
+
+          <p>
+            연구자들의 이동 패턴은 Random이 아니다 — 거듭제곱 법칙을 따른다는 것은, 대부분의 점프(이동)는
+            거리가 매우 짧고(자신의 원래 관심사와 가까운 곳에서 맴돌고), 극히 일부의 점프만이 지식 공간을
+            가로지르는 아주 먼 거리의 이동(Long jump)을 보여준다는 의미다. 또한 더 많은 연구가 이루어진,
+            더 밀집된 지역들이 실제로 존재한다.
+          </p>
+
+          <figure class="paper-figure">
+            <img src="img/papers/fig3_gravity_model.png" alt="Figure 3 — A gravity model for scientific mobility" loading="lazy" />
+            <figcaption>Fig 3. 과학적 이동의 중력 모델 — (a) 격자 분할, (b) 해상도별 적합 지수, (c) 예측 vs 관측 흐름</figcaption>
+          </figure>
+
+          <p>
+            <strong>N<sub>g</sub></strong>는 해상도 수준을 정량화하는 매개변수이며, 인구 수는 격자 수준에서 집계된다.
+          </p>
+          <ul>
+            <li>
+              격자 셀이 클수록 장거리 도약이나 토픽 전환과 같은 동작을 주로 포착하고, 격자 셀이 작을수록
+              인접한 토픽으로의 국소적인 도약을 더 많이 포착한다. (저자의 연속된 두 논문이 적어도 하나의
+              필드 태그를 공유하는 경우 동일한 주제에 속한다고 가정)
+            </li>
+          </ul>
+
+          <figure class="paper-figure">
+            <img src="img/papers/fig4_explorers_exploiters.png" alt="Figure 4 — Explorers and exploiters in the knowledge space" loading="lazy" />
+            <figcaption>Fig 4. 탐험가 vs 활용자 — (a) 회전 반경 비교, (b) S₂ 분포의 이봉성, (c) 연차별 MSD 성장</figcaption>
+          </figure>
+
+          <p>
+            탐험가들은 커리어 중반(5~15년 차)에 지식 공간을 훨씬 더 넓게 개척해 나가지만, 20년 차 이상의
+            시니어가 되면 두 그룹 모두 기존 연구를 활용하는 방향으로 안주하는 경향을 보인다.
+            한편 생산성(Productivity)이나 논문의 단순 최대 인용 수(Citations)는 탐험가와 활용자 간에 큰 차이가 없었다.
+          </p>
+
+          <figure class="paper-figure">
+            <img src="img/papers/fig5_characteristics.png" alt="Figure 5 — Characteristics of explorers" loading="lazy" />
+            <figcaption>Fig 5. 탐험가의 특성 — 로지스틱 회귀 표준화 계수 (오른쪽=explorers, 왼쪽=exploiters)</figcaption>
+          </figure>
+
+          <h3>Discussion</h3>
+          <ul>
+            <li>
+              혁신(Innovation)과 기존의 성과를 깊이 있게 파고들려는 전통(Tradition) 사이에서 과학계가 겪는
+              필수적인 긴장 관계(Essential tension)를 실증적으로 보여주는 결과다.
+            </li>
+            <li>
+              여러 학문을 가로지르는 연구자들이 장기적으로는 연구 자금(Funding) 확보 등 더 큰 성공을 거두는
+              경향이 있다.
+            </li>
+            <li>
+              이 연구는 개별 연구자의 궤적에 초점을 맞추었지만, 현대 과학의 혁신은 대부분 '팀 단위'로
+              이루어진다. 따라서 개별 연구자들의 상호작용과 팀 단위의 궤적을 묶어 분석하는 후속 연구가 필요하다.
+            </li>
+            <li>
+              궁극적으로 저자들은 논문의 피인용 수, 연구 분야의 연차, 배정된 연구 자금 등의 외부 속성을 추가해
+              이른바 딥 중력 모델(Deep Gravity Model)을 구축한다면, 이러한 공간 이동 모델이 연구 지원 기관들이
+              과학적 탐구와 혁신을 장려하기 위한 정책을 세우고 연구의 질을 평가하는 데 유용한 도구로 쓰일 수
+              있을 것이라 제안한다.
+            </li>
+          </ul>
+          <p>
+            <strong>Disruptive Index (DI)</strong>: 논문의 혁신성을 수치화하기 위해, 후속 논문들이 이 논문만
+            인용하는지(혁신적), 아니면 이 논문이 참고한 과거의 참고문헌들까지 같이 인용하는지(기존 연구의 연장)의
+            비율을 공식으로 계산한다.
           </p>
         </div>
       </div>

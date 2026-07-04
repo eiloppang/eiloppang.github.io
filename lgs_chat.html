@@ -1,0 +1,115 @@
+<!DOCTYPE html><html lang="ko"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>춘원 이광수 페르소나</title><style>
+*{box-sizing:border-box} body{margin:0;background:#faf7f1;color:#1c1a17;font-family:"Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;line-height:1.7}
+.wrap{max-width:780px;margin:0 auto;padding:32px 22px 80px}
+h1{font-size:24px;font-weight:800} .sub{color:#5d574e;font-size:14px;margin-bottom:24px}
+.tag{display:inline-block;font-size:12px;color:#7c4a2d;background:#fff7e8;border:1px solid #efe0c6;padding:3px 10px;border-radius:999px;margin-bottom:10px}
+.row{display:flex;gap:8px} input{flex:1;padding:12px 14px;border:1px solid #e7e1d6;border-radius:10px;font-size:15px}
+button{padding:12px 20px;border:0;border-radius:10px;background:#7c4a2d;color:#fff;font-weight:700;cursor:pointer}
+button:disabled{opacity:.5;cursor:default}
+.card{background:#fffdf9;border:1px solid #e7e1d6;border-radius:14px;padding:20px;margin-top:20px}
+.lgs{border-color:#c08a3e;background:#fff7e8;font-size:17px;white-space:pre-wrap}
+.lbl{font-size:12px;letter-spacing:.1em;color:#b9874f;font-weight:700;margin-bottom:8px}
+.src{border-bottom:1px solid #efe7d8;padding:10px 0} .src:last-child{border:0}
+.chip{font-size:11px;background:#eef3f6;border:1px solid #dde7ec;color:#3f5560;padding:2px 8px;border-radius:999px}
+.cite{font-weight:700;margin:4px 0 2px} .meta{font-size:12.5px;color:#5d574e}
+details summary{cursor:pointer;font-size:12.5px;color:#7c4a2d;margin-top:4px}
+details p{font-size:13px;color:#444;background:#f1ebe0;padding:10px;border-radius:8px;margin-top:6px}
+.sc{display:flex;gap:14px;flex-wrap:wrap;margin:6px 0 8px} .sc span{font-size:13px}
+.sc b{color:#7c4a2d} .loading{color:#b9874f}
+.badge{display:inline-block;font-size:12px;padding:3px 10px;border-radius:999px;font-weight:700}
+.badge.bad{background:#fbe6c4;border:1px solid #c08a3e;color:#7c4a2d}
+.badge.gen{background:#eef3f6;border:1px solid #dde7ec;color:#3f5560}
+.sub2{font-size:11px;color:#8a8278;margin:2px 0 4px}
+.status{font-size:12px;margin-bottom:14px}
+.dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px;vertical-align:middle}
+.on{background:#4a9b5e} .off{background:#c0553e} .wait{background:#c0a03e}
+.offline{border-color:#e0c6c0;background:#fbf1ee;color:#7c4a2d}
+</style></head><body><div class="wrap">
+<span class="tag">식민지 근대 지식인 시뮬레이션 · 친일 맥락에서만 자기합리화 발동</span>
+<h1>춘원 이광수 — 식민지 근대 지식인</h1>
+<div class="sub">평소엔 자신의 사상(문학·민족·종교)에 근거해 답하고, 질문이 친일 맥락에 닿으면 자기합리화가 발동하며 학술 근거와 Lowell 도덕적 부조화 점수를 함께 보여줍니다.</div>
+<div class="status" id="status"><span class="dot wait"></span>백엔드 상태 확인 중…</div>
+<div class="row"><input id="q" placeholder="예: 문학이란 무엇입니까? / 창씨개명에 앞장선 까닭은?" onkeydown="if(event.key==='Enter')ask()"><button id="b" onclick="ask()">묻기</button></div>
+<div id="out"></div></div>
+<script>
+// === 자동 릴레이: 같은 폴더의 lgs_backend.json 에서 현재 Colab 백엔드 주소를 읽는다 ===
+const RELAY = './lgs_backend.json';   // Colab이 FTP로 여기에 현재 주소를 올림
+const STALE_MIN = 45;                 // 이 시간(분) 넘게 갱신 안 됐으면 '꺼짐' 취급
+let BACKEND = null;
+
+async function resolveBackend(){
+  try{
+    const r = await fetch(RELAY + '?t=' + Date.now(), {cache:'no-store'});
+    if(!r.ok) throw 0;
+    const d = await r.json();
+    if(!d.url) throw 0;
+    // 신선도 확인(있으면)
+    if(d.updated){
+      const age = (Date.now() - Date.parse(d.updated))/60000;
+      if(age > STALE_MIN){ BACKEND=null; return {ok:false, reason:'stale', age}; }
+    }
+    BACKEND = d.url.replace(/\/+$/,'');
+    return {ok:true, url:BACKEND};
+  }catch(e){ BACKEND=null; return {ok:false, reason:'norelay'}; }
+}
+
+function setStatus(state, msg){
+  const cls = state==='on'?'on':(state==='wait'?'wait':'off');
+  document.getElementById('status').innerHTML = `<span class="dot ${cls}"></span>${msg}`;
+}
+
+async function refreshStatus(){
+  setStatus('wait','백엔드 상태 확인 중…');
+  const res = await resolveBackend();
+  const btn = document.getElementById('b');
+  if(res.ok){ setStatus('on','이광수 접속 중 · 질문할 수 있습니다'); btn.disabled=false; }
+  else if(res.reason==='stale'){ setStatus('off','이광수가 자리를 비웠습니다 (백엔드 대기 중)'); btn.disabled=false; }
+  else { setStatus('off','이광수가 자리를 비웠습니다 (백엔드 꺼짐)'); btn.disabled=false; }
+}
+
+function offlineCard(){
+  return '<div class="card offline"><b>지금은 이광수가 자리를 비웠습니다.</b><br>'
+       + '<span style="font-size:13px">데모 서버(Colab)가 켜져 있을 때만 대화할 수 있습니다. 잠시 후 다시 시도해 주세요.</span></div>';
+}
+
+async function ask(){
+  const q=document.getElementById('q').value.trim(); if(!q)return;
+  const b=document.getElementById('b'), out=document.getElementById('out');
+  b.disabled=true; out.innerHTML='<div class="card loading">이광수가 생각하는 중… (최대 1분)</div>';
+
+  // 매 질문마다 최신 백엔드 주소를 다시 확인(재접속으로 주소가 바뀌었을 수 있음)
+  const res = await resolveBackend();
+  if(!res.ok || !BACKEND){ out.innerHTML=offlineCard(); refreshStatus(); b.disabled=false; return; }
+
+  try{
+    const r=await fetch(BACKEND+'/ask',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({question:q})});
+    if(!r.ok){ const t=await r.text(); out.innerHTML='<div class="card">서버 응답 '+r.status+'<br><small>'+t.slice(0,300).replace(/</g,'&lt;')+'</small></div>'; b.disabled=false; return; }
+    const d=await r.json(); const v=d.validation||{}; const isC=(d.mode==='친일');
+    const badge=isC?'<span class="badge bad">⚠ 자기합리화 감지 · 친일 맥락</span>':'<span class="badge gen">일반 대화 · 사상 근거</span>';
+    let html=`<div class="card lgs">${badge}<div style="margin-top:10px">${d.answer||''}</div></div>`;
+    if(isC){
+     const pass=(v['총점']??0)>=70;
+     html+=`<div class="card"><div class="lbl">자기합리화 평가 · Lowell 도덕적 부조화 모델</div>`+
+       `<div class="sc"><span><b>총점 ${v['총점']??'-'}</b> / 100 ${pass?'✓ 합격':'✗ 미달(70)'}</span></div>`+
+       `<div class="sub2">3단계 CoT (Step1 트리거 / Step2 기제: 합리화·피해자비난·자기확증 / Step3 설득력)</div>`+
+       `<div class="sc"><span>트리거 <b>${v['트리거']??'-'}</b>/30</span><span>기제 <b>${v['기제']??'-'}</b>/40</span><span>설득력 <b>${v['설득력']??'-'}</b>/30</span></div>`+
+       `<div class="meta">${v['평가사유']||''}</div></div>`;
+     const src=(d.sources||[]).map(s=>`<div class="src"><span class="chip">${s['쟁점축']}</span><div class="cite">${s['저자']}(${s['연도']}) 「${s['제목']}」</div><div class="meta">${s['학술지']||''} ${s['권호']||''} · ${s['하위주제']||''}</div><details><summary>핵심 논거 보기</summary><p>${s['핵심_논거']||''}</p></details></div>`).join('');
+     html+=`<div class="card"><div class="lbl">학술적 근거</div>${src}</div>`;
+    } else {
+     const tsrc=(d.sources||[]).map(s=>`<div class="src"><span class="chip">${s['주제']}</span><div class="cite">${s['하위주제']||''}</div><div class="meta">1차(원문): ${s['1차']||''}<br>2차(연구): ${s['2차']||''}</div></div>`).join('');
+     if(tsrc) html+=`<div class="card"><div class="lbl">사상적 근거 (이광수 원문·연구)</div>${tsrc}</div>`;
+    }
+    out.innerHTML=html;
+  }catch(e){
+    // 백엔드가 방금 꺼졌거나 네트워크 오류 → 오프라인 안내
+    out.innerHTML=offlineCard(); refreshStatus();
+  }
+  b.disabled=false;
+}
+
+refreshStatus();
+setInterval(refreshStatus, 60000);  // 1분마다 상태 갱신
+</script></body></html>

@@ -26,16 +26,26 @@ details p{font-size:13px;color:#444;background:#f1ebe0;padding:10px;border-radiu
 .dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px;vertical-align:middle}
 .on{background:#4a9b5e} .off{background:#c0553e} .wait{background:#c0a03e}
 .offline{border-color:#e0c6c0;background:#fbf1ee;color:#7c4a2d}
+.badge.collapse{background:#f6d3cc;border:1px solid #c0553e;color:#a13a25;margin-bottom:6px}
+.prof{margin:8px 0 4px}
+.pbar{display:flex;align-items:center;gap:8px;margin:5px 0}
+.pbar .pl{width:78px;font-size:12px;color:#5d574e;text-align:right}
+.pbar.dom .pl{color:#7c4a2d;font-weight:800}
+.ptrack{flex:1;height:12px;background:#efe7d8;border-radius:6px;overflow:hidden}
+.pfill{height:100%;background:#7c4a2d;border-radius:6px}
+.pfill.adapt{background:#3f6f9f}
+.pbar .pv{width:24px;font-size:12px;color:#7c4a2d;font-weight:700;text-align:right}
+.adaptlbl{font-size:10px;color:#3f6f9f;margin-left:4px}
 </style></head><body><div class="wrap">
 <span class="tag">식민지 근대 지식인 시뮬레이션 · 친일 맥락에서만 자기합리화 발동</span>
 <h1>춘원 이광수 — 식민지 근대 지식인</h1>
-<div class="sub">평소엔 자신의 사상(문학·민족·종교)에 근거해 답하고, 질문이 친일 맥락에 닿으면 자기합리화가 발동하며 학술 근거와 Lowell 도덕적 부조화 점수를 함께 보여줍니다.</div>
+<div class="sub">평소엔 자신의 사상(문학·민족·종교)에 근거해 답하고, 질문이 친일 맥락에 닿으면 자기합리화가 발동하며 도덕적 부조화 + 수치심 나침반(CoSS) 점수를 함께 보여줍니다.</div>
 <div class="status" id="status"><span class="dot wait"></span>백엔드 상태 확인 중…</div>
 <div class="row"><input id="q" placeholder="예: 문학이란 무엇입니까? / 창씨개명에 앞장선 까닭은?" onkeydown="if(event.key==='Enter')ask()"><button id="b" onclick="ask()">묻기</button></div>
 <div id="out"></div></div>
 <script>
 // === 자동 릴레이: 같은 폴더의 lgs_backend.json 에서 현재 Colab 백엔드 주소를 읽는다 ===
-const RELAY = './lgs_backend.json';   // Colab이 FTP로 여기에 현재 주소를 올림
+const RELAY = './lgs_backend.json';   // Colab이 GitHub Pages(이 저장소)에 현재 주소를 커밋
 const STALE_MIN = 45;                 // 이 시간(분) 넘게 갱신 안 됐으면 '꺼짐' 취급
 let BACKEND = null;
 
@@ -74,6 +84,21 @@ function offlineCard(){
        + '<span style="font-size:13px">데모 서버(Colab)가 켜져 있을 때만 대화할 수 있습니다. 잠시 후 다시 시도해 주세요.</span></div>';
 }
 
+// 수치심 대처 5극 막대바 (앞 4극=방어, 적응=역지표라 다른 색)
+function shameProfile(v){
+  const prof=v['수치심프로파일']||{}; const dom=v['지배대처'];
+  const poles=[['자기공격',false],['철수',false],['회피',false],['타인공격',false],['적응',true]];
+  const bars=poles.map(([key,isAdapt])=>{
+    let val=prof[key]; val=(val==null?0:val); val=Math.max(0,Math.min(10,val));
+    const w=val*10;
+    const domc=(key===dom&&!isAdapt)?' dom':'';
+    const fillc=isAdapt?'pfill adapt':'pfill';
+    const lab=key+(isAdapt?'<span class="adaptlbl">↔역지표</span>':'');
+    return `<div class="pbar${domc}"><div class="pl">${lab}</div><div class="ptrack"><div class="${fillc}" style="width:${w}%"></div></div><div class="pv">${val}</div></div>`;
+  }).join('');
+  return `<div class="prof">${bars}</div>`;
+}
+
 async function ask(){
   const q=document.getElementById('q').value.trim(); if(!q)return;
   const b=document.getElementById('b'), out=document.getElementById('out');
@@ -91,10 +116,16 @@ async function ask(){
     let html=`<div class="card lgs">${badge}<div style="margin-top:10px">${d.answer||''}</div></div>`;
     if(isC){
      const pass=(v['총점']??0)>=70;
-     html+=`<div class="card"><div class="lbl">자기합리화 평가 · Lowell 도덕적 부조화 모델</div>`+
-       `<div class="sc"><span><b>총점 ${v['총점']??'-'}</b> / 100 ${pass?'✓ 합격':'✗ 미달(70)'}</span></div>`+
-       `<div class="sub2">3단계 CoT (Step1 트리거 / Step2 기제: 합리화·피해자비난·자기확증 / Step3 설득력)</div>`+
-       `<div class="sc"><span>트리거 <b>${v['트리거']??'-'}</b>/30</span><span>기제 <b>${v['기제']??'-'}</b>/40</span><span>설득력 <b>${v['설득력']??'-'}</b>/30</span></div>`+
+     const collapse=!!v['적응경고'];
+     let scoreLine=`<b>총점 ${v['총점']??'-'}</b> / 100 ${pass?'✓ 합격':'✗ 미달(70)'}`;
+     if(v['적응감점']){ scoreLine+=` <span class="sub2" style="display:inline">(기본 ${v['기본점수']??'-'} − 적응 ${v['적응감점']})</span>`; }
+     html+=`<div class="card"><div class="lbl">자기합리화 평가 · 도덕적 부조화 + 수치심 나침반(CoSS)</div>`+
+       (collapse?`<div><span class="badge collapse">⚠ 태도 붕괴 · 페르소나 이탈</span></div>`:'')+
+       `<div class="sc"><span>${scoreLine}</span></div>`+
+       `<div class="sub2">트리거 / 방어대처 / 설득력 · 적응(Adaptive)은 역지표 → 총점 감점</div>`+
+       `<div class="sc"><span>트리거 <b>${v['트리거']??'-'}</b>/30</span><span>방어대처 <b>${v['방어대처']??'-'}</b>/40</span><span>설득력 <b>${v['설득력']??'-'}</b>/30</span></div>`+
+       `<div class="lbl" style="margin-top:12px">수치심 대처 프로파일 · 지배 대처: ${v['지배대처']||'-'}</div>`+
+       shameProfile(v)+
        `<div class="meta">${v['평가사유']||''}</div></div>`;
      const src=(d.sources||[]).map(s=>`<div class="src"><span class="chip">${s['쟁점축']}</span><div class="cite">${s['저자']}(${s['연도']}) 「${s['제목']}」</div><div class="meta">${s['학술지']||''} ${s['권호']||''} · ${s['하위주제']||''}</div><details><summary>핵심 논거 보기</summary><p>${s['핵심_논거']||''}</p></details></div>`).join('');
      html+=`<div class="card"><div class="lbl">학술적 근거</div>${src}</div>`;

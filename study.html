@@ -37,7 +37,7 @@
       <div class="paper-deck" id="paperDeck">
 
       <!-- ===== Slide 1 · Charting mobility patterns in the scientific knowledge landscape ===== -->
-      <div class="study-card paper-slide active">
+      <div class="study-card paper-slide active" id="paper-charting">
         <div class="study-card-header">
           <div class="study-card-title">📄 Charting mobility patterns in the scientific knowledge landscape</div>
           <div class="study-card-date">2026.06</div>
@@ -203,7 +203,7 @@
       <!-- ===== Slide 1 끝 ===== -->
 
       <!-- ===== Slide 2 · Fiction Flows ===== -->
-      <div class="study-card paper-slide">
+      <div class="study-card paper-slide" id="paper-fiction">
         <div class="study-card-header">
           <div class="study-card-title">📄 Fiction Flows: A Replication and Reinterpretation of Narrative Sequentiality</div>
           <div class="study-card-date">2026.07</div>
@@ -502,6 +502,16 @@
         document.querySelector('.paper-nav').style.display = 'none';
       }
       if (counter) counter.textContent = (idx + 1) + ' / ' + slides.length;
+
+      // URL 해시로 특정 리뷰 바로 열기 (예: study.html#paper-fiction)
+      function goHash() {
+        const id = decodeURIComponent(location.hash.slice(1));
+        if (!id) return;
+        const i = slides.findIndex(s => s.id === id);
+        if (i >= 0) show(i);
+      }
+      goHash();
+      window.addEventListener('hashchange', goHash);
     })();
   </script>
 

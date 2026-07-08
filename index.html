@@ -3,167 +3,389 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>김가연 · eiloppang</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>가연이의 미니홈피 · eiloppang</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Gamja+Flower&family=Poor+Story&display=swap');
+
+    :root{
+      --paper:#e7f2e2; --paper-dot:#d3e8d2; --win:#ffffff; --win-2:#f4fbf1;
+      --ink:#33413a; --ink-soft:#6b7d72; --ink-faint:#93a89a;
+      --g-dark:#4a7c59; --g-mid:#6fae81; --g-light:#a8d5ba; --g-pastel:#e8f5e9;
+      --line:#c7e2ce; --line-2:#e4f1e7;
+      --dotori:#c98a3c; --dotori-2:#eabf7f; --dotori-soft:#fbeed6; --dotori-ink:#8a5a1e;
+      --sky:#bfe3f5; --sky-2:#eaf7ff; --sun:#f4d06a; --tape:#ffe9a8;
+      --shadow:0 10px 30px rgba(74,124,89,.18); --shadow-sm:0 3px 10px rgba(74,124,89,.14);
+      --title-a:#9ad6a9; --title-b:#5f9f72;
+      --bevel-lt:#ffffff; --bevel-dk:#4a7c59; --led-bg:#241a0d; --led:#ffce67; --star:transparent;
+    }
+    @media (prefers-color-scheme: dark){ :root:not([data-theme]){
+        --paper:#101712; --paper-dot:#182219; --win:#1a241e; --win-2:#16201a;
+        --ink:#e8f1ea; --ink-soft:#9fb4a6; --ink-faint:#6d8578;
+        --g-dark:#8fd0a2; --g-mid:#6fae81; --g-light:#3c5a48; --g-pastel:#213029;
+        --line:#2f4139; --line-2:#26352d;
+        --dotori:#e6b06a; --dotori-2:#c98a3c; --dotori-soft:#33291c; --dotori-ink:#e6b06a;
+        --sky:#1c2b3d; --sky-2:#243350; --sun:#e9d38a; --tape:#4a3d1c;
+        --shadow:0 12px 34px rgba(0,0,0,.5); --shadow-sm:0 3px 12px rgba(0,0,0,.4);
+        --title-a:#2c4a39; --title-b:#1c2f24; --bevel-lt:#3a5545; --bevel-dk:#0d140f;
+        --led-bg:#0c0a06; --led:#ffce67; --star:#dfeeff;
+    }}
+    :root[data-theme="dark"]{
+        --paper:#101712; --paper-dot:#182219; --win:#1a241e; --win-2:#16201a;
+        --ink:#e8f1ea; --ink-soft:#9fb4a6; --ink-faint:#6d8578;
+        --g-dark:#8fd0a2; --g-mid:#6fae81; --g-light:#3c5a48; --g-pastel:#213029;
+        --line:#2f4139; --line-2:#26352d;
+        --dotori:#e6b06a; --dotori-2:#c98a3c; --dotori-soft:#33291c; --dotori-ink:#e6b06a;
+        --sky:#1c2b3d; --sky-2:#243350; --sun:#e9d38a; --tape:#4a3d1c;
+        --shadow:0 12px 34px rgba(0,0,0,.5); --shadow-sm:0 3px 12px rgba(0,0,0,.4);
+        --title-a:#2c4a39; --title-b:#1c2f24; --bevel-lt:#3a5545; --bevel-dk:#0d140f;
+        --led-bg:#0c0a06; --led:#ffce67; --star:#dfeeff;
+    }
+    :root[data-theme="light"]{
+        --paper:#e7f2e2; --paper-dot:#d3e8d2; --win:#ffffff; --win-2:#f4fbf1;
+        --ink:#33413a; --ink-soft:#6b7d72; --ink-faint:#93a89a;
+        --g-dark:#4a7c59; --g-mid:#6fae81; --g-light:#a8d5ba; --g-pastel:#e8f5e9;
+        --line:#c7e2ce; --line-2:#e4f1e7;
+        --dotori:#c98a3c; --dotori-2:#eabf7f; --dotori-soft:#fbeed6; --dotori-ink:#8a5a1e;
+        --sky:#bfe3f5; --sky-2:#eaf7ff; --sun:#f4d06a; --tape:#ffe9a8;
+        --title-a:#9ad6a9; --title-b:#5f9f72; --bevel-lt:#ffffff; --bevel-dk:#4a7c59;
+        --led-bg:#241a0d; --led:#ffce67; --star:transparent;
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0; color:var(--ink);
+      background:radial-gradient(var(--paper-dot) 1.4px, transparent 1.5px) 0 0/14px 14px, var(--paper);
+      font-family:'Gowun Batang',"Apple SD Gothic Neo","Malgun Gothic",system-ui,serif;
+      line-height:1.7; padding:22px 14px 40px; -webkit-font-smoothing:antialiased;
+    }
+    .mono{font-family:'Poor Story',"Courier New",monospace}
+    .cute{font-family:'Gamja Flower',"Apple SD Gothic Neo","Malgun Gothic",cursive}
+
+    .bevel{border:2px solid; border-color:var(--bevel-lt) var(--bevel-dk) var(--bevel-dk) var(--bevel-lt);
+      background:linear-gradient(180deg, var(--g-pastel), var(--g-light)); color:var(--g-dark);
+      border-radius:8px; padding:6px 13px; font-size:13px; cursor:pointer; font-family:inherit; display:inline-flex; gap:7px; align-items:center}
+    .bevel:active{border-color:var(--bevel-dk) var(--bevel-lt) var(--bevel-lt) var(--bevel-dk)}
+    .bevel:hover{filter:brightness(1.04)}
+
+    .win{max-width:900px; margin:0 auto; background:var(--win); border:3px solid var(--g-dark); border-radius:16px; overflow:hidden; box-shadow:var(--shadow)}
+    .titlebar{position:relative; display:flex; align-items:center; gap:12px; padding:10px 15px; color:#fff; flex-wrap:wrap; row-gap:7px;
+      background:linear-gradient(180deg, var(--title-a), var(--title-b)); border-bottom:2px solid var(--g-dark)}
+    .titlebar::after{content:""; position:absolute; left:0; right:0; top:0; height:45%; background:linear-gradient(180deg, rgba(255,255,255,.45), transparent); pointer-events:none}
+    .dots{display:flex; gap:6px; z-index:1}
+    .dots i{width:12px;height:12px;border-radius:50%;display:block; border:1px solid rgba(0,0,0,.15)}
+    .dots i:nth-child(1){background:#f6a689}.dots i:nth-child(2){background:#f6df8f}.dots i:nth-child(3){background:#a9e9b3}
+    .addr{font-size:15px; font-weight:700; z-index:1; text-shadow:0 1px 0 rgba(0,0,0,.18)}
+    .spk{z-index:1; color:#fff8; animation:tw 1.4s steps(2) infinite}
+    @keyframes tw{50%{opacity:.2}}
+    .led-wrap{margin-left:auto; display:flex; gap:6px; z-index:1}
+    .led{background:var(--led-bg); color:var(--led); border-radius:6px; padding:3px 8px; font-size:12px; letter-spacing:2px;
+      box-shadow:inset 0 2px 5px rgba(0,0,0,.65); font-variant-numeric:tabular-nums; border:1px solid rgba(0,0,0,.4)}
+    .led small{color:#fff9; letter-spacing:1px; margin-right:4px; font-size:9px}
+
+    .toolbar{display:flex; gap:8px; align-items:center; flex-wrap:wrap; padding:8px 14px; background:var(--win-2); border-bottom:2px solid var(--line)}
+    .toolbar .sp{flex:1}
+    .mini-btn{border:2px solid; border-color:var(--bevel-lt) var(--bevel-dk) var(--bevel-dk) var(--bevel-lt);
+      background:linear-gradient(180deg,#fff, var(--dotori-soft)); color:var(--dotori-ink); border-radius:7px; padding:4px 11px; font-size:12.5px; cursor:pointer; font-family:inherit; text-decoration:none}
+    .mini-btn:hover{filter:brightness(1.03)}
+    :root[data-theme="dark"] .mini-btn{background:linear-gradient(180deg,#2a3a30, #33291c)}
+
+    .body{display:grid; grid-template-columns:284px minmax(0,1fr)}
+    @media (max-width:760px){ .body{grid-template-columns:1fr} }
+    .main{min-width:0}
+    .side{background:var(--win-2); border-right:2px solid var(--line); padding:16px 15px 18px; display:flex; flex-direction:column; gap:13px; min-width:0}
+    @media (max-width:760px){ .side{border-right:none; border-bottom:2px solid var(--line)} }
+
+    .roomcard{border:2px solid var(--g-dark); border-radius:14px; overflow:hidden; background:linear-gradient(180deg,var(--sky-2),var(--win));
+      box-shadow:var(--shadow-sm); position:relative; display:grid; place-items:center; padding:18px 10px 22px; min-height:180px}
+    .roombg{position:absolute; inset:0; width:100%; height:100%; image-rendering:pixelated; opacity:.92}
+    .polaroid{position:relative; transform:rotate(-4deg); width:160px; background:#fff; padding:9px 9px 32px; border-radius:3px; box-shadow:0 7px 18px rgba(0,0,0,.3); border:1px solid #eadfce}
+    :root[data-theme="dark"] .polaroid{background:#ece5d7}
+    .polaroid .photo{width:142px; height:142px; object-fit:cover; border-radius:2px; display:block}
+    .polaroid .cap{position:absolute; bottom:8px; left:0; right:0; text-align:center; font-size:15px; color:#5b6b60}
+    .tape{position:absolute; width:56px; height:20px; background:var(--tape); opacity:.85; top:-9px; left:50%; transform:translateX(-50%) rotate(-3deg); box-shadow:0 1px 3px rgba(0,0,0,.15); z-index:1}
+
+    .mood{display:flex; align-items:center; gap:8px; justify-content:center; font-size:14px; color:var(--ink-soft); background:var(--g-pastel); border-radius:10px; padding:7px 10px; border:1px dashed var(--g-light)}
+    .mood b{color:var(--g-dark)}
+
+    .bgm{border:2px solid var(--line); border-radius:12px; padding:9px 11px; display:flex; align-items:center; gap:10px; background:var(--win)}
+    .play{flex:none; width:34px;height:34px;border-radius:50%; border:2px solid var(--bevel-dk); cursor:pointer; background:radial-gradient(circle at 30% 30%, var(--dotori-2), var(--dotori)); color:#3a2a12; font-size:13px; display:grid; place-items:center}
+    .bgm-meta{min-width:0; flex:1}
+    .bgm-meta .lbl{font-size:10px; letter-spacing:.16em; color:var(--dotori-ink); font-weight:700}
+    .bgm-meta .song{font-size:13px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; display:block; color:var(--ink)}
+    .eq{display:flex; gap:2px; align-items:flex-end; height:18px; flex:none}
+    .eq i{width:3px; background:var(--g-mid); border-radius:2px; height:5px}
+    .eq.on i{animation:eq .85s ease-in-out infinite}
+    .eq.on i:nth-child(2){animation-delay:.12s}.eq.on i:nth-child(3){animation-delay:.24s}.eq.on i:nth-child(4){animation-delay:.36s}
+    @keyframes eq{0%,100%{height:4px}50%{height:17px}}
+
+    .side-row{display:flex; gap:9px}
+    .chip{flex:1; border:2px solid var(--line); border-radius:10px; background:var(--win); padding:8px; text-align:center; font-size:12px; color:var(--ink-soft)}
+    .chip .em{font-size:16px; display:block}
+    .chip b{color:var(--dotori-ink); font-variant-numeric:tabular-nums}
+
+    .tabs{display:flex; gap:3px; padding:11px 13px 0; flex-wrap:wrap; background:var(--win)}
+    .tab{border:2px solid var(--line); border-bottom:none; background:var(--win-2); color:var(--ink-soft); border-radius:10px 10px 0 0;
+      padding:7px 14px; font-size:14px; cursor:pointer; font-family:inherit; position:relative; top:2px; text-decoration:none; display:inline-block}
+    .tab:hover{color:var(--g-dark)}
+    .tab[aria-selected="true"]{background:var(--win); color:var(--g-dark); font-weight:700; box-shadow:0 -3px 0 var(--g-mid) inset}
+    .panelwrap{border-top:2px solid var(--line); padding:20px 22px 24px; min-height:360px}
+    @media (max-width:760px){ .panelwrap{padding:18px 16px} }
+    .panel{display:none; animation:fade .28s ease}
+    .panel.on{display:block}
+    @keyframes fade{from{opacity:0; transform:translateY(6px)}to{opacity:1;transform:none}}
+
+    .marquee{overflow:hidden; border:2px solid var(--dotori-2); background:var(--dotori-soft); border-radius:10px; padding:6px 0; margin-bottom:12px}
+    .marquee div{white-space:nowrap; display:inline-block; padding-left:100%; color:var(--dotori-ink); font-size:14px; animation:mq 18s linear infinite}
+    @keyframes mq{to{transform:translateX(-100%)}}
+    .daemun{border:2px solid var(--g-mid); border-radius:14px; padding:16px 18px; background:linear-gradient(180deg,var(--g-pastel),var(--win)); box-shadow:var(--shadow-sm); margin-bottom:16px}
+    .daemun .q{font-size:24px; color:var(--g-dark); line-height:1.45; text-wrap:balance; margin:0}
+    .daemun .sig{margin:8px 0 0; font-size:13px; color:var(--ink-soft)}
+
+    .card{border:2px solid var(--line); border-radius:13px; padding:14px 15px; background:var(--win); box-shadow:var(--shadow-sm)}
+    .card h3{margin:0 0 10px; font-size:15px; color:var(--g-dark); display:flex; gap:7px; align-items:center}
+    .grid2{display:grid; grid-template-columns:1fr 1fr; gap:12px}
+    @media (max-width:560px){ .grid2{grid-template-columns:1fr} }
+
+    .feed{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:9px}
+    .feed li{display:flex; gap:11px; align-items:flex-start}
+    .feed .ic{flex:none; width:30px;height:30px;border-radius:9px; background:var(--g-pastel); display:grid; place-items:center; font-size:15px; border:1px solid var(--line)}
+    .feed .tt{font-size:14px; margin:0; color:var(--ink)}
+    .feed a.tt:hover{color:var(--g-dark); text-decoration:underline}
+    .feed .dd{font-size:11.5px; color:var(--ink-faint); margin:1px 0 0}
+    .new{display:inline-block; margin-left:5px; font-size:9.5px; font-weight:700; color:#fff; background:#e5734e; border-radius:4px; padding:1px 5px; vertical-align:middle; animation:blink 1s steps(2) infinite}
+    @keyframes blink{50%{opacity:.25}}
+
+    .profile-mini dl{display:grid; grid-template-columns:auto 1fr; gap:6px 12px; margin:0; font-size:13.5px}
+    .profile-mini dt{color:var(--ink-faint)} .profile-mini dd{margin:0}
+    .tags{display:flex; flex-wrap:wrap; gap:6px}
+    .t{font-size:12px; background:var(--g-pastel); color:var(--g-dark); border:1px solid var(--line); border-radius:999px; padding:3px 10px}
+    .t.amber{background:var(--dotori-soft); color:var(--dotori-ink); border-color:var(--dotori-2)}
+    .golinks{display:flex; flex-wrap:wrap; gap:8px; margin-top:14px}
+
+    .greet{font-size:22px; color:var(--g-dark); margin:0 0 4px; text-wrap:balance}
+    .sub{color:var(--ink-soft); font-size:13.5px; margin:0 0 16px}
+    .prose p{font-size:14.5px; margin:0 0 11px} .prose p:last-child{margin:0}
+    .hl{background:linear-gradient(transparent 60%, var(--dotori-soft) 60%); font-weight:600}
+    .gl{color:var(--g-dark); font-weight:600}
+
+    .gallery{display:grid; grid-template-columns:repeat(3,1fr); gap:11px}
+    @media (max-width:560px){ .gallery{grid-template-columns:repeat(2,1fr)} }
+    .frame{border:2px solid var(--line); border-radius:11px; overflow:hidden; background:var(--win); text-align:center; text-decoration:none; color:inherit; display:block}
+    .frame:hover{border-color:var(--g-mid)}
+    .frame .pic{height:74px; display:grid; place-items:center; font-size:28px; background:radial-gradient(120% 120% at 50% 20%, var(--g-pastel), var(--win))}
+    .frame .cap{font-size:11.5px; color:var(--ink-soft); padding:6px 5px; border-top:1px solid var(--line-2)}
+
+    .gb{display:flex; flex-direction:column; gap:11px}
+    .gb .entry{display:flex; gap:10px}
+    .gb .av{flex:none; width:34px;height:34px;border-radius:10px; display:grid; place-items:center; font-size:16px; background:var(--dotori-soft); border:1px solid var(--dotori-2)}
+    .gb .bub{flex:1; border:2px solid var(--line); border-radius:3px 13px 13px 13px; padding:8px 12px; background:var(--win-2)}
+    .gb .who{font-size:12px; color:var(--g-dark); font-weight:700}
+    .gb .msg{font-size:13.5px}
+    .gb .hint{font-size:12px; color:var(--ink-faint)}
+
+    .foot{max-width:900px; margin:15px auto 0; display:flex; gap:10px; align-items:center; justify-content:center; flex-wrap:wrap; color:var(--ink-faint); font-size:12px}
+    .banner{border:1px solid var(--g-dark); background:var(--led-bg); color:var(--led); font-size:10px; padding:4px 8px; border-radius:4px; letter-spacing:.04em}
+    a{color:var(--g-dark)}
+    :focus-visible{outline:2px solid var(--g-mid); outline-offset:2px; border-radius:6px}
+    @media (prefers-reduced-motion: reduce){ *{animation:none !important} }
+  </style>
 </head>
 <body>
 
-  <!-- Navigation -->
-  <nav class="navbar">
-    <a href="index.html" class="nav-logo">
-      <span class="pixel-star"></span> eiloppang
-    </a>
-    <ul class="nav-links">
-      <li><a href="index.html" class="active">Home</a></li>
-      <li><a href="career.html">Career</a></li>
-      <li><a href="study.html">Study Log</a></li>
-      <li><a href="music.html">Music</a></li>
-    </ul>
-  </nav>
-
-  <!-- Hero -->
-  <section class="hero">
-    <h1 class="hero-title">당신은 누구십니까</h1>
-    <p class="hero-sub">악인 · 디지털 인문학 · 게임 서사</p>
-    <span class="hero-badge">🎮 Ph.D. Student @ 한국학중앙연구원</span>
-  </section>
-
-  <!-- Bio -->
-  <main class="container">
-    <section>
-      <h2 class="section-title"><span class="icon">📖</span> 자기소개</h2>
-      <div class="bio-block">
-        <p>
-          안녕하세요, 저는 세상의 다양한 <span class="bio-highlight">악인</span>을 연구하고 있는 박사 과정 김가연입니다.
-        </p>
-        <p>
-          어릴 적부터 다양한 오타쿠 문화(애니, 게임)에 눈을 뜬 저는 부산 사람으로써 매년 벡스코에서 지스타에 출석 도장을 찍었습니다.
-          어느 날, 저는 우연찮게 플레이데드 사의 LIMBO 게임과 마주하게 되었습니다. 잔잔하지만 어딘가 정신이 없는 나를 닮은 게임 — 
-          한 편의 청춘 영화 같은 게임을 만드는 게 크나큰 목표였습니다.
-          그러다 운 좋게 홍익대학교 게임학과에서 학·석사 모두 게임을 연구하게 되었지요.
-        </p>
-        <p>
-          흔한 스토리 구성 책에서 스토리의 구성 요소를 <em>캐릭터, 배경, 사건</em>으로 정의를 내렸는데,
-          하필 그 중에서도 <span class="bio-highlight">캐릭터</span>에 제일 눈길이 갔습니다.
-          캐릭터가 없다면 사건이 일어나지도, 배경은 무용지물인 게 아닐까?
-          사르트르가 말했듯, 존재가 먼저 있고 나서야 의미가 생긴다면 — 캐릭터야말로 이야기의 실존 그 자체일 것입니다.
-        </p>
-        <p>
-          제가 가장 좋아하는 캐릭터는 나의 히어로 아카데미아 미도리야 이즈쿠입니다.
-          녀석에게서 일종의 <span class="bio-highlight">악(惡)</span>을 느꼈습니다.
-          세상을 구하니까, 무작정 착하긴 하지만… 가장 소중한 사람에겐 본인의 생명을 지키지 못하는 나쁜 영웅.
-          모든 걸 수치화하는 공학의 시선만으로는 녀석을 분석할 수 없겠다는 생각이 들었습니다.
-        </p>
-        <p>
-          그래서였을까요, 저는 세상의 이치를 아우르는 알쏭달쏭 인문학의 가치의 소중함을 깨달았습니다.
-          여기저기 흡수되고, 융합하며 몸집을 불려나가는 <span class="bio-highlight">디지털 인문학</span>이야말로
-          이런 저를 감당할 수 있지 않을까 생각이 들었습니다.
-          제 이야기는 지금부터 또 다르게 꼬이고 있습니다. 저만의 실타래가 얼마나 꼬일지 한 번 지켜봐주시면 감사하겠습니다.
-        </p>
+  <div class="win">
+    <div class="titlebar">
+      <div class="dots"><i></i><i></i><i></i></div>
+      <span class="spk">✦</span>
+      <span class="addr cute">eiloppang.com · 가연이의 미니홈피</span>
+      <span class="spk">✦</span>
+      <div class="led-wrap">
+        <span class="led mono"><small>TODAY</small><b id="ledToday">···</b></span>
+        <span class="led mono"><small>TOTAL</small><b id="ledTotal">·····</b></span>
       </div>
-    </section>
-
-    <!-- Interest Cards -->
-    <section>
-      <h2 class="section-title"><span class="icon">✨</span> 관심 분야</h2>
-      <div class="interest-grid">
-        <div class="interest-card">
-          <div class="interest-icon">🦹</div>
-          <div class="interest-label">악인 연구</div>
-          <div class="interest-desc">VillainScope 프로젝트</div>
-        </div>
-        <div class="interest-card">
-          <div class="interest-icon">🎮</div>
-          <div class="interest-label">게임 서사</div>
-          <div class="interest-desc">인터랙티브 스토리텔링</div>
-        </div>
-        <div class="interest-card">
-          <div class="interest-icon">🤖</div>
-          <div class="interest-label">AI &amp; NLP</div>
-          <div class="interest-desc">감정 분석 · 토픽 모델링</div>
-        </div>
-        <div class="interest-card">
-          <div class="interest-icon">📜</div>
-          <div class="interest-label">디지털 인문학</div>
-          <div class="interest-desc">TEI/XML · 데이터 설계</div>
-        </div>
-        <div class="interest-card">
-          <div class="interest-icon">🗺️</div>
-          <div class="interest-label">GIS &amp; 시각화</div>
-          <div class="interest-desc">QGIS · 공간 데이터</div>
-        </div>
-        <div class="interest-card">
-          <div class="interest-icon">📚</div>
-          <div class="interest-label">캐릭터 분석</div>
-          <div class="interest-desc">서사 속 인물 탐구</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Skills -->
-    <section>
-      <h2 class="section-title"><span class="icon">🛠️</span> 기술 스택</h2>
-      <div class="card">
-        <div class="skill-group">
-          <div class="skill-group-title">Programming Languages</div>
-          <div class="skill-tags">
-            <span class="skill-tag">Python</span>
-            <span class="skill-tag">R</span>
-            <span class="skill-tag">C / C++</span>
-            <span class="skill-tag">HTML</span>
-            <span class="skill-tag">QGIS</span>
-          </div>
-        </div>
-        <div class="skill-group">
-          <div class="skill-group-title">Data Design</div>
-          <div class="skill-tags">
-            <span class="skill-tag">XML (TEI)</span>
-          </div>
-        </div>
-        <div class="skill-group">
-          <div class="skill-group-title">Data Analysis &amp; ML</div>
-          <div class="skill-tags">
-            <span class="skill-tag">Pandas</span>
-            <span class="skill-tag">NumPy</span>
-            <span class="skill-tag">TensorFlow</span>
-            <span class="skill-tag">PyTorch</span>
-            <span class="skill-tag">Selenium</span>
-            <span class="skill-tag">LDA</span>
-            <span class="skill-tag">ETM</span>
-            <span class="skill-tag">CTM</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CTA -->
-    <div class="cta-area">
-      <a href="career.html" class="btn btn-primary">📄 커리어 보러가기</a>
-      <a href="study.html" class="btn btn-secondary">📝 공부 흔적 보러가기</a>
-      <a href="lgs_chat.html" class="btn btn-secondary">🗣️ 이광수와 대화하기</a>
     </div>
 
-    <!-- Contact -->
-    <section>
-      <h2 class="section-title"><span class="icon">🔗</span> 링크</h2>
-      <div class="card">
-        <div class="card-body">
-          <p><span class="link-icon">🏠</span> <strong>Homepage:</strong> <a href="https://www.eiloppang.com" target="_blank">www.eiloppang.com</a> </p>
-          <p><span class="link-icon">🆔</span> <strong>ORCID:</strong> <a href="https://orcid.org/0009-0005-1231-6939" target="_blank">0009-0005-1231-6939</a></p>
-          <p><span class="link-icon">🏫</span> <strong>소속:</strong> 한국학중앙연구원(AKS) · 인문정보학 박사과정</p>
+    <div class="toolbar">
+      <button class="mini-btn" type="button" id="favBtn">★ 즐겨찾기</button>
+      <button class="mini-btn" type="button" id="waveBtn">🌊 파도타기</button>
+      <a class="mini-btn" href="career.html">💼 커리어</a>
+      <span class="sp"></span>
+      <span class="mono" style="font-size:11px;color:var(--ink-faint)">since 2026 ·˚ ༘ 🌿</span>
+    </div>
+
+    <div class="body">
+      <!-- LEFT : mini room -->
+      <aside class="side">
+        <div class="roomcard">
+          <svg class="roombg" viewBox="0 0 296 210" preserveAspectRatio="xMidYMid slice" role="img" aria-label="미니룸 배경">
+            <rect x="0" y="0" width="296" height="210" fill="var(--win)"/>
+            <polygon points="0,22 296,22 296,150 0,150" fill="var(--g-pastel)"/>
+            <polygon points="0,150 296,150 296,210 0,210" fill="color-mix(in srgb, var(--g-light) 45%, var(--win))"/>
+            <line x1="0" y1="150" x2="296" y2="150" stroke="var(--line)" stroke-width="2"/>
+            <rect x="20" y="36" width="78" height="62" rx="6" fill="var(--sky)"/>
+            <circle cx="80" cy="58" r="10" fill="var(--sun)"/>
+            <circle cx="40" cy="72" r="7" fill="#fff" opacity=".85"/><circle cx="50" cy="72" r="9" fill="#fff" opacity=".85"/>
+            <circle cx="34" cy="50" r="1.5" fill="var(--star)"/><circle cx="60" cy="46" r="1.3" fill="var(--star)"/><circle cx="86" cy="82" r="1.4" fill="var(--star)"/>
+            <rect x="20" y="36" width="78" height="62" rx="6" fill="none" stroke="var(--line)" stroke-width="3"/>
+            <line x1="59" y1="36" x2="59" y2="98" stroke="var(--line)" stroke-width="3"/><line x1="20" y1="67" x2="98" y2="67" stroke="var(--line)" stroke-width="3"/>
+            <path d="M250 150 q-9 -26 3 -40 q4 15 5 19 q0 -25 11 -34 q5 19 1 29 q9 -13 17 -12 q-5 17 -19 26 Z" fill="var(--g-mid)"/>
+            <rect x="248" y="148" width="38" height="20" rx="4" fill="var(--dotori)"/>
+            <rect x="196" y="126" width="90" height="10" rx="3" fill="var(--dotori)"/>
+            <rect x="205" y="100" width="34" height="21" rx="2" fill="var(--g-dark)"/><rect x="209" y="104" width="26" height="13" rx="1" fill="var(--sky-2)"/>
+          </svg>
+          <div class="polaroid">
+            <div class="tape"></div>
+            <img class="photo" src="img/profile.jpg" alt="가연 프로필 사진" />
+            <div class="cap cute">가연 🌿</div>
+          </div>
         </div>
-      </div>
-    </section>
-  </main>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <p>© 2026 김가연(Gayeon Kim) · Built with 🌿 and pixels</p>
-    <p><a href="https://github.com/eiloppang" target="_blank">GitHub</a></p>
-  </footer>
+        <div class="mood">오늘의 기분 · <b>악인 탐구 중</b> 🦹</div>
 
-  <div class="pixel-deco"></div>
+        <div class="bgm">
+          <button class="play" id="playBtn" type="button" aria-label="BGM 재생/정지">▶</button>
+          <div class="bgm-meta">
+            <div class="lbl">MINI BGM ♪</div>
+            <a class="song" href="music.html">임현정 — 사랑은 봄비처럼…</a>
+          </div>
+          <div class="eq" id="eq"><i></i><i></i><i></i><i></i></div>
+        </div>
 
+        <div class="side-row">
+          <div class="chip"><span class="em">🌰</span>도토리 <b>128</b></div>
+          <div class="chip"><span class="em">🤝</span>일촌 <b>42</b></div>
+        </div>
+      </aside>
+
+      <!-- RIGHT : tabs -->
+      <section class="main">
+        <div class="tabs" role="tablist" aria-label="미니홈피 메뉴">
+          <button class="tab" role="tab" aria-selected="true"  data-p="home">🏠 홈</button>
+          <button class="tab" role="tab" aria-selected="false" data-p="profile">🙋 프로필</button>
+          <a class="tab" href="study.html">📔 다이어리</a>
+          <a class="tab" href="music.html">🎵 뮤직</a>
+          <a class="tab" href="lgs_chat.html">💬 이광수</a>
+          <button class="tab" role="tab" aria-selected="false" data-p="guest">✍️ 방명록</button>
+        </div>
+
+        <div class="panelwrap">
+          <!-- HOME -->
+          <div class="panel on" id="home" role="tabpanel">
+            <div class="marquee"><div>🌿 어서와요, 가연이의 미니홈피에 놀러 온 걸 환영해요 · 발자국(방명록) 꼭 남기고 가기 · 오늘도 좋은 하루 ✦ 도토리 나눔 환영 🌰 · 파도 타고 놀러 가요 🌊</div></div>
+
+            <div class="daemun">
+              <p class="q cute">“악인의 마음을 들여다보다 문득, 나도 이야기 속 한 명이겠구나.”</p>
+              <p class="sig">— 가연 · 오늘의 한마디 · 기분 🦹 · 날씨 ☁️</p>
+            </div>
+
+            <div class="card" style="margin-bottom:14px">
+              <h3>🕑 최근 글 피드</h3>
+              <ul class="feed">
+                <li><span class="ic">📄</span><div><a class="tt" href="study.html">Fiction Flows 리뷰 — 서사 sequentiality 재현·재해석</a><span class="new">NEW</span><p class="dd">다이어리 · 2026.07</p></div></li>
+                <li><span class="ic">📄</span><div><a class="tt" href="study.html">Charting mobility patterns — 지식 공간의 중력 모델</a><p class="dd">다이어리 · 2026.06</p></div></li>
+                <li><span class="ic">🎵</span><div><a class="tt" href="music.html">이 달의 노래 — 임현정 · 사랑은 봄비처럼…</a><p class="dd">뮤직 · 2026.07</p></div></li>
+              </ul>
+            </div>
+
+            <div class="grid2">
+              <div class="card profile-mini">
+                <h3>🪪 미니 프로필</h3>
+                <dl>
+                  <dt>이름</dt><dd>김가연 · eiloppang</dd>
+                  <dt>소속</dt><dd>한국학중앙연구원 인문정보학 박사</dd>
+                  <dt>한줄</dt><dd>악인을 연구하는 사람</dd>
+                </dl>
+              </div>
+              <div class="card">
+                <h3>🌱 관심 분야</h3>
+                <div class="tags">
+                  <span class="t">악인 연구</span><span class="t">게임 서사</span>
+                  <span class="t amber">디지털 인문학</span><span class="t">AI·NLP</span><span class="t">GIS</span>
+                </div>
+                <div class="golinks">
+                  <a class="bevel" href="career.html">📄 커리어</a>
+                  <a class="bevel" href="lgs_chat.html">💬 이광수와 대화</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- PROFILE -->
+          <div class="panel" id="profile" role="tabpanel">
+            <h2 class="greet cute">🙋 자기소개</h2>
+            <p class="sub">대문엔 짧게, 긴 이야기는 여기에 접어뒀어요.</p>
+            <div class="card prose">
+              <p>안녕하세요, 세상의 다양한 <span class="hl">악인</span>을 연구하는 박사과정 김가연입니다. 부산 사람으로서 매년 벡스코 지스타에 출석 도장을 찍던 오타쿠였고, 플레이데드의 <span class="gl">LIMBO</span>와 마주친 뒤 “한 편의 청춘 영화 같은 게임”을 만드는 걸 목표로 삼았습니다. 그렇게 홍익대학교 게임학과에서 학·석사를 모두 게임으로 보냈지요.</p>
+              <p>이야기의 세 요소 캐릭터·배경·사건 중에서도 하필 <span class="hl">캐릭터</span>에 가장 눈길이 갔어요. 캐릭터가 없다면 사건도 배경도 무용지물 아닐까? 사르트르 말처럼 존재가 먼저 있고서야 의미가 생긴다면, 캐릭터야말로 이야기의 실존 그 자체일 테니까요.</p>
+              <p>가장 좋아하는 캐릭터는 미도리야 이즈쿠. 세상을 구하지만 가장 소중한 사람 앞에선 제 목숨을 못 지키는 “나쁜 영웅”에게서 일종의 <span class="hl">악(惡)</span>을 느꼈고, 모든 걸 수치화하는 공학의 시선만으로는 그를 담을 수 없다는 걸 깨달으며 <span class="gl">디지털 인문학</span>으로 왔습니다. 제 실타래가 얼마나 꼬일지 지켜봐 주세요.</p>
+            </div>
+            <div class="golinks">
+              <a class="bevel" href="career.html">📄 커리어 보러가기</a>
+              <a class="bevel" href="https://orcid.org/0009-0005-1231-6939" target="_blank" rel="noopener">🆔 ORCID</a>
+              <a class="bevel" href="https://github.com/eiloppang" target="_blank" rel="noopener">🐙 GitHub</a>
+            </div>
+          </div>
+
+          <!-- GUESTBOOK -->
+          <div class="panel" id="guest" role="tabpanel">
+            <h2 class="greet cute">✍️ 방명록</h2>
+            <p class="sub">놀러 왔으면 발자국 남기고 가요 (예시)</p>
+            <div class="gb">
+              <div class="entry"><div class="av">🐰</div><div class="bub"><div class="who">지연</div><div class="msg">미니홈피 넘 귀엽다 일촌추가!</div></div></div>
+              <div class="entry"><div class="av">🦊</div><div class="bub"><div class="who">동료 A</div><div class="msg">Fiction Flows 리뷰 잘 봤어요 👏</div></div></div>
+              <p class="hint">※ 지금은 예시예요. 실제로 글이 저장되는 방명록이 필요하면 알려주세요 (별도 연동).</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <div class="foot">
+    <button class="bevel" id="themeBtn" type="button">🌗 낮 / 밤</button>
+    <span class="banner mono">▶ Best viewed with 🌿 &amp; 도토리</span>
+    <span>© 2026 김가연(Gayeon Kim)</span>
+  </div>
+
+  <script>
+    // theme toggle (기억)
+    const root=document.documentElement;
+    try{ const sv=localStorage.getItem('mh-theme'); if(sv) root.setAttribute('data-theme',sv); }catch(e){}
+    document.getElementById('themeBtn').addEventListener('click',()=>{
+      const cur=root.getAttribute('data-theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
+      const nx=cur==='dark'?'light':'dark'; root.setAttribute('data-theme',nx);
+      try{ localStorage.setItem('mh-theme',nx); }catch(e){}
+    });
+
+    // tabs (버튼=패널 전환, a=페이지 이동)
+    const tabs=[...document.querySelectorAll('button.tab')];
+    tabs.forEach(t=>t.addEventListener('click',()=>{
+      tabs.forEach(x=>x.setAttribute('aria-selected', x===t));
+      document.querySelectorAll('.panel').forEach(p=>p.classList.toggle('on', p.id===t.dataset.p));
+    }));
+
+    // BGM (장식용 이퀄라이저)
+    const play=document.getElementById('playBtn'), eq=document.getElementById('eq'); let on=false;
+    play.addEventListener('click',()=>{ on=!on; play.textContent=on?'❚❚':'▶'; eq.classList.toggle('on',on); });
+
+    // 즐겨찾기 / 파도타기
+    document.getElementById('favBtn').addEventListener('click',()=>{ alert('Ctrl+D(⌘+D)로 즐겨찾기에 추가해 주세요! 🌿'); });
+    document.getElementById('waveBtn').addEventListener('click',()=>{ document.querySelector('button.tab[data-p="guest"]').click(); });
+
+    // 진짜 방문자 카운터 (Abacus · 가입 불필요)
+    (function(){
+      const NS='eiloppang', fmt=n=>String(n).replace(/\B(?=(\d{3})+(?!\d))/g,',');
+      const pad=(n,l)=>String(n).padStart(l,'0');
+      const now=new Date(); const day=''+now.getFullYear()+pad(now.getMonth()+1,2)+pad(now.getDate(),2);
+      const hit=k=>fetch('https://abacus.jasoncameron.dev/hit/'+NS+'/'+k).then(r=>{if(!r.ok)throw 0;return r.json();});
+      Promise.all([hit('home-total'), hit('home-'+day)]).then(([tot,tod])=>{
+        document.getElementById('ledTotal').textContent=fmt(tot.value);
+        document.getElementById('ledToday').textContent=pad(tod.value,3);
+      }).catch(()=>{
+        document.getElementById('ledTotal').textContent='—';
+        document.getElementById('ledToday').textContent='—';
+      });
+    })();
+  </script>
 </body>
 </html>

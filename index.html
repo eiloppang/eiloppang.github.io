@@ -118,6 +118,9 @@
     .eq.on i{animation:eq .85s ease-in-out infinite}
     .eq.on i:nth-child(2){animation-delay:.12s}.eq.on i:nth-child(3){animation-delay:.24s}.eq.on i:nth-child(4){animation-delay:.36s}
     @keyframes eq{0%,100%{height:4px}50%{height:17px}}
+    .bgm-player{margin-top:-3px}
+    .bgm-player[hidden]{display:none}
+    .bgm-player iframe{width:100%; height:80px; border:0; border-radius:11px; display:block; box-shadow:var(--shadow-sm)}
 
     .side-row{display:flex; gap:9px}
     .chip{flex:1; border:2px solid var(--line); border-radius:10px; background:var(--win); padding:8px; text-align:center; font-size:12px; color:var(--ink-soft)}
@@ -250,6 +253,7 @@
           </div>
           <div class="eq" id="eq"><i></i><i></i><i></i><i></i></div>
         </div>
+        <div class="bgm-player" id="bgmPlayer" hidden></div>
 
         <div class="side-row">
           <div class="chip"><span class="em">🌰</span>도토리 <b>128</b></div>
@@ -364,9 +368,18 @@
       document.querySelectorAll('.panel').forEach(p=>p.classList.toggle('on', p.id===t.dataset.p));
     }));
 
-    // BGM (장식용 이퀄라이저)
-    const play=document.getElementById('playBtn'), eq=document.getElementById('eq'); let on=false;
-    play.addEventListener('click',()=>{ on=!on; play.textContent=on?'❚❚':'▶'; eq.classList.toggle('on',on); });
+    // BGM (실제 유튜브 음원 재생)
+    const play=document.getElementById('playBtn'), eq=document.getElementById('eq'), bp=document.getElementById('bgmPlayer'); let on=false;
+    const BGM_VID='LmG1rPr5nbw';
+    play.addEventListener('click',()=>{
+      on=!on; play.textContent=on?'❚❚':'▶'; eq.classList.toggle('on',on);
+      if(on){
+        bp.hidden=false;
+        bp.innerHTML='<iframe src="https://www.youtube.com/embed/'+BGM_VID+'?autoplay=1&rel=0" title="BGM 재생" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
+      }else{
+        bp.innerHTML=''; bp.hidden=true;
+      }
+    });
 
     // 즐겨찾기 / 파도타기
     document.getElementById('favBtn').addEventListener('click',()=>{ alert('Ctrl+D(⌘+D)로 즐겨찾기에 추가해 주세요! 🌿'); });

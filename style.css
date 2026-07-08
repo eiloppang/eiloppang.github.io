@@ -577,6 +577,84 @@ a:hover {
   margin-top: 0.5rem;
 }
 
+/* ===== Paper Review Deck (pagination) ===== */
+.paper-deck {
+  position: relative;
+}
+
+.paper-slide {
+  display: none;
+  animation: paperFade 0.35s ease;
+}
+
+.paper-slide.active {
+  display: block;
+}
+
+@keyframes paperFade {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.paper-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+.paper-btn {
+  font-family: 'Gamja Flower', cursive;
+  font-size: 1rem;
+  padding: 0.5rem 1.1rem;
+  border: 2px solid var(--border-soft);
+  border-radius: 999px;
+  background: var(--bg-card);
+  color: var(--green-dark);
+  cursor: pointer;
+  transition: background var(--transition), transform var(--transition);
+}
+
+.paper-btn:hover:not(:disabled) {
+  background: var(--green-pastel);
+  transform: translateY(-1px);
+}
+
+.paper-btn:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.paper-dots {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.paper-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: none;
+  padding: 0;
+  background: var(--green-light);
+  cursor: pointer;
+  transition: background var(--transition), transform var(--transition);
+}
+
+.paper-dot.active {
+  background: var(--green-mid);
+  transform: scale(1.3);
+}
+
+.paper-counter {
+  font-family: 'Poor Story', cursive;
+  font-size: 0.9rem;
+  color: var(--green-mid);
+}
+
 /* ===== Skill Tags List ===== */
 .skill-group {
   margin-bottom: 1.5rem;

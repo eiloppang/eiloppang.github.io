@@ -34,8 +34,10 @@
     <section>
       <h2 class="section-title"><span class="icon">📑</span> 논문 리뷰 (Paper Reviews)</h2>
 
-      <!-- ===== Charting mobility patterns in the scientific knowledge landscape ===== -->
-      <div class="study-card">
+      <div class="paper-deck" id="paperDeck">
+
+      <!-- ===== Slide 1 · Charting mobility patterns in the scientific knowledge landscape ===== -->
+      <div class="study-card paper-slide active">
         <div class="study-card-header">
           <div class="study-card-title">📄 Charting mobility patterns in the scientific knowledge landscape</div>
           <div class="study-card-date">2026.06</div>
@@ -198,29 +200,186 @@
           </p>
         </div>
       </div>
+      <!-- ===== Slide 1 끝 ===== -->
 
-      <!-- 빈 카드 영역: 아직 리뷰가 없을 때 표시 -->
-      <!--
-      <div class="study-empty">
-        🌱 아직 논문 리뷰가 없어요. 곧 채워질 거예요!
-      </div>
-      -->
-
-      <!-- ===== 새 리뷰 추가 템플릿 =====
-      아래 블록을 복사해서 위에 붙여넣으면 새 리뷰 카드가 추가됩니다!
-
-      <div class="study-card">
+      <!-- ===== Slide 2 · Fiction Flows ===== -->
+      <div class="study-card paper-slide">
         <div class="study-card-header">
-          <div class="study-card-title">📄 논문 제목</div>
-          <div class="study-card-date">YYYY.MM</div>
+          <div class="study-card-title">📄 Fiction Flows: A Replication and Reinterpretation of Narrative Sequentiality</div>
+          <div class="study-card-date">2026.07</div>
         </div>
         <div class="study-card-body">
-          <p><span class="card-tag">키워드</span></p>
-          <p style="margin-top: 0.6rem;">리뷰 내용</p>
+          <p>
+            <span class="card-tag">Narrative Flow</span>
+            <span class="card-tag">Sequentiality</span>
+            <span class="card-tag">LLM</span>
+            <span class="card-tag">Replication</span>
+            <span class="card-tag">NLP</span>
+          </p>
+          <p class="ref-note">
+            Piper, A., Hamilton, S., Zhou, H., &amp; Pianzola, F. (2026).
+            <em>Fiction Flows: A Replication and Reinterpretation of Narrative Sequentiality.</em>
+            Proceedings of ACL 2026 (Long Papers), 34158–34174.
+            (원 연구: Sap et al., 2022, PNAS)
+          </p>
+
+          <h3>Abstract</h3>
+          <p>
+            서사적 흐름(narrative flow)은 memory와 expectation의 상호작용에서 생겨나며, 이야기가
+            만들어지는 방식과 이해되는 방식 양쪽을 규정한다. 즉 flow는 ① 인지적 과정에 뿌리를 두고,
+            ② 생산자·수용자 양면에 걸쳐 있다.
+          </p>
+          <p>
+            이 추상적 구성 개념을 <strong>operationalize(조작화)</strong>하기 위해 Sap et al.(2022)은
+            <strong>sequentiality</strong>를 제안했다 — 추상적인 narrative flow를 "문장 예측 가능성 계산"이라는
+            측정 가능한 절차로 바꾼 것이다. 이들에게 "흐름이 좋다"는 <em>앞 문장을 읽고 나면 다음 문장이 예측하기
+            쉬워진다</em>는 뜻이고, 그래서 상상한 이야기가 회상한 이야기보다 flow가 좋다고 보고했다. (전형적인 이야기
+            틀·스키마는 따라갈 수 있어 예측이 쉬워지는 반면, 실제 회상은 우연적·개별적 디테일이 흐름을 끊는다.)
+          </p>
+          <p>
+            본 논문은 ① 여러 언어모델에 걸친 대규모 재현, ② 모델링 선택이 원 결과를 어떻게 좌우하는지 분석,
+            ③ 출판된 픽션·서사적 논픽션 지문을 써서 일반화를 검증한다. 핵심 결론:
+            <strong>그 효과는 대상(narrative flow)이 아니라 측정 도구(setup)에서 나온 것</strong>이며,
+            imagined vs recalled가 아니라 <strong>fiction vs non-fiction(허구 대 사실)</strong>에서 픽션적 서술이
+            sequentiality의 진짜 담지자로 드러난다.
+          </p>
+
+          <figure class="paper-figure">
+            <img src="img/papers/ff_fig1.png" alt="Figure 1 — Sap et al. generative framework" loading="lazy" />
+            <figcaption>Fig 1. Sap et al.(2022)의 생성 프레임워크 — 경험 → 회상(recalled) → 요약(topic) → 재화(retold)·상상(imagined)</figcaption>
+          </figure>
+
+          <h3>Introduction</h3>
+          <p>
+            Sap et al.은 "narrative flow"(한 사건이 다음 사건으로 얼마나 자연스럽게 이어지는가)를 계량화하기 위해
+            sequentiality라는 계산적 측정치를 도입했다. GPT-3로 문장 수준 likelihood를 추정했고,
+            <strong>상상 이야기 &gt; 자서전 이야기</strong>로 sequentiality가 더 높게 나왔다.
+          </p>
+          <ul>
+            <li><strong>flow</strong>: 넓고 주관적인 심리 현상(몰입·경험)</li>
+            <li><strong>sequentiality</strong>: 그 현상의 텍스트로 드러나는 부분만 떼어낸 것</li>
+          </ul>
+          <p>
+            결국 <em>sequentiality를 쟀다고 flow를 잰 것은 아니다</em>로 수렴한다. LLM은 이 문제에 새로운 렌즈를
+            제공하는데, 서사에서 무엇이 전형적으로 뒤따르는지에 대한 인간의 기대를 뒷받침하는 distributional cues를
+            상당 부분 내재화하기 때문이다. LLM의 역할은 ① <strong>measurement tool</strong>(LLM으로 flow를 잰다),
+            ② <strong>computational hypothesis</strong>(LLM 자체가 저자·독자의 예측 방식에 대한 가설)로 볼 수 있다.
+          </p>
+
+          <h3>Sap et al.(2022)의 미해결 문제 4가지</h3>
+          <ul>
+            <li>
+              <strong>narrow operationalization</strong>: flow 자체를 "모델의 예측 용이성"과 동일시해 버린다.
+              flow는 넓고 주관적인데, sequentiality는 고작 모델이 예측하기 쉬운 정도로만 잡는다.
+            </li>
+            <li>
+              <strong>single proprietary model</strong>: GPT-3 하나로만 했으니, 그 발견이 모델 구조·규모·훈련
+              데이터에 얼마나 독립적인지 알 수 없다.
+            </li>
+            <li>
+              <strong>idiosyncrasies in the formula</strong>: plot summary(topic) 포함 때문에 어느 구성 요소가
+              차이를 만드는지 분리하기 어렵다. 원 효과가 거의 전적으로 topic 항의 포함에 매달려 있어,
+              문맥 흐름이 아니라 <em>story–summary mismatch</em>에 대한 민감성을 가리킨다.
+            </li>
+            <li>
+              <strong>특정 데이터셋(HippoCorpus)에 국한</strong>: 크라우드워커의 일기형 서사·요약 프롬프트라는
+              특수한 조건에 묶여 있다.
+            </li>
+          </ul>
+          <p>
+            ⇒ sequentiality는 상상 그 자체(imagination per se)의 속성이라기보다 <strong>픽션적 서술(fictional
+            narration)의 속성</strong>으로 이해하는 게 낫다. 즉 sequentiality = flow가 아니라, 조건(모델·데이터)에
+            따라 흔들리는 부분적 지표다.
+          </p>
+
+          <h3>Method</h3>
+          <p>공식은 <code>SEQ = NLL(topic-only) − NLL(topic+context)</code> — 문맥이 진짜 도움이 됐거나(진짜 flow),
+            아니면 문장이 요약과 안 맞아 topic-only NLL이 애초에 컸거나, 둘을 구분하지 못한다.</p>
+          <ul>
+            <li><strong>Model effects</strong>: 7개 모델(GPT-2/3, LLaMA 3.1, Qwen 3 8B·0.6B, SmolLM 3, Mistral 3)을
+              세대·크기·구조를 넓게 흩뜨려 사용. base 모델 위주로 간다.</li>
+            <li><strong>Formula effects</strong>: (A) <em>Exact replication("With Topic")</em> 원 공식 최대한 그대로 재현,
+              (B) <em>Context-only("No Topic")</em> topic을 빈 문자열로 대체해 국소 문맥의 기여만 분리.</li>
+            <li><strong>Data effects</strong>: HippoCorpus를 넘어 CONLIT 데이터셋의 출판 픽션 vs 매칭된 논픽션
+              (자서전·전기·비서사)을 시점(POV) 통제하며 비교.</li>
+            <li><strong>타당성 검증</strong>: 표준 담화 응집성 지표(어휘·의미 중첩, 담화 연결어·RST·시제·행위자 연속성,
+              문장 난이도)와 직접 대조. context-only sequentiality를 H1·H3 창에서 계산해 위계적 회귀(mixed-effects)로 예측.</li>
+          </ul>
+
+          <figure class="paper-figure">
+            <img src="img/papers/ff_fig2.png" alt="Figure 2 — Model- and formulation-level effects" loading="lazy" />
+            <figcaption>Fig 2. 모델·공식별 효과 — (좌) 평균 sequentiality, (우) imagined vs recalled 효과크기(Hedges' g). With Topic에선 크지만 No Topic에선 0 근처로 붕괴</figcaption>
+          </figure>
+
+          <h3>Results</h3>
+          <ul>
+            <li>
+              <strong>직접 재현은 성공</strong>: 원 공식(With Topic)에서 imagined &gt; recalled가 모든 모델에서
+              중~대 효과크기로 재현됨(평균 g ≈ 0.58).
+            </li>
+            <li>
+              <strong>그런데 전부 topic 항에 달려 있다</strong>: topic을 빼고 문맥만 조건으로 주면(No Topic)
+              효과크기가 사실상 0으로 붕괴(imagined–recalled 평균 g ≈ 0.07). 즉 원 측정은 문맥적 flow가 아니라
+              "요약과의 불일치"를 보상하고 있었다. 상상 이야기가 높게 나온 건 더 sequential해서가 아니라,
+              (남이 쓴) 요약과 덜 비슷했기 때문이다.
+            </li>
+            <li>
+              <strong>픽션은 실제로 더 흐른다</strong>: 장르 기반 조작화(CONLIT)에서는 context-only 공식으로도
+              픽션이 논픽션 장르보다 일관되게 높은 sequentiality를 보였다(중~대 효과). 반면 자서전 vs 전기 사이엔
+              의미 있는 차이가 없어, 효과가 "실재 사건"이 아니라 "비실재 사건의 구성(=상상)"을 모델링하는 데서 옴을 시사.
+            </li>
+            <li>
+              <strong>표준 응집성 지표는 sequentiality를 예측하지 못한다</strong>: 문장 난이도를 통제하면 어휘 중첩,
+              의미 유사도, 개체·시제 연속성, 담화 관계 어느 것도 문맥적 예측 이득과 신뢰할 만하게 연관되지 않음(모두 p &gt; .20).
+            </li>
+            <li>
+              <strong>Instruction-tuned 모델은 불안정</strong>: 분해하면 baseline·contextual 성분이 각각 recalled를
+              선호하는데도 그 차이가 imagined 쪽 양수로 나타나, 지시 튜닝이 유발한 왜곡의 상호작용임을 드러낸다.
+            </li>
+          </ul>
+
+          <figure class="paper-figure">
+            <img src="img/papers/ff_fig3.png" alt="Figure 3 — Fiction vs non-fiction sequentiality" loading="lazy" />
+            <figcaption>Fig 3. 픽션(FIC, 빨강) vs 논픽션(NON, 파랑) — 6개 모델·9개 문맥창 전반에서 픽션이 일관되게 높음</figcaption>
+          </figure>
+
+          <figure class="paper-figure">
+            <img src="img/papers/ff_tab2.png" alt="Table 2 — Mean effect sizes (Hedges' g)" loading="lazy" />
+            <figcaption>Table 2. 평균 효과크기(Hedges' g) — 픽션은 자서전·전기·비서사 대비 우위(.40~.69), 자서전 vs 전기는 −.06(차이 없음)</figcaption>
+          </figure>
+
+          <h3>Conclusion</h3>
+          <ul>
+            <li>
+              imagined &gt; recalled 효과는 <strong>오직 원 With-Topic 공식에서만</strong> 재현되며, topic을 빼면
+              붕괴·불안정해진다. Topic 공식은 참가자가 쓴 요약으로부터의 <em>이탈</em>을 보상하므로,
+              narrative sequentiality가 아니라 story–summary mismatch를 잡는다.
+            </li>
+            <li>
+              이 실패는 HippoCorpus의 특수한 데이터 생성 방식에 국한된다. 출판 장르로 넘어가면
+              (픽션 vs 매칭 논픽션) 픽션이 일관되게 높아, sequentiality는 "실재 기반 상상(전기)"이나
+              "기억 기반 인지"보다 <strong>픽션적 서술의 속성</strong>으로 보는 게 타당하다.
+            </li>
+            <li>
+              NLL 기반 문맥 이득은 전통적 담화 응집성 지표와 정합하지 않는다 ⇒ sequentiality는 flow의 직접 측정이
+              아니라, 서사적 기대의 <em>구별되는 한 차원</em>을 포착하는 것으로 재해석해야 한다.
+            </li>
+          </ul>
         </div>
       </div>
+      <!-- ===== Slide 2 끝 ===== -->
 
-      ===== 템플릿 끝 ===== -->
+      </div><!-- /paper-deck -->
+
+      <!-- 페이지 넘김 컨트롤 -->
+      <div class="paper-nav">
+        <button class="paper-btn" id="paperPrev">← 이전</button>
+        <div class="paper-dots" id="paperDots"></div>
+        <span class="paper-counter" id="paperCounter"></span>
+        <button class="paper-btn" id="paperNext">다음 →</button>
+      </div>
+
+      <!-- 새 리뷰는 <div class="study-card paper-slide"> … </div> 블록을 paper-deck 안에 추가하면 자동으로 페이지가 늘어납니다 -->
     </section>
 
     <!-- ===== 읽은 책 ===== -->
@@ -304,6 +463,47 @@
   </footer>
 
   <div class="pixel-deco"></div>
+
+  <!-- 논문 리뷰 페이지 넘김 -->
+  <script>
+    (function () {
+      const deck = document.getElementById('paperDeck');
+      if (!deck) return;
+      const slides = Array.from(deck.querySelectorAll('.paper-slide'));
+      const prev = document.getElementById('paperPrev');
+      const next = document.getElementById('paperNext');
+      const dotsWrap = document.getElementById('paperDots');
+      const counter = document.getElementById('paperCounter');
+      let idx = slides.findIndex(s => s.classList.contains('active'));
+      if (idx < 0) idx = 0;
+
+      // 점(dot) 생성
+      slides.forEach((_, i) => {
+        const dot = document.createElement('button');
+        dot.className = 'paper-dot' + (i === idx ? ' active' : '');
+        dot.setAttribute('aria-label', (i + 1) + '번째 논문');
+        dot.addEventListener('click', () => show(i));
+        dotsWrap.appendChild(dot);
+      });
+
+      function show(n) {
+        idx = (n + slides.length) % slides.length;
+        slides.forEach((s, i) => s.classList.toggle('active', i === idx));
+        dotsWrap.querySelectorAll('.paper-dot').forEach((d, i) => d.classList.toggle('active', i === idx));
+        if (counter) counter.textContent = (idx + 1) + ' / ' + slides.length;
+        deck.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+
+      prev.addEventListener('click', () => show(idx - 1));
+      next.addEventListener('click', () => show(idx + 1));
+
+      // 단일 논문이면 컨트롤 숨김
+      if (slides.length <= 1) {
+        document.querySelector('.paper-nav').style.display = 'none';
+      }
+      if (counter) counter.textContent = (idx + 1) + ' / ' + slides.length;
+    })();
+  </script>
 
 </body>
 </html>

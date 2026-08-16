@@ -1,175 +1,125 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en" data-lang="en"
+      data-title-ko="음악 · 김가연"
+      data-title-en="Music · Gayeon Kim">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Music · 김가연</title>
+  <title>Music · Gayeon Kim</title>
   <link rel="stylesheet" href="style.css" />
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%234a6153'/><text x='16' y='23' font-size='18' font-family='Georgia,serif' fill='%23faf8f4' text-anchor='middle'>g</text></svg>" />
+  <script src="site.js"></script>
 </head>
 <body>
 
-  <!-- Navigation -->
-  <nav class="navbar">
-    <a href="index.html" class="nav-logo">
-      <span class="pixel-star"></span> eiloppang
-    </a>
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="career.html">Career</a></li>
-      <li><a href="study.html">Study Log</a></li>
-      <li><a href="music.html" class="active">Music</a></li>
-    </ul>
-  </nav>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html">Gayeon Kim<span class="brand-sub">김가연</span></a>
+      <ul class="nav">
+        <li><a href="index.html"><span data-lang-ko>홈</span><span data-lang-en>Home</span></a></li>
+        <li><a href="career.html"><span data-lang-ko>이력</span><span data-lang-en>Career</span></a></li>
+        <li><a href="study.html"><span data-lang-ko>노트</span><span data-lang-en>Notes</span></a></li>
+        <li><a href="music.html" class="active"><span data-lang-ko>음악</span><span data-lang-en>Music</span></a></li>
+        <li><a href="lgs_chat.html"><span data-lang-ko>페르소나</span><span data-lang-en>Persona</span></a></li>
+      </ul>
+      <div class="header-tools">
+        <button class="tool-btn" type="button" data-lang-btn aria-label="Switch to English">
+          <span data-lang-ko>ENG</span><span data-lang-en>한국어</span>
+        </button>
+        <button class="tool-btn" type="button" data-theme-btn aria-label="Toggle dark mode">
+          <span data-lang-ko>테마</span><span data-lang-en>Theme</span>
+        </button>
+      </div>
+    </div>
+  </header>
 
-  <!-- Hero -->
-  <section class="hero">
-    <h1 class="hero-title">🎵 이 달의 음악</h1>
-    <p class="hero-sub">내가 좋아하는 노래, 그리고 그 이유</p>
-  </section>
+  <div class="page-head">
+    <span class="eyebrow">Music</span>
+    <h1 class="page-title"><span data-lang-ko>이 달의 음악</span><span data-lang-en>Music of the month</span></h1>
+    <p class="page-sub">
+      <span data-lang-ko>좋아하는 노래와 그 이유를 적어 둡니다.</span>
+      <span data-lang-en>Songs I keep returning to, and why.</span>
+    </p>
+  </div>
 
   <main class="container">
 
-    <!-- ===== 2026년 7월 ===== -->
-    <section class="music-month">
-      <h2 class="section-title"><span class="icon">📅</span> 2026년 7월</h2>
+    <!-- ===== 2026.07 ===== -->
+    <section class="section">
+      <h2 class="section-title"><span data-lang-ko>2026년 7월</span><span data-lang-en>July 2026</span></h2>
 
-      <div class="music-card">
-        <div class="music-video">
-          <iframe
-            src="https://www.youtube.com/embed/LmG1rPr5nbw"
-            title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen>
-          </iframe>
-        </div>
-        <div class="music-info">
-          <div class="music-title">🎶 사랑은 봄비처럼... 이별은 겨울비처럼...</div>
-          <div class="music-artist">임현정</div>
-          <div class="music-tags">
-            <span class="card-tag">발라드</span>
-            <span class="card-tag">감성</span>
+      <div class="track">
+        <div class="track-grid">
+          <div class="track-video">
+            <iframe
+              src="https://www.youtube.com/embed/LmG1rPr5nbw"
+              title="사랑은 봄비처럼... 이별은 겨울비처럼... — 임현정"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen></iframe>
           </div>
-          <div class="music-reason">
-            <p>
-              은호가 되고 싶다면 이 노래야.
+          <div>
+            <div class="track-title">
+              <span data-lang-ko>사랑은 봄비처럼… 이별은 겨울비처럼…</span>
+              <span data-lang-en>Love is like spring rain, parting like winter rain</span>
+            </div>
+            <div class="track-artist"><span data-lang-ko>임현정</span><span data-lang-en>Lim Hyun-jung</span></div>
+            <div class="tags">
+              <span class="tag"><span data-lang-ko>발라드</span><span data-lang-en>Ballad</span></span>
+              <span class="tag"><span data-lang-ko>감성</span><span data-lang-en>Sentimental</span></span>
+            </div>
+            <p class="track-why">
+              <span data-lang-ko>은호가 되고 싶다면, 이 노래.</span>
+              <span data-lang-en>If you want to become Eunho, this is the song.</span>
             </p>
           </div>
         </div>
       </div>
-
     </section>
 
-    <!-- ===== 2026년 3월 ===== -->
-    <section class="music-month">
-      <h2 class="section-title"><span class="icon">📅</span> 2026년 3월</h2>
+    <!-- ===== 2026.03 ===== -->
+    <section class="section">
+      <h2 class="section-title"><span data-lang-ko>2026년 3월</span><span data-lang-en>March 2026</span></h2>
 
-      <div class="music-card">
-        <div class="music-video">
-          <!-- 유튜브 영상 ID를 여기에 넣으세요 (예: dQw4w9WgXcQ) -->
-          <iframe
-            src="https://www.youtube.com/embed/G1sN7a7C0_w"
-            title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen>
-          </iframe>
-        </div>
-        <div class="music-info">
-          <div class="music-title">🎶 Talented</div>
-          <div class="music-artist">해찬</div>
-          <div class="music-tags">
-            <span class="card-tag">걍 해찬 장르임</span>
-            <span class="card-tag">걍 해찬 분위기임</span>
+      <div class="track">
+        <div class="track-grid">
+          <div class="track-video">
+            <iframe
+              src="https://www.youtube.com/embed/G1sN7a7C0_w"
+              title="Talented — 해찬"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen></iframe>
           </div>
-          <div class="music-reason">
-            <p>
-              진짜 이 노래를 안 들어본 귀를 사고 싶고, 이 노래를 안 들으신 분들은 인생에 절반을 손해보고 있음.
-              앨범 전체를 공유해야 하는데 일단 그러기에는 너무 난리 떠는 거 같아서 여기까지만 하겠음.
-              최근 가장 많이 듣고 있는 Talented 같은 경우에는 진짜 섹시하고 이거 듣는 순간 알아서 춤짱 되는 느낌? (ㄹㅇ 심각함)
-              해찬 CRZY 앨범 돌리면서 공부하면 진짜 진짜 진짜 진짜 알아서 sci급 논문이 나옴.
+          <div>
+            <div class="track-title">Talented</div>
+            <div class="track-artist"><span data-lang-ko>해찬</span><span data-lang-en>Haechan</span></div>
+            <div class="tags">
+              <span class="tag"><span data-lang-ko>해찬 장르</span><span data-lang-en>The Haechan genre</span></span>
+              <span class="tag"><span data-lang-ko>해찬 분위기</span><span data-lang-en>The Haechan mood</span></span>
+            </div>
+            <p class="track-why">
+              <span data-lang-ko>이 노래를 아직 안 들어본 귀가 부럽습니다. 사실 앨범 전체를 얹고 싶지만 오늘은 한 곡만. 요즘 가장 자주 재생하는 곡이고, 틀어 두면 어느새 몸이 먼저 움직입니다. CRZY 앨범을 걸어 두고 공부하면 이상하게 진도가 잘 나갑니다.</span>
+              <span data-lang-en>I envy anyone who still gets to hear this for the first time. I would happily put the whole album here, but one song for today. It is what I play most at the moment — put it on and you find yourself moving before you decide to. And for whatever reason, work goes better with CRZY running in the background.</span>
             </p>
           </div>
         </div>
       </div>
-
-      <!-- 같은 달에 노래 더 추가하고 싶으면 아래 블록 복사 ↓ -->
-      <!--
-      <div class="music-card">
-        <div class="music-video">
-          <iframe
-            src="https://www.youtube.com/embed/영상ID"
-            title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen>
-          </iframe>
-        </div>
-        <div class="music-info">
-          <div class="music-title">🎶 노래 제목</div>
-          <div class="music-artist">아티스트 이름</div>
-          <div class="music-tags">
-            <span class="card-tag">장르</span>
-          </div>
-          <div class="music-reason">
-            <p>이 노래가 좋은 이유</p>
-          </div>
-        </div>
-      </div>
-      -->
-
     </section>
 
-    <!-- ===== 새 달 추가 템플릿 =====
-    아래 블록을 통째로 복사해서 위의 </section> 아래에 붙여넣으세요!
-
-    <section class="music-month">
-      <h2 class="section-title"><span class="icon">📅</span> 2026년 4월</h2>
-
-      <div class="music-card">
-        <div class="music-video">
-          <iframe
-            src="https://www.youtube.com/embed/영상ID"
-            title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen>
-          </iframe>
-        </div>
-        <div class="music-info">
-          <div class="music-title">🎶 노래 제목</div>
-          <div class="music-artist">아티스트 이름</div>
-          <div class="music-tags">
-            <span class="card-tag">장르</span>
-          </div>
-          <div class="music-reason">
-            <p>이 노래가 좋은 이유</p>
-          </div>
-        </div>
-      </div>
-
-    </section>
-
-    ===== 템플릿 끝 ===== -->
-
-    
-
-    <!-- CTA -->
-    <div class="cta-area">
-      <a href="index.html" class="btn btn-secondary">🏠 홈으로</a>
-      <a href="study.html" class="btn btn-primary">📝 공부 흔적 보러가기</a>
+    <div class="actions">
+      <a class="btn" href="index.html"><span data-lang-ko>홈으로</span><span data-lang-en>Home</span></a>
+      <a class="btn primary" href="study.html"><span data-lang-ko>연구 노트 보기</span><span data-lang-en>Research notes</span></a>
     </div>
 
   </main>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <p>© 2026 김가연(Gayeon Kim) · Built with 🌿 and pixels</p>
-    <p><a href="https://github.com/eiloppang" target="_blank">GitHub</a></p>
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>© 2026 <span data-lang-ko>김가연</span><span data-lang-en>Gayeon Kim</span></span>
+      <a href="https://github.com/eiloppang" target="_blank" rel="noopener">GitHub</a>
+    </div>
   </footer>
-
-  <div class="pixel-deco"></div>
 
 </body>
 </html>

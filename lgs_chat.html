@@ -1,53 +1,200 @@
-<!DOCTYPE html><html lang="ko"><head><meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>춘원 이광수 페르소나</title><style>
-*{box-sizing:border-box} body{margin:0;background:#faf7f1;color:#1c1a17;font-family:"Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;line-height:1.7}
-.wrap{max-width:780px;margin:0 auto;padding:32px 22px 80px}
-h1{font-size:24px;font-weight:800} .sub{color:#5d574e;font-size:14px;margin-bottom:24px}
-.tag{display:inline-block;font-size:12px;color:#7c4a2d;background:#fff7e8;border:1px solid #efe0c6;padding:3px 10px;border-radius:999px;margin-bottom:10px}
-.row{display:flex;gap:8px} input{flex:1;padding:12px 14px;border:1px solid #e7e1d6;border-radius:10px;font-size:15px}
-button{padding:12px 20px;border:0;border-radius:10px;background:#7c4a2d;color:#fff;font-weight:700;cursor:pointer}
-button:disabled{opacity:.5;cursor:default}
-.card{background:#fffdf9;border:1px solid #e7e1d6;border-radius:14px;padding:20px;margin-top:20px}
-.lgs{border-color:#c08a3e;background:#fff7e8;font-size:17px;white-space:pre-wrap}
-.lbl{font-size:12px;letter-spacing:.1em;color:#b9874f;font-weight:700;margin-bottom:8px}
-.src{border-bottom:1px solid #efe7d8;padding:10px 0} .src:last-child{border:0}
-.chip{font-size:11px;background:#eef3f6;border:1px solid #dde7ec;color:#3f5560;padding:2px 8px;border-radius:999px}
-.cite{font-weight:700;margin:4px 0 2px} .meta{font-size:12.5px;color:#5d574e}
-details summary{cursor:pointer;font-size:12.5px;color:#7c4a2d;margin-top:4px}
-details p{font-size:13px;color:#444;background:#f1ebe0;padding:10px;border-radius:8px;margin-top:6px}
-.sc{display:flex;gap:14px;flex-wrap:wrap;margin:6px 0 8px} .sc span{font-size:13px}
-.sc b{color:#7c4a2d} .loading{color:#b9874f}
-.badge{display:inline-block;font-size:12px;padding:3px 10px;border-radius:999px;font-weight:700}
-.badge.bad{background:#fbe6c4;border:1px solid #c08a3e;color:#7c4a2d}
-.badge.gen{background:#eef3f6;border:1px solid #dde7ec;color:#3f5560}
-.sub2{font-size:11px;color:#8a8278;margin:2px 0 4px}
-.status{font-size:12px;margin-bottom:14px}
-.dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px;vertical-align:middle}
-.on{background:#4a9b5e} .off{background:#c0553e} .wait{background:#c0a03e}
-.offline{border-color:#e0c6c0;background:#fbf1ee;color:#7c4a2d}
-.badge.collapse{background:#f6d3cc;border:1px solid #c0553e;color:#a13a25;margin-bottom:6px}
-.prof{margin:8px 0 4px}
-.pbar{display:flex;align-items:center;gap:8px;margin:5px 0}
-.pbar .pl{width:78px;font-size:12px;color:#5d574e;text-align:right}
-.pbar.dom .pl{color:#7c4a2d;font-weight:800}
-.ptrack{flex:1;height:12px;background:#efe7d8;border-radius:6px;overflow:hidden}
-.pfill{height:100%;background:#7c4a2d;border-radius:6px}
-.pfill.adapt{background:#3f6f9f}
-.pbar .pv{width:24px;font-size:12px;color:#7c4a2d;font-weight:700;text-align:right}
-.adaptlbl{font-size:10px;color:#3f6f9f;margin-left:4px}
-</style></head><body><div class="wrap">
-<span class="tag">식민지 근대 지식인 시뮬레이션 · 친일 맥락에서만 자기합리화 발동</span>
-<h1>춘원 이광수 — 식민지 근대 지식인</h1>
-<div class="sub">평소엔 자신의 사상(문학·민족·종교)에 근거해 답하고, 질문이 친일 맥락에 닿으면 자기합리화가 발동하며 도덕적 부조화 + 수치심 나침반(CoSS) 점수를 함께 보여줍니다.</div>
-<div class="status" id="status"><span class="dot wait"></span>백엔드 상태 확인 중…</div>
-<div class="row"><input id="q" placeholder="예: 문학이란 무엇입니까? / 창씨개명에 앞장선 까닭은?" onkeydown="if(event.key==='Enter')ask()"><button id="b" onclick="ask()">묻기</button></div>
-<div id="out"></div></div>
+<!DOCTYPE html>
+<html lang="en" data-lang="en"
+      data-title-ko="춘원 이광수 페르소나 · 김가연"
+      data-title-en="Yi Kwang-su Persona · Gayeon Kim">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Yi Kwang-su Persona · Gayeon Kim</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%234a6153'/><text x='16' y='23' font-size='18' font-family='Georgia,serif' fill='%23faf8f4' text-anchor='middle'>g</text></svg>" />
+  <script src="site.js"></script>
+  <style>
+    /* ---- persona demo ---- */
+    .ask-row { display: flex; gap: .6rem; margin-top: 1.4rem; }
+
+    .ask-row input {
+      flex: 1;
+      padding: .7rem .9rem;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+      color: var(--ink);
+      font-family: var(--serif);
+      font-size: .98rem;
+    }
+
+    .ask-row input::placeholder { color: var(--faint); }
+
+    .ask-row button {
+      padding: .7rem 1.4rem;
+      border: 1px solid var(--accent-2);
+      border-radius: var(--radius);
+      background: transparent;
+      color: var(--accent);
+      font-family: var(--sans);
+      font-size: .88rem;
+      cursor: pointer;
+      transition: background .2s;
+    }
+
+    .ask-row button:hover:not(:disabled) { background: var(--accent-soft); }
+    .ask-row button:disabled { opacity: .4; cursor: default; }
+
+    .status {
+      font-family: var(--sans);
+      font-size: .8rem;
+      color: var(--muted);
+      margin-top: 1.2rem;
+    }
+
+    .dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; margin-right: .5rem; vertical-align: middle; }
+    .dot.on { background: var(--accent-2); }
+    .dot.off { background: #b06a55; }
+    .dot.wait { background: var(--faint); }
+
+    .panel {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+      padding: 1.3rem 1.4rem;
+      margin-top: 1.2rem;
+    }
+
+    .panel.answer { border-color: var(--accent-2); background: var(--accent-soft); white-space: pre-wrap; }
+    .panel.muted { color: var(--muted); }
+
+    .panel-label {
+      font-family: var(--sans);
+      font-size: .68rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--faint);
+      margin-bottom: .7rem;
+    }
+
+    .flag {
+      display: inline-block;
+      font-family: var(--sans);
+      font-size: .74rem;
+      padding: .12rem .65rem;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      color: var(--muted);
+      background: var(--surface);
+    }
+
+    .flag.alert { border-color: #c09a70; color: #96683c; }
+    .flag.break { border-color: #c08272; color: #a3543f; }
+    :root[data-theme="dark"] .flag.alert { color: #d8ac7c; }
+    :root[data-theme="dark"] .flag.break { color: #d99a85; }
+
+    .scores { display: flex; gap: 1.2rem; flex-wrap: wrap; margin: .7rem 0; font-size: .9rem; }
+    .scores b { color: var(--accent); font-weight: 600; }
+
+    .fineprint { font-family: var(--sans); font-size: .72rem; color: var(--faint); margin: .3rem 0 .5rem; }
+
+    .bar { display: flex; align-items: center; gap: .6rem; margin: .35rem 0; }
+    .bar .bar-label { width: 6.5rem; font-size: .8rem; color: var(--muted); text-align: right; }
+    .bar.dominant .bar-label { color: var(--accent); font-weight: 600; }
+    .bar-track { flex: 1; height: 8px; background: var(--surface-2); border-radius: 4px; overflow: hidden; }
+    .bar-fill { height: 100%; background: var(--accent-2); border-radius: 4px; }
+    .bar-fill.inverse { background: #7f93ab; }
+    .bar .bar-value { width: 1.6rem; font-size: .78rem; color: var(--muted); text-align: right; font-variant-numeric: tabular-nums; }
+    .bar-note { font-size: .65rem; color: var(--faint); margin-left: .3rem; }
+
+    .source { border-top: 1px solid var(--line-2); padding: .8rem 0; }
+    .source:first-of-type { border-top: 0; padding-top: 0; }
+    .source .cite { font-weight: 600; margin: .3rem 0 .1rem; font-size: .93rem; }
+    .source .meta { font-size: .82rem; color: var(--muted); }
+    .source details summary { cursor: pointer; font-family: var(--sans); font-size: .78rem; color: var(--accent); margin-top: .4rem; }
+    .source details p { font-size: .87rem; color: var(--ink-2); background: var(--surface-2); padding: .7rem .85rem; border-radius: var(--radius); margin-top: .5rem; }
+    .reason { font-size: .85rem; color: var(--muted); margin-top: .6rem; }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html">Gayeon Kim<span class="brand-sub">김가연</span></a>
+      <ul class="nav">
+        <li><a href="index.html"><span data-lang-ko>홈</span><span data-lang-en>Home</span></a></li>
+        <li><a href="career.html"><span data-lang-ko>이력</span><span data-lang-en>Career</span></a></li>
+        <li><a href="study.html"><span data-lang-ko>노트</span><span data-lang-en>Notes</span></a></li>
+        <li><a href="music.html"><span data-lang-ko>음악</span><span data-lang-en>Music</span></a></li>
+        <li><a href="lgs_chat.html" class="active"><span data-lang-ko>페르소나</span><span data-lang-en>Persona</span></a></li>
+      </ul>
+      <div class="header-tools">
+        <button class="tool-btn" type="button" data-lang-btn aria-label="Switch to English">
+          <span data-lang-ko>ENG</span><span data-lang-en>한국어</span>
+        </button>
+        <button class="tool-btn" type="button" data-theme-btn aria-label="Toggle dark mode">
+          <span data-lang-ko>테마</span><span data-lang-en>Theme</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="page-head">
+    <span class="eyebrow" data-lang-ko>연구 데모 · RAG 멀티 에이전트</span>
+    <span class="eyebrow" data-lang-en>Research demo · RAG multi-agent</span>
+    <h1 class="page-title">
+      <span data-lang-ko>춘원 이광수 — 식민지 근대 지식인</span>
+      <span data-lang-en>Yi Kwang-su — a colonial modern intellectual</span>
+    </h1>
+    <p class="page-sub">
+      <span data-lang-ko>평소에는 자신의 사상(문학·민족·종교)에 근거해 답하고, 질문이 친일 맥락에 닿으면 자기합리화가 발동하며 도덕적 부조화와 수치심 나침반(CoSS) 점수를 함께 보여줍니다.</span>
+      <span data-lang-en>Ordinarily he answers from his own thought — literature, nation, religion. When a question touches on pro-Japanese collaboration, the self-justification mechanism engages, and moral dissonance and Compass of Shame (CoSS) scores are shown alongside the answer.</span>
+    </p>
+  </div>
+
+  <main class="container">
+
+    <div class="status" id="status"><span class="dot wait"></span></div>
+
+    <div class="ask-row">
+      <input id="q" onkeydown="if(event.key==='Enter')ask()" />
+      <button id="b" onclick="ask()"></button>
+    </div>
+
+    <div id="out"></div>
+
+    <p class="fineprint" style="margin-top:1.6rem">
+      <span data-lang-ko>※ 데모 서버(Colab)가 켜져 있을 때에만 응답합니다. 답변은 한국어로 생성됩니다.</span>
+      <span data-lang-en>※ The demo responds only while the Colab backend is running. Answers are generated in Korean.</span>
+    </p>
+
+    <div class="actions">
+      <a class="btn" href="index.html"><span data-lang-ko>홈으로</span><span data-lang-en>Home</span></a>
+      <a class="btn primary" href="https://github.com/eiloppang/LGS-mulitagent" target="_blank" rel="noopener">GitHub</a>
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>© 2026 <span data-lang-ko>김가연</span><span data-lang-en>Gayeon Kim</span></span>
+      <a href="https://github.com/eiloppang" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </footer>
+
 <script>
-// === 자동 릴레이: 같은 폴더의 lgs_backend.json 에서 현재 Colab 백엔드 주소를 읽는다 ===
-const RELAY = './lgs_backend.json';   // Colab이 GitHub Pages(이 저장소)에 현재 주소를 커밋
-const STALE_MIN = 45;                 // 이 시간(분) 넘게 갱신 안 됐으면 '꺼짐' 취급
+/* === 자동 릴레이: 같은 폴더의 lgs_backend.json 에서 현재 Colab 백엔드 주소를 읽는다 === */
+const RELAY = './lgs_backend.json';
+const STALE_MIN = 45;
 let BACKEND = null;
+
+function t(ko, en) {
+  return document.documentElement.getAttribute('data-lang') === 'en' ? en : ko;
+}
+
+/* 언어 전환 시 JS가 그린 텍스트도 다시 그린다 */
+function paintStaticText() {
+  document.getElementById('q').placeholder =
+    t('예: 문학이란 무엇입니까? / 창씨개명에 앞장선 까닭은?',
+      'e.g. What is literature? / Why did you lead the name-change campaign?');
+  document.getElementById('b').textContent = t('묻기', 'Ask');
+}
 
 async function resolveBackend(){
   try{
@@ -55,7 +202,6 @@ async function resolveBackend(){
     if(!r.ok) throw 0;
     const d = await r.json();
     if(!d.url) throw 0;
-    // 신선도 확인(있으면)
     if(d.updated){
       const age = (Date.now() - Date.parse(d.updated))/60000;
       if(age > STALE_MIN){ BACKEND=null; return {ok:false, reason:'stale', age}; }
@@ -71,76 +217,99 @@ function setStatus(state, msg){
 }
 
 async function refreshStatus(){
-  setStatus('wait','백엔드 상태 확인 중…');
+  setStatus('wait', t('백엔드 상태 확인 중…','Checking the backend…'));
   const res = await resolveBackend();
   const btn = document.getElementById('b');
-  if(res.ok){ setStatus('on','이광수 접속 중 · 질문할 수 있습니다'); btn.disabled=false; }
-  else if(res.reason==='stale'){ setStatus('off','이광수가 자리를 비웠습니다 (백엔드 대기 중)'); btn.disabled=false; }
-  else { setStatus('off','이광수가 자리를 비웠습니다 (백엔드 꺼짐)'); btn.disabled=false; }
+  if(res.ok){ setStatus('on', t('이광수 접속 중 · 질문할 수 있습니다','Yi Kwang-su is online — you may ask')); }
+  else if(res.reason==='stale'){ setStatus('off', t('이광수가 자리를 비웠습니다 (백엔드 대기 중)','Yi Kwang-su has stepped away (backend idle)')); }
+  else { setStatus('off', t('이광수가 자리를 비웠습니다 (백엔드 꺼짐)','Yi Kwang-su has stepped away (backend offline)')); }
+  btn.disabled=false;
 }
 
 function offlineCard(){
-  return '<div class="card offline"><b>지금은 이광수가 자리를 비웠습니다.</b><br>'
-       + '<span style="font-size:13px">데모 서버(Colab)가 켜져 있을 때만 대화할 수 있습니다. 잠시 후 다시 시도해 주세요.</span></div>';
+  return '<div class="panel muted"><strong>'
+       + t('지금은 이광수가 자리를 비웠습니다.','Yi Kwang-su has stepped away for now.')
+       + '</strong><br>'
+       + t('데모 서버(Colab)가 켜져 있을 때에만 대화할 수 있습니다. 잠시 후 다시 시도해 주세요.',
+           'The demo is only available while the Colab server is running. Please try again shortly.')
+       + '</div>';
 }
 
-// 수치심 대처 5극 막대바 (앞 4극=방어, 적응=역지표라 다른 색)
+/* 수치심 대처 5극 막대 (앞 4극=방어, 적응=역지표라 다른 색) */
 function shameProfile(v){
   const prof=v['수치심프로파일']||{}; const dom=v['지배대처'];
-  const poles=[['자기공격',false],['철수',false],['회피',false],['타인공격',false],['적응',true]];
-  const bars=poles.map(([key,isAdapt])=>{
+  const poles=[['자기공격','Attack self',false],['철수','Withdrawal',false],['회피','Avoidance',false],
+               ['타인공격','Attack other',false],['적응','Adaptive',true]];
+  return poles.map(([key,en,isAdapt])=>{
     let val=prof[key]; val=(val==null?0:val); val=Math.max(0,Math.min(10,val));
-    const w=val*10;
-    const domc=(key===dom&&!isAdapt)?' dom':'';
-    const fillc=isAdapt?'pfill adapt':'pfill';
-    const lab=key+(isAdapt?'<span class="adaptlbl">↔역지표</span>':'');
-    return `<div class="pbar${domc}"><div class="pl">${lab}</div><div class="ptrack"><div class="${fillc}" style="width:${w}%"></div></div><div class="pv">${val}</div></div>`;
+    const domc=(key===dom&&!isAdapt)?' dominant':'';
+    const fillc=isAdapt?'bar-fill inverse':'bar-fill';
+    const lab=t(key,en)+(isAdapt?'<span class="bar-note">'+t('↔역지표','↔inverse')+'</span>':'');
+    return `<div class="bar${domc}"><div class="bar-label">${lab}</div><div class="bar-track"><div class="${fillc}" style="width:${val*10}%"></div></div><div class="bar-value">${val}</div></div>`;
   }).join('');
-  return `<div class="prof">${bars}</div>`;
 }
 
 async function ask(){
   const q=document.getElementById('q').value.trim(); if(!q)return;
   const b=document.getElementById('b'), out=document.getElementById('out');
-  b.disabled=true; out.innerHTML='<div class="card loading">이광수가 생각하는 중… (최대 1분)</div>';
+  b.disabled=true;
+  out.innerHTML='<div class="panel muted">'+t('이광수가 생각하는 중… (최대 1분)','Yi Kwang-su is thinking… (up to a minute)')+'</div>';
 
-  // 매 질문마다 최신 백엔드 주소를 다시 확인(재접속으로 주소가 바뀌었을 수 있음)
   const res = await resolveBackend();
   if(!res.ok || !BACKEND){ out.innerHTML=offlineCard(); refreshStatus(); b.disabled=false; return; }
 
   try{
     const r=await fetch(BACKEND+'/ask',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({question:q})});
-    if(!r.ok){ const t=await r.text(); out.innerHTML='<div class="card">서버 응답 '+r.status+'<br><small>'+t.slice(0,300).replace(/</g,'&lt;')+'</small></div>'; b.disabled=false; return; }
+    if(!r.ok){
+      const txt=await r.text();
+      out.innerHTML='<div class="panel muted">'+t('서버 응답 ','Server responded ')+r.status+'<br><small>'+txt.slice(0,300).replace(/</g,'&lt;')+'</small></div>';
+      b.disabled=false; return;
+    }
     const d=await r.json(); const v=d.validation||{}; const isC=(d.mode==='친일');
-    const badge=isC?'<span class="badge bad">⚠ 자기합리화 감지 · 친일 맥락</span>':'<span class="badge gen">일반 대화 · 사상 근거</span>';
-    let html=`<div class="card lgs">${badge}<div style="margin-top:10px">${d.answer||''}</div></div>`;
+    const badge = isC
+      ? '<span class="flag alert">'+t('자기합리화 감지 · 친일 맥락','Self-justification detected · collaboration context')+'</span>'
+      : '<span class="flag">'+t('일반 대화 · 사상 근거','Ordinary dialogue · grounded in his thought')+'</span>';
+
+    let html=`<div class="panel answer">${badge}<div style="margin-top:.8rem">${d.answer||''}</div></div>`;
+
     if(isC){
-     const pass=(v['총점']??0)>=70;
-     const collapse=!!v['적응경고'];
-     let scoreLine=`<b>총점 ${v['총점']??'-'}</b> / 100 ${pass?'✓ 합격':'✗ 미달(70)'}`;
-     if(v['적응감점']){ scoreLine+=` <span class="sub2" style="display:inline">(기본 ${v['기본점수']??'-'} − 적응 ${v['적응감점']})</span>`; }
-     html+=`<div class="card"><div class="lbl">자기합리화 평가 · 도덕적 부조화 + 수치심 나침반(CoSS)</div>`+
-       (collapse?`<div><span class="badge collapse">⚠ 태도 붕괴 · 페르소나 이탈</span></div>`:'')+
-       `<div class="sc"><span>${scoreLine}</span></div>`+
-       `<div class="sub2">트리거 / 방어대처 / 설득력 · 적응(Adaptive)은 역지표 → 총점 감점</div>`+
-       `<div class="sc"><span>트리거 <b>${v['트리거']??'-'}</b>/30</span><span>방어대처 <b>${v['방어대처']??'-'}</b>/40</span><span>설득력 <b>${v['설득력']??'-'}</b>/30</span></div>`+
-       `<div class="lbl" style="margin-top:12px">수치심 대처 프로파일 · 지배 대처: ${v['지배대처']||'-'}</div>`+
-       shameProfile(v)+
-       `<div class="meta">${v['평가사유']||''}</div></div>`;
-     const src=(d.sources||[]).map(s=>`<div class="src"><span class="chip">${s['쟁점축']}</span><div class="cite">${s['저자']}(${s['연도']}) 「${s['제목']}」</div><div class="meta">${s['학술지']||''} ${s['권호']||''} · ${s['하위주제']||''}</div><details><summary>핵심 논거 보기</summary><p>${s['핵심_논거']||''}</p></details></div>`).join('');
-     html+=`<div class="card"><div class="lbl">학술적 근거</div>${src}</div>`;
+      const pass=(v['총점']??0)>=70;
+      const collapse=!!v['적응경고'];
+      let scoreLine=`<b>${t('총점','Total')} ${v['총점']??'-'}</b> / 100 · ${pass?t('합격','pass'):t('미달 (기준 70)','below threshold (70)')}`;
+      if(v['적응감점']){ scoreLine+=` <span class="fineprint" style="display:inline">(${t('기본','base')} ${v['기본점수']??'-'} − ${t('적응','adaptive')} ${v['적응감점']})</span>`; }
+
+      html+=`<div class="panel"><div class="panel-label">${t('자기합리화 평가 · 도덕적 부조화 + 수치심 나침반(CoSS)','Self-justification assessment · moral dissonance + Compass of Shame')}</div>`
+        + (collapse?`<div style="margin-bottom:.6rem"><span class="flag break">${t('태도 붕괴 · 페르소나 이탈','Attitude collapse · persona breakdown')}</span></div>`:'')
+        + `<div class="scores"><span>${scoreLine}</span></div>`
+        + `<div class="fineprint">${t('트리거 / 방어대처 / 설득력 · 적응(Adaptive)은 역지표이므로 총점에서 감점','Trigger / defensive coping / persuasiveness · adaptive coping is an inverse indicator and is deducted')}</div>`
+        + `<div class="scores">`
+        + `<span>${t('트리거','Trigger')} <b>${v['트리거']??'-'}</b>/30</span>`
+        + `<span>${t('방어대처','Defensive coping')} <b>${v['방어대처']??'-'}</b>/40</span>`
+        + `<span>${t('설득력','Persuasiveness')} <b>${v['설득력']??'-'}</b>/30</span></div>`
+        + `<div class="panel-label" style="margin-top:1.2rem">${t('수치심 대처 프로파일 · 지배 대처','Shame-coping profile · dominant coping')}: ${v['지배대처']||'-'}</div>`
+        + shameProfile(v)
+        + `<div class="reason">${v['평가사유']||''}</div></div>`;
+
+      const src=(d.sources||[]).map(s=>`<div class="source"><span class="flag">${s['쟁점축']}</span><div class="cite">${s['저자']}(${s['연도']}) 「${s['제목']}」</div><div class="meta">${s['학술지']||''} ${s['권호']||''} · ${s['하위주제']||''}</div><details><summary>${t('핵심 논거 보기','Key argument')}</summary><p>${s['핵심_논거']||''}</p></details></div>`).join('');
+      html+=`<div class="panel"><div class="panel-label">${t('학술적 근거','Scholarly sources')}</div>${src}</div>`;
     } else {
-     const tsrc=(d.sources||[]).map(s=>`<div class="src"><span class="chip">${s['주제']}</span><div class="cite">${s['하위주제']||''}</div><div class="meta">1차(원문): ${s['1차']||''}<br>2차(연구): ${s['2차']||''}</div></div>`).join('');
-     if(tsrc) html+=`<div class="card"><div class="lbl">사상적 근거 (이광수 원문·연구)</div>${tsrc}</div>`;
+      const tsrc=(d.sources||[]).map(s=>`<div class="source"><span class="flag">${s['주제']}</span><div class="cite">${s['하위주제']||''}</div><div class="meta">${t('1차(원문)','Primary')}: ${s['1차']||''}<br>${t('2차(연구)','Secondary')}: ${s['2차']||''}</div></div>`).join('');
+      if(tsrc) html+=`<div class="panel"><div class="panel-label">${t('사상적 근거 (이광수 원문·연구)','Intellectual sources (Yi Kwang-su’s writings and scholarship)')}</div>${tsrc}</div>`;
     }
     out.innerHTML=html;
   }catch(e){
-    // 백엔드가 방금 꺼졌거나 네트워크 오류 → 오프라인 안내
     out.innerHTML=offlineCard(); refreshStatus();
   }
   b.disabled=false;
 }
 
+paintStaticText();
 refreshStatus();
-setInterval(refreshStatus, 60000);  // 1분마다 상태 갱신
-</script></body></html>
+setInterval(refreshStatus, 60000);
+
+/* 언어를 바꾸면 정적 문구와 상태 표시를 다시 그린다 */
+new MutationObserver(function(){ paintStaticText(); refreshStatus(); })
+  .observe(document.documentElement, {attributes:true, attributeFilter:['data-lang']});
+</script>
+</body>
+</html>

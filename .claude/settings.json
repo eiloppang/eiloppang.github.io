@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell($d=\"C:\\\\Users\\\\eilop\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--yeon-git-eiloppang-github-io\\\\bbd1982e-3d32-4469-9f69-5c54dff8c99f\\\\scratchpad\"; Remove-Item \"$d\\\\liveshot\" -Recurse -Force -ErrorAction SilentlyContinue; & \"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\" --headless=new --disable-gpu --no-sandbox --hide-scrollbars --incognito --window-size=1200,900 --user-data-dir=\"$d\\\\liveshot\" --screenshot=\"$d\\\\live_home.png\" --virtual-time-budget=12000 \"https://eiloppang.com/\" 2>$null | Out-Null; Get-ChildItem \"$d\\\\live_home.png\" | Select-Object Name,Length,LastWriteTime)",
+      "WebFetch(domain:eiloppang.com)",
+      "WebFetch(domain:eiloppang.github.io)",
+      "PowerShell(try { Resolve-DnsName -Name eiloppang.com -Type A -ErrorAction Stop | Select-Object Name,Type,IPAddress } catch { \"A lookup failed: $_\" }; \"--- CNAME/www ---\"; try { Resolve-DnsName -Name www.eiloppang.com -ErrorAction Stop | Select-Object Name,Type,NameHost,IPAddress } catch { \"www lookup failed\" })"
+    ]
+  }
+}

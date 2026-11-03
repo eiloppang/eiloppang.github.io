@@ -33,565 +33,582 @@
     </div>
   </header>
 
-  <div class="page-head">
+  <div class="page-head wide">
     <span class="eyebrow">Curriculum vitae</span>
     <h1 class="page-title"><span data-lang-ko>이력</span><span data-lang-en>Career</span></h1>
-    <p class="page-sub">
-      <span data-lang-ko>학력 · 논문 · 데이터셋 · 프로젝트 · 발표 · 강의 · 기술 · 수상</span>
-      <span data-lang-en>Education · Publications · Datasets · Projects · Talks · Teaching · Skills · Awards</span>
-    </p>
   </div>
 
-  <main class="container">
+  <main class="container-wide cv">
 
-    <!-- ===== Education ===== -->
-    <section class="section">
-      <h2 class="section-title"><span data-lang-ko>학력</span><span data-lang-en>Education</span></h2>
-      <div class="entries">
+    <nav class="cv-tabs" role="tablist" aria-label="Career sections">
+      <a class="cv-tab" role="tab" href="#edu" id="tab-edu" aria-controls="panel-edu" data-key="edu"><span data-lang-ko>학력·수상</span><span data-lang-en>Education</span><span class="cv-count"></span></a>
+      <a class="cv-tab" role="tab" href="#pubs" id="tab-pubs" aria-controls="panel-pubs" data-key="pubs"><span data-lang-ko>논문·저서</span><span data-lang-en>Publications</span><span class="cv-count"></span></a>
+      <a class="cv-tab" role="tab" href="#projects" id="tab-projects" aria-controls="panel-projects" data-key="projects"><span data-lang-ko>프로젝트·데이터</span><span data-lang-en>Projects &amp; data</span><span class="cv-count"></span></a>
+      <a class="cv-tab" role="tab" href="#talks" id="tab-talks" aria-controls="panel-talks" data-key="talks"><span data-lang-ko>발표</span><span data-lang-en>Talks</span><span class="cv-count"></span></a>
+      <a class="cv-tab" role="tab" href="#teaching" id="tab-teaching" aria-controls="panel-teaching" data-key="teaching"><span data-lang-ko>강의</span><span data-lang-en>Teaching</span><span class="cv-count"></span></a>
+      <a class="cv-tab" role="tab" href="#skills" id="tab-skills" aria-controls="panel-skills" data-key="skills"><span data-lang-ko>기술</span><span data-lang-en>Skills</span><span class="cv-count"></span></a>
+    </nav>
 
-        <div class="entry">
-          <div class="entry-date">2025 — <span data-lang-ko>현재</span><span data-lang-en>present</span></div>
-          <div>
-            <div class="entry-title">
-              <span data-lang-ko>박사과정 · 인문정보학</span>
-              <span data-lang-en>Ph.D. student · Cultural Informatics</span>
+    <div class="cv-panels">
+
+      <div class="cv-panel" id="panel-edu" role="tabpanel" aria-labelledby="tab-edu">
+      <!-- ===== Education ===== -->
+      <section class="section">
+        <h2 class="section-title"><span data-lang-ko>학력</span><span data-lang-en>Education</span></h2>
+        <div class="entries">
+
+          <div class="entry">
+            <div class="entry-date">2025 — <span data-lang-ko>현재</span><span data-lang-en>present</span></div>
+            <div>
+              <div class="entry-title">
+                <span data-lang-ko>박사과정 · 인문정보학</span>
+                <span data-lang-en>Ph.D. student · Cultural Informatics</span>
+              </div>
+              <p class="entry-meta">
+                <span data-lang-ko>한국학중앙연구원 한국학대학원</span>
+                <span data-lang-en>The Academy of Korean Studies, Graduate School of Korean Studies</span>
+              </p>
             </div>
-            <p class="entry-meta">
-              <span data-lang-ko>한국학중앙연구원 한국학대학원</span>
-              <span data-lang-en>The Academy of Korean Studies, Graduate School of Korean Studies</span>
-            </p>
+          </div>
+
+          <div class="entry">
+            <div class="entry-date">2023 — 2025</div>
+            <div>
+              <div class="entry-title">
+                <span data-lang-ko>공학석사 · 게임학과</span>
+                <span data-lang-en>M.S. · Game Science (Engineering)</span>
+              </div>
+              <p class="entry-meta"><span data-lang-ko>홍익대학교</span><span data-lang-en>Hongik University</span></p>
+            </div>
+          </div>
+
+          <div class="entry">
+            <div class="entry-date">2020 — 2023</div>
+            <div>
+              <div class="entry-title">
+                <span data-lang-ko>공학사 · 게임소프트웨어공학과</span>
+                <span data-lang-en>B.S. · Game Software Engineering</span>
+              </div>
+              <p class="entry-meta"><span data-lang-ko>홍익대학교</span><span data-lang-en>Hongik University</span></p>
+            </div>
+          </div>
+
+          <div class="entry">
+            <div class="entry-date">2026.02</div>
+            <div>
+              <div class="entry-title">
+                <span data-lang-ko>2026 디지털인문학(DH) 겨울학교</span>
+                <span data-lang-en>2026 Digital Humanities Winter School</span>
+              </div>
+              <p class="entry-meta">
+                <span data-lang-ko>부산대학교 · 비학위 과정</span>
+                <span data-lang-en>Pusan National University · non-degree</span>
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </section>
+      <!-- ===== Awards ===== -->
+      <section class="section">
+        <h2 class="section-title"><span data-lang-ko>수상 및 장학</span><span data-lang-en>Awards &amp; scholarships</span></h2>
+        <div class="entries">
+          <div class="entry">
+            <div class="entry-date">Ph.D. / 2</div>
+            <div>
+              <div class="entry-title"><span data-lang-ko>연구장학금</span><span data-lang-en>Research Scholarship</span></div>
+              <p class="entry-meta">
+                <span data-lang-ko>한국학중앙연구원</span>
+                <span data-lang-en>The Academy of Korean Studies</span>
+              </p>
+            </div>
           </div>
         </div>
-
-        <div class="entry">
-          <div class="entry-date">2023 — 2025</div>
-          <div>
-            <div class="entry-title">
-              <span data-lang-ko>공학석사 · 게임학과</span>
-              <span data-lang-en>M.S. · Game Science (Engineering)</span>
-            </div>
-            <p class="entry-meta"><span data-lang-ko>홍익대학교</span><span data-lang-en>Hongik University</span></p>
-          </div>
-        </div>
-
-        <div class="entry">
-          <div class="entry-date">2020 — 2023</div>
-          <div>
-            <div class="entry-title">
-              <span data-lang-ko>공학사 · 게임소프트웨어공학과</span>
-              <span data-lang-en>B.S. · Game Software Engineering</span>
-            </div>
-            <p class="entry-meta"><span data-lang-ko>홍익대학교</span><span data-lang-en>Hongik University</span></p>
-          </div>
-        </div>
-
-        <div class="entry">
-          <div class="entry-date">2026.02</div>
-          <div>
-            <div class="entry-title">
-              <span data-lang-ko>2026 디지털인문학(DH) 겨울학교</span>
-              <span data-lang-en>2026 Digital Humanities Winter School</span>
-            </div>
-            <p class="entry-meta">
-              <span data-lang-ko>부산대학교 · 비학위 과정</span>
-              <span data-lang-en>Pusan National University · non-degree</span>
-            </p>
-          </div>
-        </div>
-
+      </section>
       </div>
-    </section>
 
-    <!-- ===== Thesis ===== -->
-    <section class="section">
-      <h2 class="section-title"><span data-lang-ko>학위논문</span><span data-lang-en>Thesis</span></h2>
-      <div class="entries">
-        <div class="entry">
-          <div class="entry-date">2025 · M.S.</div>
-          <div>
-            <div class="entry-title">
-              <span data-lang-ko>Villainscope: 악인 데이터셋 기반 감정 분석 및 대사 생성 시스템 구축 연구</span>
-              <span data-lang-en>Villainscope: emotion analysis and a dialogue generation system built on a villain dataset</span>
+      <div class="cv-panel" id="panel-pubs" role="tabpanel" aria-labelledby="tab-pubs">
+      <!-- ===== Articles ===== -->
+      <section class="section">
+        <h2 class="section-title"><span data-lang-ko>학술 논문</span><span data-lang-en>Articles</span></h2>
+        <div class="entries">
+
+          <div class="entry">
+            <div class="entry-date">2026</div>
+            <div>
+              <div class="entry-title">
+                <span data-lang-ko>기계로 읽는 ‘미래파’ 논쟁: 생성형 AI를 활용한 코퍼스 기반 담화분석</span>
+                <span data-lang-en>Reading the ‘Mirae-pa’ debate by machine: a corpus-based discourse analysis with generative AI</span>
+              </div>
+              <p class="entry-meta">
+                <span data-lang-ko><strong>김가연</strong>, 이병주 · 인공지능인문학연구</span>
+                <span data-lang-en><strong>Gayeon Kim</strong> &amp; Byungju Lee · Journal of AI Humanities</span>
+              </p>
             </div>
-            <p class="entry-meta">
-              <span data-lang-ko>김가연 · 홍익대학교 대학원 게임학과(공학)</span>
-              <span data-lang-en>Gayeon Kim · Graduate School, Hongik University (Game Science)</span>
-            </p>
-            <p class="entry-note">
-              <a href="https://www.riss.kr/link?id=T17287119" target="_blank" rel="noopener">RISS T17287119</a>
-            </p>
+          </div>
+
+          <div class="entry">
+            <div class="entry-date">2026</div>
+            <div>
+              <div class="entry-title">KNoTE: A TEI Encoded XML Dataset of Modern Korean Novels</div>
+              <p class="entry-meta"><strong>G. Kim</strong>, S. Park, H. Ji, H. Lee, B. Lee, C. Jeong &amp; B. Kim</p>
+              <div class="tags">
+                <span class="tag">TEI/XML</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="entry">
+            <div class="entry-date">2026</div>
+            <div>
+              <div class="entry-title">
+                <span data-lang-ko>LLM 상용화 이후 한국 인문사회과학 학술 초록의 어휘 변화: 2004~2024년 KCI 초록 데이터 기반 분석</span>
+                <span data-lang-en>Lexical change in Korean humanities and social science abstracts after the commercialisation of LLMs: an analysis of KCI abstracts, 2004–2024</span>
+              </div>
+              <p class="entry-meta">
+                <span data-lang-ko>구슬, <strong>김가연</strong>, 김병준 · 언어와 정보 30(1), 1–24</span>
+                <span data-lang-en>Seul Koo, <strong>Gayeon Kim</strong> &amp; Byungjun Kim · Language and Information 30(1), 1–24</span>
+              </p>
+              <p class="entry-note">
+                <a href="https://doi.org/10.29403/LI.30.1.1" target="_blank" rel="noopener">DOI 10.29403/LI.30.1.1</a>
+              </p>
+              <div class="tags">
+                <span class="tag solid">KCI</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="entry">
+            <div class="entry-date">2026</div>
+            <div>
+              <div class="entry-title">Who Carries the Theory?: A Computational Analysis of Conceptual Travel between Korean and English Literary Studies in South Korea</div>
+              <p class="entry-meta">Sunyoung Park, <strong>Gayeon Kim</strong>, Y. Kim &amp; Byungjun Kim</p>
+              <div class="tags">
+                <span class="tag"><span data-lang-ko>진행 중</span><span data-lang-en>Work in progress</span></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="entry">
+            <div class="entry-date">2025</div>
+            <div>
+              <div class="entry-title">
+                <span data-lang-ko>악인의 여정 생성 및 평가: 프롬프트 엔지니어링과 감성 분석 접근법</span>
+                <span data-lang-en>Generating and Evaluating the Villain’s Journey: A Prompt Engineering and Sentiment Analysis Approach</span>
+              </div>
+              <p class="entry-meta">Byung-Chull Bae &amp; <strong>Gayeon Kim</strong></p>
+              <div class="tags">
+                <span class="tag solid">KCI</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="entry">
+            <div class="entry-date">2023</div>
+            <div>
+              <div class="entry-title">Designing a Language Model-Based Authoring Tool Prototype for Interactive Storytelling</div>
+              <p class="entry-meta">Jeongyoon Park, Jumin Shin, <strong>Gayeon Kim</strong> &amp; Byung-Chull Bae</p>
+            </div>
+          </div>
+
+        </div>
+      </section>
+      <!-- ===== Thesis ===== -->
+      <section class="section">
+        <h2 class="section-title"><span data-lang-ko>학위논문</span><span data-lang-en>Thesis</span></h2>
+        <div class="entries">
+          <div class="entry">
+            <div class="entry-date">2025 · M.S.</div>
+            <div>
+              <div class="entry-title">
+                <span data-lang-ko>Villainscope: 악인 데이터셋 기반 감정 분석 및 대사 생성 시스템 구축 연구</span>
+                <span data-lang-en>Villainscope: emotion analysis and a dialogue generation system built on a villain dataset</span>
+              </div>
+              <p class="entry-meta">
+                <span data-lang-ko>김가연 · 홍익대학교 대학원 게임학과(공학)</span>
+                <span data-lang-en>Gayeon Kim · Graduate School, Hongik University (Game Science)</span>
+              </p>
+              <p class="entry-note">
+                <a href="https://www.riss.kr/link?id=T17287119" target="_blank" rel="noopener">RISS T17287119</a>
+              </p>
+            </div>
           </div>
         </div>
+      </section>
+      <!-- ===== eBooks ===== -->
+      <section class="section">
+        <h2 class="section-title"><span data-lang-ko>전자책</span><span data-lang-en>eBooks</span></h2>
+        <div class="entries">
+
+          <div class="entry">
+            <div class="entry-date">2026</div>
+            <div>
+              <div class="entry-title">
+                <span data-lang-ko>비정형 인문 데이터 처리 방법론: OCR, 객체 탐지, TEI/XML</span>
+                <span data-lang-en>Methods for unstructured humanities data: OCR, object detection, TEI/XML</span>
+              </div>
+              <p class="entry-meta">
+                <span data-lang-ko>김바로, <strong>김가연</strong>, 박선영, 조아라, 정송이 · 디지털인문학 시리즈 · 위키독스</span>
+                <span data-lang-en>Baro Kim, <strong>Gayeon Kim</strong>, Sunyoung Park, Ara Jo &amp; Songi Jeong · Digital Humanities series · WikiDocs</span>
+              </p>
+              <p class="entry-note"><a href="https://wikidocs.net/book/19660" target="_blank" rel="noopener">WikiDocs</a></p>
+            </div>
+          </div>
+
+          <div class="entry">
+            <div class="entry-date">2026</div>
+            <div>
+              <div class="entry-title">
+                <span data-lang-ko>AI를 활용한 한국 근대소설 TEI 태깅</span>
+                <span data-lang-en>TEI tagging of modern Korean novels with AI</span>
+              </div>
+              <p class="entry-meta">
+                <span data-lang-ko>김병준, 지해인, <strong>김가연</strong>, 박선영, 이하경, 이병주, 정채연 · 디지털인문학 시리즈 · 위키독스</span>
+                <span data-lang-en>Byungjun Kim, Haein Ji, <strong>Gayeon Kim</strong>, Sunyoung Park, Hakyung Lee, Byungju Lee &amp; Chaeyeon Jeong · Digital Humanities series · WikiDocs</span>
+              </p>
+              <p class="entry-note"><a href="https://wikidocs.net/book/19071" target="_blank" rel="noopener">WikiDocs</a></p>
+            </div>
+          </div>
+
+          <div class="entry">
+            <div class="entry-date">2025</div>
+            <div>
+              <div class="entry-title">
+                <span data-lang-ko>인공지능 인문학</span>
+                <span data-lang-en>AI Humanities</span>
+              </div>
+              <p class="entry-meta">
+                <span data-lang-ko>김바로, <strong>김가연</strong>, 박선영, 이재열, 임이로, 조아라, 정송이 · 디지털인문학 시리즈 · 위키독스</span>
+                <span data-lang-en>Baro Kim, <strong>Gayeon Kim</strong>, Sunyoung Park, Jaeyeol Lee, Iro Lim, Ara Jo &amp; Songi Jeong · Digital Humanities series · WikiDocs</span>
+              </p>
+              <p class="entry-note"><a href="https://wikidocs.net/book/18796" target="_blank" rel="noopener">WikiDocs</a></p>
+            </div>
+          </div>
+
+        </div>
+      </section>
       </div>
-    </section>
 
-    <!-- ===== Articles ===== -->
-    <section class="section">
-      <h2 class="section-title"><span data-lang-ko>학술 논문</span><span data-lang-en>Articles</span></h2>
-      <div class="entries">
+      <div class="cv-panel" id="panel-projects" role="tabpanel" aria-labelledby="tab-projects">
+      <!-- ===== Projects ===== -->
+      <section class="section">
+        <h2 class="section-title"><span data-lang-ko>연구 프로젝트</span><span data-lang-en>Research projects</span></h2>
+        <div class="entries">
 
-        <div class="entry">
-          <div class="entry-date">2026</div>
-          <div>
-            <div class="entry-title">
-              <span data-lang-ko>기계로 읽는 ‘미래파’ 논쟁: 생성형 AI를 활용한 코퍼스 기반 담화분석</span>
-              <span data-lang-en>Reading the ‘Mirae-pa’ debate by machine: a corpus-based discourse analysis with generative AI</span>
-            </div>
-            <p class="entry-meta">
-              <span data-lang-ko><strong>김가연</strong>, 이병주 · 인공지능인문학연구</span>
-              <span data-lang-en><strong>Gayeon Kim</strong> &amp; Byungju Lee · Journal of AI Humanities</span>
-            </p>
-          </div>
-        </div>
-
-        <div class="entry">
-          <div class="entry-date">2026</div>
-          <div>
-            <div class="entry-title">KNoTE: A TEI Encoded XML Dataset of Modern Korean Novels</div>
-            <p class="entry-meta"><strong>G. Kim</strong>, S. Park, H. Ji, H. Lee, B. Lee, C. Jeong &amp; B. Kim</p>
-            <div class="tags">
-              <span class="tag">TEI/XML</span>
+          <div class="entry">
+            <div class="entry-date">2026.04 — 2026.09</div>
+            <div>
+              <div class="entry-title">
+                <span data-lang-ko>한국 인문학 학술 지형도 구축을 위한 데이터 기반 연구동향 분석 체계 개발</span>
+                <span data-lang-en>A data-driven framework for analysing research trends to map Korean humanities scholarship</span>
+              </div>
+              <p class="entry-meta">
+                <span data-lang-ko>한국연구원 · 보조연구원 (PI 김병준)</span>
+                <span data-lang-en>Korea Research Institute · Research assistant (PI: Byungjun Kim)</span>
+              </p>
             </div>
           </div>
-        </div>
 
-        <div class="entry">
-          <div class="entry-date">2026</div>
-          <div>
-            <div class="entry-title">
-              <span data-lang-ko>LLM 상용화 이후 한국 인문사회과학 학술 초록의 어휘 변화: 2004~2024년 KCI 초록 데이터 기반 분석</span>
-              <span data-lang-en>Lexical change in Korean humanities and social science abstracts after the commercialisation of LLMs: an analysis of KCI abstracts, 2004–2024</span>
-            </div>
-            <p class="entry-meta">
-              <span data-lang-ko>구슬, <strong>김가연</strong>, 김병준 · 언어와 정보 30(1), 1–24</span>
-              <span data-lang-en>Seul Koo, <strong>Gayeon Kim</strong> &amp; Byungjun Kim · Language and Information 30(1), 1–24</span>
-            </p>
-            <p class="entry-note">
-              <a href="https://doi.org/10.29403/LI.30.1.1" target="_blank" rel="noopener">DOI 10.29403/LI.30.1.1</a>
-            </p>
-            <div class="tags">
-              <span class="tag solid">KCI</span>
+          <div class="entry">
+            <div class="entry-date">2026.03 — 2026.08</div>
+            <div>
+              <div class="entry-title">
+                <span data-lang-ko>AI 기반 디지털 한국학 데이터 구축 매뉴얼 편찬 및 교육 콘텐츠 개발</span>
+                <span data-lang-en>An AI-based manual for building digital Korean studies data, with accompanying teaching materials</span>
+              </div>
+              <p class="entry-meta">
+                <span data-lang-ko>한국학중앙연구원 (AKSR2026-RE03) · 보조연구원 (PI 김바로)</span>
+                <span data-lang-en>The Academy of Korean Studies (AKSR2026-RE03) · Research assistant (PI: Baro Kim)</span>
+              </p>
             </div>
           </div>
-        </div>
 
-        <div class="entry">
-          <div class="entry-date">2026</div>
-          <div>
-            <div class="entry-title">Who Carries the Theory?: A Computational Analysis of Conceptual Travel between Korean and English Literary Studies in South Korea</div>
-            <p class="entry-meta">Sunyoung Park, <strong>Gayeon Kim</strong>, Y. Kim &amp; Byungjun Kim</p>
-            <div class="tags">
-              <span class="tag"><span data-lang-ko>진행 중</span><span data-lang-en>Work in progress</span></span>
+          <div class="entry">
+            <div class="entry-date">2025.09 — 2026.02</div>
+            <div>
+              <div class="entry-title">
+                <span data-lang-ko>AI 스마트 도슨트 구현을 위한 다국어·다층적 문화유산 안내문 생성 플랫폼 구축 연구</span>
+                <span data-lang-en>A multilingual, multi-layered platform for generating cultural-heritage labels for an AI smart docent</span>
+              </div>
+              <p class="entry-meta">
+                <span data-lang-ko>한국학중앙연구원 (AKSR2025-RE08) · 보조연구원 (PI 김바로)</span>
+                <span data-lang-en>The Academy of Korean Studies (AKSR2025-RE08) · Research assistant (PI: Baro Kim)</span>
+              </p>
+              <div class="tags">
+                <span class="tag"><span data-lang-ko>조선시대 불교회화</span><span data-lang-en>Joseon Buddhist painting</span></span>
+                <span class="tag"><span data-lang-ko>다국어</span><span data-lang-en>Multilingual</span></span>
+                <span class="tag">AI Docent</span>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="entry">
-          <div class="entry-date">2025</div>
-          <div>
-            <div class="entry-title">
-              <span data-lang-ko>악인의 여정 생성 및 평가: 프롬프트 엔지니어링과 감성 분석 접근법</span>
-              <span data-lang-en>Generating and Evaluating the Villain’s Journey: A Prompt Engineering and Sentiment Analysis Approach</span>
-            </div>
-            <p class="entry-meta">Byung-Chull Bae &amp; <strong>Gayeon Kim</strong></p>
-            <div class="tags">
-              <span class="tag solid">KCI</span>
+          <div class="entry">
+            <div class="entry-date">2025.09 — 2026.02</div>
+            <div>
+              <div class="entry-title">
+                <span data-lang-ko>인문 데이터 설계 교육을 위한 한국 근현대 문학 TEI/XML 구축 방법론 연구</span>
+                <span data-lang-en>A TEI/XML methodology for modern Korean literature, for teaching humanities data design</span>
+              </div>
+              <p class="entry-meta">
+                <span data-lang-ko>한국학중앙연구원 (AKSR2025-RE10) · 보조연구원 (PI 김병준)</span>
+                <span data-lang-en>The Academy of Korean Studies (AKSR2025-RE10) · Research assistant (PI: Byungjun Kim)</span>
+              </p>
+              <div class="tags">
+                <span class="tag">TEI/XML</span>
+                <span class="tag"><span data-lang-ko>근현대 문학</span><span data-lang-en>Modern literature</span></span>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="entry">
-          <div class="entry-date">2023</div>
-          <div>
-            <div class="entry-title">Designing a Language Model-Based Authoring Tool Prototype for Interactive Storytelling</div>
-            <p class="entry-meta">Jeongyoon Park, Jumin Shin, <strong>Gayeon Kim</strong> &amp; Byung-Chull Bae</p>
+          <div class="entry">
+            <div class="entry-date">2024.04 — 2025.03</div>
+            <div>
+              <div class="entry-title">
+                <span data-lang-ko>네트워크형 디지털 인문학 교육모델</span>
+                <span data-lang-en>A networked education model for digital humanities</span>
+              </div>
+              <p class="entry-meta">
+                <span data-lang-ko>울산과학기술원 · 한국연구재단 (2022S1A5A2A03052246) · 보조연구원 (PI 이재연)</span>
+                <span data-lang-en>UNIST · National Research Foundation of Korea (2022S1A5A2A03052246) · Research assistant (PI: Jae-yon Lee)</span>
+              </p>
+            </div>
           </div>
-        </div>
 
+          <div class="entry">
+            <div class="entry-date">2023.03 — 2024.02</div>
+            <div>
+              <div class="entry-title">
+                <span data-lang-ko>지능형 플롯 및 캐릭터 생성 시스템</span>
+                <span data-lang-en>An intelligent plot and character generation system</span>
+              </div>
+              <p class="entry-meta">
+                <span data-lang-ko>홍익대학교 · 한국연구재단 (202100500003) · 보조연구원 (PI 배병철)</span>
+                <span data-lang-en>Hongik University · National Research Foundation of Korea (202100500003) · Research assistant (PI: Byung-Chull Bae)</span>
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </section>
+      <!-- ===== Datasets ===== -->
+      <section class="section">
+        <h2 class="section-title"><span data-lang-ko>데이터셋 및 모델</span><span data-lang-en>Datasets &amp; models</span></h2>
+        <div class="entries">
+
+          <div class="entry">
+            <div class="entry-date">2026 · v5</div>
+            <div>
+              <div class="entry-title">K-NoTE (Korean Novel TEI Encoded)</div>
+              <p class="entry-meta">S. Park, <strong>G. Kim</strong>, H. Ji, H. Lee, B. Lee, C. Jeong, J. Lee, G. Jo, I. Lim, O. Ismayilov &amp; B. Kim</p>
+              <p class="entry-note"><a href="https://doi.org/10.5281/zenodo.18835058" target="_blank" rel="noopener">Zenodo</a></p>
+              <div class="tags">
+                <span class="tag">TEI/XML</span>
+                <span class="tag">Dataset</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="entry">
+            <div class="entry-date">v2</div>
+            <div>
+              <div class="entry-title">VillainScope</div>
+              <p class="entry-meta"><strong>Gayeon Kim</strong></p>
+              <p class="entry-note"><a href="https://doi.org/10.5281/zenodo.18861420" target="_blank" rel="noopener">DOI 10.5281/zenodo.18861420</a></p>
+            </div>
+          </div>
+
+        </div>
+      </section>
       </div>
-    </section>
 
-    <!-- ===== eBooks ===== -->
-    <section class="section">
-      <h2 class="section-title"><span data-lang-ko>전자책</span><span data-lang-en>eBooks</span></h2>
-      <div class="entries">
+      <div class="cv-panel" id="panel-talks" role="tabpanel" aria-labelledby="tab-talks">
+      <!-- ===== Talks ===== -->
+      <section class="section">
+        <h2 class="section-title"><span data-lang-ko>발표</span><span data-lang-en>Talks</span></h2>
+        <div class="entries">
 
-        <div class="entry">
-          <div class="entry-date">2026</div>
-          <div>
-            <div class="entry-title">
-              <span data-lang-ko>비정형 인문 데이터 처리 방법론: OCR, 객체 탐지, TEI/XML</span>
-              <span data-lang-en>Methods for unstructured humanities data: OCR, object detection, TEI/XML</span>
+          <div class="entry">
+            <div class="entry-date">2026.07</div>
+            <div>
+              <div class="entry-title">The Topology of Power: Canon Formation and Gatekeeping in Korean Literary Criticism, 1955–1999</div>
+              <p class="entry-meta">
+                <span data-lang-ko>DH2026 (ADHO) · 대전컨벤션센터</span>
+                <span data-lang-en>DH2026 (ADHO) · Daejeon Convention Center</span>
+              </p>
             </div>
-            <p class="entry-meta">
-              <span data-lang-ko>김바로, <strong>김가연</strong>, 박선영, 조아라, 정송이 · 디지털인문학 시리즈 · 위키독스</span>
-              <span data-lang-en>Baro Kim, <strong>Gayeon Kim</strong>, Sunyoung Park, Ara Jo &amp; Songi Jeong · Digital Humanities series · WikiDocs</span>
-            </p>
-            <p class="entry-note"><a href="https://wikidocs.net/book/19660" target="_blank" rel="noopener">WikiDocs</a></p>
           </div>
-        </div>
 
-        <div class="entry">
-          <div class="entry-date">2026</div>
-          <div>
-            <div class="entry-title">
-              <span data-lang-ko>AI를 활용한 한국 근대소설 TEI 태깅</span>
-              <span data-lang-en>TEI tagging of modern Korean novels with AI</span>
+          <div class="entry">
+            <div class="entry-date">2026.07</div>
+            <div>
+              <div class="entry-title">Semi-Automated TEI/XML Encoding of Modern Korean Novel</div>
+              <p class="entry-meta">
+                <span data-lang-ko>DH2026 (ADHO) · 대전컨벤션센터</span>
+                <span data-lang-en>DH2026 (ADHO) · Daejeon Convention Center</span>
+              </p>
+              <p class="entry-note"><a href="https://docs.google.com/presentation/d/1DUa8lp0AoR-YDUrbZ389ClZoqlqcuycE/edit?usp=sharing&amp;ouid=113866889358784643307&amp;rtpof=true&amp;sd=true" target="_blank" rel="noopener">Program</a></p>
             </div>
-            <p class="entry-meta">
-              <span data-lang-ko>김병준, 지해인, <strong>김가연</strong>, 박선영, 이하경, 이병주, 정채연 · 디지털인문학 시리즈 · 위키독스</span>
-              <span data-lang-en>Byungjun Kim, Haein Ji, <strong>Gayeon Kim</strong>, Sunyoung Park, Hakyung Lee, Byungju Lee &amp; Chaeyeon Jeong · Digital Humanities series · WikiDocs</span>
-            </p>
-            <p class="entry-note"><a href="https://wikidocs.net/book/19071" target="_blank" rel="noopener">WikiDocs</a></p>
           </div>
-        </div>
 
-        <div class="entry">
-          <div class="entry-date">2025</div>
-          <div>
-            <div class="entry-title">
-              <span data-lang-ko>인공지능 인문학</span>
-              <span data-lang-en>AI Humanities</span>
+          <div class="entry">
+            <div class="entry-date">2026.07</div>
+            <div>
+              <div class="entry-title">
+                <span data-lang-ko>RAG 멀티 에이전트를 활용한 역사적 인물 페르소나 구현: 이광수의 자기합리화 기제 재현을 중심으로</span>
+                <span data-lang-en>Modelling a historical persona with a RAG multi-agent system: reconstructing Yi Kwang-su’s mechanisms of self-justification</span>
+              </div>
+              <p class="entry-meta">
+                <span data-lang-ko>2026 동양철학연구회 하계학술대회 · 성균관대학교</span>
+                <span data-lang-en>Society for Eastern Philosophy, 2026 Summer Conference · Sungkyunkwan University</span>
+              </p>
+              <p class="entry-note"><a href="https://github.com/eiloppang/LGS-mulitagent" target="_blank" rel="noopener">GitHub</a></p>
             </div>
-            <p class="entry-meta">
-              <span data-lang-ko>김바로, <strong>김가연</strong>, 박선영, 이재열, 임이로, 조아라, 정송이 · 디지털인문학 시리즈 · 위키독스</span>
-              <span data-lang-en>Baro Kim, <strong>Gayeon Kim</strong>, Sunyoung Park, Jaeyeol Lee, Iro Lim, Ara Jo &amp; Songi Jeong · Digital Humanities series · WikiDocs</span>
-            </p>
-            <p class="entry-note"><a href="https://wikidocs.net/book/18796" target="_blank" rel="noopener">WikiDocs</a></p>
           </div>
-        </div>
 
+          <div class="entry">
+            <div class="entry-date">2026.04</div>
+            <div>
+              <div class="entry-title">
+                <span data-lang-ko>RAG 멀티 에이전트를 활용한 역사적 인물 페르소나 구현: 이광수의 자기합리화 기제 재현을 중심으로</span>
+                <span data-lang-en>Modelling a historical persona with a RAG multi-agent system: reconstructing Yi Kwang-su’s mechanisms of self-justification</span>
+              </div>
+              <p class="entry-meta">
+                <span data-lang-ko>한국어문교육연구회 254회 · 성균관대학교</span>
+                <span data-lang-en>The Society of Korean Language and Literature Education, 254th · Sungkyunkwan University</span>
+              </p>
+              <p class="entry-note"><a href="https://github.com/eiloppang/LGS-mulitagent" target="_blank" rel="noopener">GitHub</a></p>
+            </div>
+          </div>
+
+          <div class="entry">
+            <div class="entry-date">2026.02.21</div>
+            <div>
+              <div class="entry-title">
+                <span data-lang-ko>2008–2024 KCI 데이터로 본 한국문학·한국영문학 담론의 시계열적 비교 분석</span>
+                <span data-lang-en>A time-series comparison of Korean literature and Korean English-literature discourse in KCI data, 2008–2024</span>
+              </div>
+              <p class="entry-meta">
+                <span data-lang-ko>제3회 한국현대문학자대회 · 김가연, 박선영, 김병준</span>
+                <span data-lang-en>3rd Conference of Korean Modern Literature Scholars · Gayeon Kim, Sunyoung Park, Byungjun Kim</span>
+              </p>
+              <p class="entry-note"><a href="https://zenodo.org/records/18738333" target="_blank" rel="noopener">Zenodo</a></p>
+            </div>
+          </div>
+
+          <div class="entry">
+            <div class="entry-date">2026.01.23</div>
+            <div>
+              <div class="entry-title">The Anatomy of a Villain: Distant Reading and Graph RAG for VillainScope</div>
+              <p class="entry-meta">
+                <span data-lang-ko>HKADH 2026 · 홍콩</span>
+                <span data-lang-en>HKADH 2026 · Hong Kong</span>
+              </p>
+              <p class="entry-note"><a href="https://github.com/eiloppang/VillainScope_project" target="_blank" rel="noopener">GitHub</a></p>
+            </div>
+          </div>
+
+          <div class="entry">
+            <div class="entry-date">2023</div>
+            <div>
+              <div class="entry-title">
+                <span data-lang-ko>언어 모델을 이용한 장르 단편 소설 생성 및 분석</span>
+                <span data-lang-en>Generating and analysing genre short fiction with language models</span>
+              </div>
+              <p class="entry-meta">
+                <span data-lang-ko>한국정보과학회 2023 · 부산 · 김가연, 박정윤</span>
+                <span data-lang-en>KIISE 2023 · Busan · Gayeon Kim, Jeongyoon Park</span>
+              </p>
+              <p class="entry-note"><a href="https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE11705268" target="_blank" rel="noopener">DBpia</a></p>
+            </div>
+          </div>
+
+        </div>
+      </section>
       </div>
-    </section>
 
-    <!-- ===== Datasets ===== -->
-    <section class="section">
-      <h2 class="section-title"><span data-lang-ko>데이터셋 및 모델</span><span data-lang-en>Datasets &amp; models</span></h2>
-      <div class="entries">
-
-        <div class="entry">
-          <div class="entry-date">2026 · v5</div>
-          <div>
-            <div class="entry-title">K-NoTE (Korean Novel TEI Encoded)</div>
-            <p class="entry-meta">S. Park, <strong>G. Kim</strong>, H. Ji, H. Lee, B. Lee, C. Jeong, J. Lee, G. Jo, I. Lim, O. Ismayilov &amp; B. Kim</p>
-            <p class="entry-note"><a href="https://doi.org/10.5281/zenodo.18835058" target="_blank" rel="noopener">Zenodo</a></p>
-            <div class="tags">
-              <span class="tag">TEI/XML</span>
-              <span class="tag">Dataset</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="entry">
-          <div class="entry-date">v2</div>
-          <div>
-            <div class="entry-title">VillainScope</div>
-            <p class="entry-meta"><strong>Gayeon Kim</strong></p>
-            <p class="entry-note"><a href="https://doi.org/10.5281/zenodo.18861420" target="_blank" rel="noopener">DOI 10.5281/zenodo.18861420</a></p>
-          </div>
-        </div>
-
+      <div class="cv-panel" id="panel-teaching" role="tabpanel" aria-labelledby="tab-teaching">
+      <!-- ===== Teaching ===== -->
+      <section class="section">
+        <h2 class="section-title"><span data-lang-ko>강의 경험</span><span data-lang-en>Teaching</span></h2>
+        <table class="table">
+          <thead>
+            <tr>
+              <th><span data-lang-ko>시기</span><span data-lang-en>Date</span></th>
+              <th><span data-lang-ko>내용</span><span data-lang-en>Course</span></th>
+              <th><span data-lang-ko>역할</span><span data-lang-en>Role</span></th>
+              <th><span data-lang-ko>기관</span><span data-lang-en>Host</span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>2026.05.20</td>
+              <td>
+                <strong><span data-lang-ko>사회구조변화대응융합인재양성사업단</span><span data-lang-en>Convergence Talent Program for Social Change</span></strong><br />
+                <span data-lang-ko>데이터로 그리는 인문학 — 위키데이터와 생성형 AI 활용법 (강사)<br />문헌에 기록된 장소와 공간의 모델링 (수업조교)</span>
+                <span data-lang-en>Drawing the humanities with data — Wikidata and generative AI (instructor)<br />Modelling places and spaces recorded in texts (teaching assistant)</span>
+              </td>
+              <td><span data-lang-ko>강사 · 수업조교</span><span data-lang-en>Instructor · Teaching assistant</span></td>
+              <td><span data-lang-ko>단국대학교</span><span data-lang-en>Dankook University</span></td>
+            </tr>
+            <tr>
+              <td>2026.02.04–05</td>
+              <td>
+                <strong><span data-lang-ko>[트랙 2] 분석 트랙</span><span data-lang-en>Track 2 · Analysis</span></strong><br />
+                <span data-lang-ko>인공지능을 활용한 인문 텍스트 분석과 실습 — 전처리부터 시각화까지<br />지리정보의 변천 — 고지도부터 GIS OpenAPI까지</span>
+                <span data-lang-en>Analysing humanities text with AI — from preprocessing to visualisation<br />The evolution of geographic information — from old maps to GIS OpenAPI</span>
+              </td>
+              <td><span data-lang-ko>수업조교</span><span data-lang-en>Teaching assistant</span></td>
+              <td><span data-lang-ko>2026 DH 겨울학교</span><span data-lang-en>2026 DH Winter School</span></td>
+            </tr>
+            <tr>
+              <td>2026.01.30</td>
+              <td>
+                <strong><span data-lang-ko>융합역량강화프로그램</span><span data-lang-en>Interdisciplinary Capacity Program</span></strong><br />
+                <span data-lang-ko>AI 전환시대의 문학연구: 워크샵</span>
+                <span data-lang-en>Literary studies in the age of AI: a workshop</span>
+              </td>
+              <td><span data-lang-ko>강사</span><span data-lang-en>Instructor</span></td>
+              <td><span data-lang-ko>이화여자대학교</span><span data-lang-en>Ewha Womans University</span></td>
+            </tr>
+            <tr>
+              <td>2026.01.30</td>
+              <td>
+                <strong><span data-lang-ko>AIDH 센터</span><span data-lang-en>AIDH Center</span></strong><br />
+                <span data-lang-ko>인공지능시대의 쓰기와 디지털 리터러시 집담회 전문가 자문회의</span>
+                <span data-lang-en>Expert advisory meeting: writing and digital literacy in the age of AI</span>
+              </td>
+              <td><span data-lang-ko>강사</span><span data-lang-en>Instructor</span></td>
+              <td><span data-lang-ko>서울대학교</span><span data-lang-en>Seoul National University</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
       </div>
-    </section>
 
-    <!-- ===== Projects ===== -->
-    <section class="section">
-      <h2 class="section-title"><span data-lang-ko>연구 프로젝트</span><span data-lang-en>Research projects</span></h2>
-      <div class="entries">
-
-        <div class="entry">
-          <div class="entry-date">2026.04 — 2026.09</div>
-          <div>
-            <div class="entry-title">
-              <span data-lang-ko>한국 인문학 학술 지형도 구축을 위한 데이터 기반 연구동향 분석 체계 개발</span>
-              <span data-lang-en>A data-driven framework for analysing research trends to map Korean humanities scholarship</span>
-            </div>
-            <p class="entry-meta">
-              <span data-lang-ko>한국연구원 · 보조연구원 (PI 김병준)</span>
-              <span data-lang-en>Korea Research Institute · Research assistant (PI: Byungjun Kim)</span>
-            </p>
-          </div>
-        </div>
-
-        <div class="entry">
-          <div class="entry-date">2026.03 — 2026.08</div>
-          <div>
-            <div class="entry-title">
-              <span data-lang-ko>AI 기반 디지털 한국학 데이터 구축 매뉴얼 편찬 및 교육 콘텐츠 개발</span>
-              <span data-lang-en>An AI-based manual for building digital Korean studies data, with accompanying teaching materials</span>
-            </div>
-            <p class="entry-meta">
-              <span data-lang-ko>한국학중앙연구원 (AKSR2026-RE03) · 보조연구원 (PI 김바로)</span>
-              <span data-lang-en>The Academy of Korean Studies (AKSR2026-RE03) · Research assistant (PI: Baro Kim)</span>
-            </p>
-          </div>
-        </div>
-
-        <div class="entry">
-          <div class="entry-date">2025.09 — 2026.02</div>
-          <div>
-            <div class="entry-title">
-              <span data-lang-ko>AI 스마트 도슨트 구현을 위한 다국어·다층적 문화유산 안내문 생성 플랫폼 구축 연구</span>
-              <span data-lang-en>A multilingual, multi-layered platform for generating cultural-heritage labels for an AI smart docent</span>
-            </div>
-            <p class="entry-meta">
-              <span data-lang-ko>한국학중앙연구원 (AKSR2025-RE08) · 보조연구원 (PI 김바로)</span>
-              <span data-lang-en>The Academy of Korean Studies (AKSR2025-RE08) · Research assistant (PI: Baro Kim)</span>
-            </p>
-            <div class="tags">
-              <span class="tag"><span data-lang-ko>조선시대 불교회화</span><span data-lang-en>Joseon Buddhist painting</span></span>
-              <span class="tag"><span data-lang-ko>다국어</span><span data-lang-en>Multilingual</span></span>
-              <span class="tag">AI Docent</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="entry">
-          <div class="entry-date">2025.09 — 2026.02</div>
-          <div>
-            <div class="entry-title">
-              <span data-lang-ko>인문 데이터 설계 교육을 위한 한국 근현대 문학 TEI/XML 구축 방법론 연구</span>
-              <span data-lang-en>A TEI/XML methodology for modern Korean literature, for teaching humanities data design</span>
-            </div>
-            <p class="entry-meta">
-              <span data-lang-ko>한국학중앙연구원 (AKSR2025-RE10) · 보조연구원 (PI 김병준)</span>
-              <span data-lang-en>The Academy of Korean Studies (AKSR2025-RE10) · Research assistant (PI: Byungjun Kim)</span>
-            </p>
-            <div class="tags">
-              <span class="tag">TEI/XML</span>
-              <span class="tag"><span data-lang-ko>근현대 문학</span><span data-lang-en>Modern literature</span></span>
-            </div>
-          </div>
-        </div>
-
-        <div class="entry">
-          <div class="entry-date">2024.04 — 2025.03</div>
-          <div>
-            <div class="entry-title">
-              <span data-lang-ko>네트워크형 디지털 인문학 교육모델</span>
-              <span data-lang-en>A networked education model for digital humanities</span>
-            </div>
-            <p class="entry-meta">
-              <span data-lang-ko>울산과학기술원 · 한국연구재단 (2022S1A5A2A03052246) · 보조연구원 (PI 이재연)</span>
-              <span data-lang-en>UNIST · National Research Foundation of Korea (2022S1A5A2A03052246) · Research assistant (PI: Jae-yon Lee)</span>
-            </p>
-          </div>
-        </div>
-
-        <div class="entry">
-          <div class="entry-date">2023.03 — 2024.02</div>
-          <div>
-            <div class="entry-title">
-              <span data-lang-ko>지능형 플롯 및 캐릭터 생성 시스템</span>
-              <span data-lang-en>An intelligent plot and character generation system</span>
-            </div>
-            <p class="entry-meta">
-              <span data-lang-ko>홍익대학교 · 한국연구재단 (202100500003) · 보조연구원 (PI 배병철)</span>
-              <span data-lang-en>Hongik University · National Research Foundation of Korea (202100500003) · Research assistant (PI: Byung-Chull Bae)</span>
-            </p>
-          </div>
-        </div>
-
+      <div class="cv-panel" id="panel-skills" role="tabpanel" aria-labelledby="tab-skills">
+      <!-- ===== Skills ===== -->
+      <section class="section">
+        <h2 class="section-title"><span data-lang-ko>기술</span><span data-lang-en>Skills</span></h2>
+        <table class="table">
+          <tbody>
+            <tr>
+              <td><strong><span data-lang-ko>프로그래밍</span><span data-lang-en>Programming</span></strong></td>
+              <td>Python, R · C, C++ (Unity) · HTML · QGIS</td>
+            </tr>
+            <tr>
+              <td><strong><span data-lang-ko>데이터 설계</span><span data-lang-en>Data design</span></strong></td>
+              <td>XML (TEI)</td>
+            </tr>
+            <tr>
+              <td><strong><span data-lang-ko>데이터 분석</span><span data-lang-en>Data analysis</span></strong></td>
+              <td>Pandas, NumPy · TensorFlow, PyTorch · Selenium · <span data-lang-ko>토픽모델링</span><span data-lang-en>Topic modelling</span> (LDA, ETM, CTM)</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
       </div>
-    </section>
 
-    <!-- ===== Talks ===== -->
-    <section class="section">
-      <h2 class="section-title"><span data-lang-ko>발표</span><span data-lang-en>Talks</span></h2>
-      <div class="entries">
-
-        <div class="entry">
-          <div class="entry-date">2026.07</div>
-          <div>
-            <div class="entry-title">The Topology of Power: Canon Formation and Gatekeeping in Korean Literary Criticism, 1955–1999</div>
-            <p class="entry-meta">
-              <span data-lang-ko>DH2026 (ADHO) · 대전컨벤션센터</span>
-              <span data-lang-en>DH2026 (ADHO) · Daejeon Convention Center</span>
-            </p>
-          </div>
-        </div>
-
-        <div class="entry">
-          <div class="entry-date">2026.07</div>
-          <div>
-            <div class="entry-title">Semi-Automated TEI/XML Encoding of Modern Korean Novel</div>
-            <p class="entry-meta">
-              <span data-lang-ko>DH2026 (ADHO) · 대전컨벤션센터</span>
-              <span data-lang-en>DH2026 (ADHO) · Daejeon Convention Center</span>
-            </p>
-            <p class="entry-note"><a href="https://docs.google.com/presentation/d/1DUa8lp0AoR-YDUrbZ389ClZoqlqcuycE/edit?usp=sharing&amp;ouid=113866889358784643307&amp;rtpof=true&amp;sd=true" target="_blank" rel="noopener">Program</a></p>
-          </div>
-        </div>
-
-        <div class="entry">
-          <div class="entry-date">2026.07</div>
-          <div>
-            <div class="entry-title">
-              <span data-lang-ko>RAG 멀티 에이전트를 활용한 역사적 인물 페르소나 구현: 이광수의 자기합리화 기제 재현을 중심으로</span>
-              <span data-lang-en>Modelling a historical persona with a RAG multi-agent system: reconstructing Yi Kwang-su’s mechanisms of self-justification</span>
-            </div>
-            <p class="entry-meta">
-              <span data-lang-ko>2026 동양철학연구회 하계학술대회 · 성균관대학교</span>
-              <span data-lang-en>Society for Eastern Philosophy, 2026 Summer Conference · Sungkyunkwan University</span>
-            </p>
-            <p class="entry-note"><a href="https://github.com/eiloppang/LGS-mulitagent" target="_blank" rel="noopener">GitHub</a></p>
-          </div>
-        </div>
-
-        <div class="entry">
-          <div class="entry-date">2026.04</div>
-          <div>
-            <div class="entry-title">
-              <span data-lang-ko>RAG 멀티 에이전트를 활용한 역사적 인물 페르소나 구현: 이광수의 자기합리화 기제 재현을 중심으로</span>
-              <span data-lang-en>Modelling a historical persona with a RAG multi-agent system: reconstructing Yi Kwang-su’s mechanisms of self-justification</span>
-            </div>
-            <p class="entry-meta">
-              <span data-lang-ko>한국어문교육연구회 254회 · 성균관대학교</span>
-              <span data-lang-en>The Society of Korean Language and Literature Education, 254th · Sungkyunkwan University</span>
-            </p>
-            <p class="entry-note"><a href="https://github.com/eiloppang/LGS-mulitagent" target="_blank" rel="noopener">GitHub</a></p>
-          </div>
-        </div>
-
-        <div class="entry">
-          <div class="entry-date">2026.02.21</div>
-          <div>
-            <div class="entry-title">
-              <span data-lang-ko>2008–2024 KCI 데이터로 본 한국문학·한국영문학 담론의 시계열적 비교 분석</span>
-              <span data-lang-en>A time-series comparison of Korean literature and Korean English-literature discourse in KCI data, 2008–2024</span>
-            </div>
-            <p class="entry-meta">
-              <span data-lang-ko>제3회 한국현대문학자대회 · 김가연, 박선영, 김병준</span>
-              <span data-lang-en>3rd Conference of Korean Modern Literature Scholars · Gayeon Kim, Sunyoung Park, Byungjun Kim</span>
-            </p>
-            <p class="entry-note"><a href="https://zenodo.org/records/18738333" target="_blank" rel="noopener">Zenodo</a></p>
-          </div>
-        </div>
-
-        <div class="entry">
-          <div class="entry-date">2026.01.23</div>
-          <div>
-            <div class="entry-title">The Anatomy of a Villain: Distant Reading and Graph RAG for VillainScope</div>
-            <p class="entry-meta">
-              <span data-lang-ko>HKADH 2026 · 홍콩</span>
-              <span data-lang-en>HKADH 2026 · Hong Kong</span>
-            </p>
-            <p class="entry-note"><a href="https://github.com/eiloppang/VillainScope_project" target="_blank" rel="noopener">GitHub</a></p>
-          </div>
-        </div>
-
-        <div class="entry">
-          <div class="entry-date">2023</div>
-          <div>
-            <div class="entry-title">
-              <span data-lang-ko>언어 모델을 이용한 장르 단편 소설 생성 및 분석</span>
-              <span data-lang-en>Generating and analysing genre short fiction with language models</span>
-            </div>
-            <p class="entry-meta">
-              <span data-lang-ko>한국정보과학회 2023 · 부산 · 김가연, 박정윤</span>
-              <span data-lang-en>KIISE 2023 · Busan · Gayeon Kim, Jeongyoon Park</span>
-            </p>
-            <p class="entry-note"><a href="https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE11705268" target="_blank" rel="noopener">DBpia</a></p>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ===== Teaching ===== -->
-    <section class="section">
-      <h2 class="section-title"><span data-lang-ko>강의 경험</span><span data-lang-en>Teaching</span></h2>
-      <table class="table">
-        <thead>
-          <tr>
-            <th><span data-lang-ko>시기</span><span data-lang-en>Date</span></th>
-            <th><span data-lang-ko>내용</span><span data-lang-en>Course</span></th>
-            <th><span data-lang-ko>역할</span><span data-lang-en>Role</span></th>
-            <th><span data-lang-ko>기관</span><span data-lang-en>Host</span></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>2026.05.20</td>
-            <td>
-              <strong><span data-lang-ko>사회구조변화대응융합인재양성사업단</span><span data-lang-en>Convergence Talent Program for Social Change</span></strong><br />
-              <span data-lang-ko>데이터로 그리는 인문학 — 위키데이터와 생성형 AI 활용법 (강사)<br />문헌에 기록된 장소와 공간의 모델링 (수업조교)</span>
-              <span data-lang-en>Drawing the humanities with data — Wikidata and generative AI (instructor)<br />Modelling places and spaces recorded in texts (teaching assistant)</span>
-            </td>
-            <td><span data-lang-ko>강사 · 수업조교</span><span data-lang-en>Instructor · Teaching assistant</span></td>
-            <td><span data-lang-ko>단국대학교</span><span data-lang-en>Dankook University</span></td>
-          </tr>
-          <tr>
-            <td>2026.02.04–05</td>
-            <td>
-              <strong><span data-lang-ko>[트랙 2] 분석 트랙</span><span data-lang-en>Track 2 · Analysis</span></strong><br />
-              <span data-lang-ko>인공지능을 활용한 인문 텍스트 분석과 실습 — 전처리부터 시각화까지<br />지리정보의 변천 — 고지도부터 GIS OpenAPI까지</span>
-              <span data-lang-en>Analysing humanities text with AI — from preprocessing to visualisation<br />The evolution of geographic information — from old maps to GIS OpenAPI</span>
-            </td>
-            <td><span data-lang-ko>수업조교</span><span data-lang-en>Teaching assistant</span></td>
-            <td><span data-lang-ko>2026 DH 겨울학교</span><span data-lang-en>2026 DH Winter School</span></td>
-          </tr>
-          <tr>
-            <td>2026.01.30</td>
-            <td>
-              <strong><span data-lang-ko>융합역량강화프로그램</span><span data-lang-en>Interdisciplinary Capacity Program</span></strong><br />
-              <span data-lang-ko>AI 전환시대의 문학연구: 워크샵</span>
-              <span data-lang-en>Literary studies in the age of AI: a workshop</span>
-            </td>
-            <td><span data-lang-ko>강사</span><span data-lang-en>Instructor</span></td>
-            <td><span data-lang-ko>이화여자대학교</span><span data-lang-en>Ewha Womans University</span></td>
-          </tr>
-          <tr>
-            <td>2026.01.30</td>
-            <td>
-              <strong><span data-lang-ko>AIDH 센터</span><span data-lang-en>AIDH Center</span></strong><br />
-              <span data-lang-ko>인공지능시대의 쓰기와 디지털 리터러시 집담회 전문가 자문회의</span>
-              <span data-lang-en>Expert advisory meeting: writing and digital literacy in the age of AI</span>
-            </td>
-            <td><span data-lang-ko>강사</span><span data-lang-en>Instructor</span></td>
-            <td><span data-lang-ko>서울대학교</span><span data-lang-en>Seoul National University</span></td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
-
-    <!-- ===== Skills ===== -->
-    <section class="section">
-      <h2 class="section-title"><span data-lang-ko>기술</span><span data-lang-en>Skills</span></h2>
-      <table class="table">
-        <tbody>
-          <tr>
-            <td><strong><span data-lang-ko>프로그래밍</span><span data-lang-en>Programming</span></strong></td>
-            <td>Python, R · C, C++ (Unity) · HTML · QGIS</td>
-          </tr>
-          <tr>
-            <td><strong><span data-lang-ko>데이터 설계</span><span data-lang-en>Data design</span></strong></td>
-            <td>XML (TEI)</td>
-          </tr>
-          <tr>
-            <td><strong><span data-lang-ko>데이터 분석</span><span data-lang-en>Data analysis</span></strong></td>
-            <td>Pandas, NumPy · TensorFlow, PyTorch · Selenium · <span data-lang-ko>토픽모델링</span><span data-lang-en>Topic modelling</span> (LDA, ETM, CTM)</td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
-
-    <!-- ===== Awards ===== -->
-    <section class="section">
-      <h2 class="section-title"><span data-lang-ko>수상 및 장학</span><span data-lang-en>Awards &amp; scholarships</span></h2>
-      <div class="entries">
-        <div class="entry">
-          <div class="entry-date">Ph.D. / 2</div>
-          <div>
-            <div class="entry-title"><span data-lang-ko>연구장학금</span><span data-lang-en>Research Scholarship</span></div>
-            <p class="entry-meta">
-              <span data-lang-ko>한국학중앙연구원</span>
-              <span data-lang-en>The Academy of Korean Studies</span>
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
+    </div>
 
     <div class="actions">
       <a class="btn" href="index.html"><span data-lang-ko>홈으로</span><span data-lang-en>Home</span></a>
@@ -606,6 +623,52 @@
       <a href="https://github.com/eiloppang" target="_blank" rel="noopener">GitHub</a>
     </div>
   </footer>
+
+  <script>
+    /* ---- CV tabs: one section group at a time, synced with the URL hash ---- */
+    (function () {
+      var tabs = [].slice.call(document.querySelectorAll('.cv-tab'));
+      if (!tabs.length) return;
+      var panel = function (t) { return document.getElementById(t.getAttribute('aria-controls')); };
+
+      tabs.forEach(function (t) {
+        var p = panel(t);
+        if (t.getAttribute('data-key') !== 'skills') t.querySelector('.cv-count').textContent = p.querySelectorAll('.entry, tbody tr').length;
+      });
+
+      function show(id, focus) {
+        var hit = tabs.filter(function (t) { return t.getAttribute('data-key') === id; })[0] || tabs[0];
+        tabs.forEach(function (t) {
+          var on = t === hit;
+          t.setAttribute('aria-selected', on ? 'true' : 'false');
+          t.tabIndex = on ? 0 : -1;
+          panel(t).hidden = !on;
+        });
+        if (focus) hit.focus();
+        if (hit.scrollIntoView && matchMedia('(max-width: 760px)').matches) hit.scrollIntoView({ block: 'nearest', inline: 'center' });
+        return hit;
+      }
+
+      tabs.forEach(function (t, i) {
+        t.addEventListener('click', function (e) {
+          e.preventDefault();
+          var id = show(t.getAttribute('data-key')).getAttribute('data-key');
+          history.replaceState(null, '', '#' + id);
+        });
+        t.addEventListener('keydown', function (e) {
+          var d = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 }[e.key];
+          if (!d) return;
+          e.preventDefault();
+          var next = tabs[(i + d + tabs.length) % tabs.length];
+          show(next.getAttribute('data-key'), true);
+          history.replaceState(null, '', '#' + next.getAttribute('data-key'));
+        });
+      });
+
+      window.addEventListener('hashchange', function () { show(location.hash.slice(1)); });
+      show(location.hash.slice(1));
+    })();
+  </script>
 
 </body>
 </html>

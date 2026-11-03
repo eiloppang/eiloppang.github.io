@@ -544,6 +544,76 @@ img { max-width: 100%; height: auto; }
   .entry-date { padding-top: 0; }
 }
 
+/* ---------- career: tabbed CV ---------- */
+.cv {
+  display: grid;
+  grid-template-columns: 12rem minmax(0, 1fr);
+  gap: 3rem;
+  align-items: start;
+  padding-top: 2.6rem;
+}
+
+.cv-tabs {
+  position: sticky;
+  top: 5.2rem;
+  display: flex;
+  flex-direction: column;
+  border-left: 1px solid var(--line);
+}
+
+.cv-tab {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: .8rem;
+  margin-left: -1px;
+  padding: .5rem .9rem;
+  border-left: 2px solid transparent;
+  font-family: var(--sans);
+  font-size: .86rem;
+  color: var(--muted);
+  white-space: nowrap;
+  transition: color .2s, border-color .2s;
+}
+
+.cv-tab:hover { color: var(--ink); }
+.cv-tab[aria-selected="true"] { color: var(--ink); font-weight: 600; border-left-color: var(--accent); }
+
+.cv-count {
+  font-size: .7rem;
+  font-weight: 400;
+  color: var(--faint);
+  font-variant-numeric: tabular-nums;
+}
+
+.cv-tab[aria-selected="true"] .cv-count { color: var(--accent); }
+
+.cv-panel { animation: rise .45s cubic-bezier(.2, .7, .2, 1) backwards; }
+.cv-panel[hidden] { display: none; }
+.cv .actions { grid-column: 2; margin-top: 1rem; }
+
+@media (max-width: 760px) {
+  .cv { grid-template-columns: minmax(0, 1fr); gap: 1.6rem; padding-top: 1.8rem; }
+  .cv-tabs {
+    position: static;
+    flex-direction: row;
+    overflow-x: auto;
+    scrollbar-width: none;
+    border-left: 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .cv-tabs::-webkit-scrollbar { display: none; }
+  .cv-tab {
+    flex: none;
+    margin: 0 0 -1px;
+    padding: .55rem .8rem;
+    border-left: 0;
+    border-bottom: 2px solid transparent;
+  }
+  .cv-tab[aria-selected="true"] { border-bottom-color: var(--accent); }
+  .cv .actions { grid-column: 1; }
+}
+
 /* ---------- tags ---------- */
 .tags { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: .55rem; }
 

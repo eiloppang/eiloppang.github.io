@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 40" width="1200" height="40" role="presentation">
+  <style>
+    .rule  { stroke: #e5e0d6; }
+    .horn  { fill: #c4544e; }
+    .spark { fill: #e5736b; transform-box: fill-box; transform-origin: center; animation: twinkle 2.4s ease-in-out infinite; }
+    .s2 { animation-delay: 1.2s; }
+    @media (prefers-color-scheme: dark) { .rule { stroke: #2d2a24; } }
+    @keyframes twinkle { 0%, 100% { transform: scale(.5); opacity: .3; } 50% { transform: scale(1); opacity: 1; } }
+    @media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
+  </style>
+  <path class="rule" d="M40 20 H 560 M640 20 H 1160" stroke-width="2" stroke-linecap="round" stroke-dasharray="2 10"/>
+  <!-- a pair of tiny horns -->
+  <path class="horn" d="M582 28 Q572 12 580 2 Q586 14 596 18 Z"/>
+  <path class="horn" d="M618 28 Q628 12 620 2 Q614 14 604 18 Z"/>
+  <path class="spark"    transform="translate(540 20)" d="M0-7Q1.1-1.1 7 0Q1.1 1.1 0 7Q-1.1 1.1-7 0Q-1.1-1.1 0-7Z"/>
+  <path class="spark s2" transform="translate(660 20)" d="M0-7Q1.1-1.1 7 0Q1.1 1.1 0 7Q-1.1 1.1-7 0Q-1.1-1.1 0-7Z"/>
+</svg>

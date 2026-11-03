@@ -1,4 +1,75 @@
-# eiloppang.github.io
+<div align="center">
 
-지금 바꿔보고 있습니다.
+<a href="https://eiloppang.com">
+  <img src="img/readme/banner.svg" width="100%" alt="Gayeon Kim · 김가연 — 이야기 속 악인을 데이터로 읽습니다." />
+</a>
 
+<br />
+
+<a href="https://eiloppang.com"><img src="https://img.shields.io/badge/eiloppang.com-visit-4a6153?style=for-the-badge&logo=githubpages&logoColor=white" alt="eiloppang.com" /></a>
+<a href="https://orcid.org/0009-0005-1231-6939"><img src="https://img.shields.io/badge/ORCID-0009--0005--1231--6939-e5736b?style=for-the-badge&logo=orcid&logoColor=white" alt="ORCID" /></a>
+<a href="https://github.com/eiloppang/VillainScope_project"><img src="https://img.shields.io/badge/VillainScope-repo-c4544e?style=for-the-badge&logo=github&logoColor=white" alt="VillainScope" /></a>
+
+<sub>😈 이야기 속 악인을 데이터로 읽는 사람의 작은 아지트 · <i>a tiny lair for reading the villains of narrative through data</i></sub>
+
+</div>
+
+<img src="img/readme/divider.svg" width="100%" alt="" />
+
+### 🔱 Pages
+
+- 🏠 **[Home](https://eiloppang.com/)** — 한 화면에 다 보이는 벤토 그리드
+- 📜 **[Career](https://eiloppang.com/career.html)** — 학력 · 논문 · 프로젝트 · 발표 · 강의 (탭으로 넘겨 보기)
+- 📝 **[Notes](https://eiloppang.com/study.html)** — 논문 리뷰와 연구 노트
+- 🎧 **[Music](https://eiloppang.com/music.html)** — 요즘 반복 재생 중인 곡들
+- 🗣️ **[Persona](https://eiloppang.com/lgs_chat.html)** — RAG 멀티 에이전트로 만든 이광수 페르소나와 대화하기
+
+### 😈 What I poke at
+
+- **서사 속 악인** — 악인 데이터셋, 감정 분석, Graph RAG로 악인의 궤적 읽기 · `VillainScope`
+- **디지털 인문학** — 근현대 문학 TEI/XML, KCI 담론의 시계열 분석 · `K-NoTE`
+- **인물 페르소나** — 역사적 인물의 사고 구조를 멀티 에이전트로 재현하기 · `RAG`
+
+<img src="img/readme/divider.svg" width="100%" alt="" />
+
+### 🎨 Little-devil palette
+
+![Paper](https://img.shields.io/badge/Paper-%23faf8f4-faf8f4?style=flat-square)
+![Moss](https://img.shields.io/badge/Moss-%234a6153-4a6153?style=flat-square)
+![Ink](https://img.shields.io/badge/Ink-%23242220-242220?style=flat-square)
+![Devil](https://img.shields.io/badge/Devil-%23e5736b-e5736b?style=flat-square)
+
+<sub>Source Serif 4 · Gowun Batang · 라이트/다크 모드 · 한국어/English 전환</sub>
+
+<details>
+<summary><b>🗂️ Structure & running locally</b></summary>
+
+<br />
+
+```text
+eiloppang.github.io/
+├── index.html        # home (bento grid)
+├── career.html       # CV, tabbed
+├── study.html        # notes
+├── music.html        # music
+├── lgs_chat.html     # Yi Kwang-su persona chat
+├── style.css         # all styles + light/dark tokens
+├── site.js           # language + theme toggles
+└── img/              # profile, paper figures, readme art
+```
+
+빌드 도구 없이 순수 HTML · CSS · JS로 만들었고, GitHub Pages로 `eiloppang.com`에 배포됩니다.
+
+```bash
+python -m http.server 8000   # → http://localhost:8000
+```
+
+</details>
+
+<img src="img/readme/divider.svg" width="100%" alt="" />
+
+<div align="center">
+<img src="img/readme/mascot.svg" width="140" alt="꼬마 악마 가연 — little devil Gayeon" />
+<br />
+<sub>made with 😈 &amp; ☕ by <a href="https://github.com/eiloppang">Gayeon Kim</a> · © 2026</sub>
+</div>

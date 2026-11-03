@@ -1,0 +1,256 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400" width="1200" height="400" role="img" aria-labelledby="t d">
+  <title id="t">Gayeon Kim · 김가연</title>
+  <desc id="d">A little devil floating next to the name Gayeon Kim — reading the villains of narrative through data.</desc>
+  <defs>
+    <filter id="m-glow" x="-30%" y="-60%" width="160%" height="220%">
+      <feGaussianBlur stdDeviation="4" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <radialGradient id="m-floor" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#ff3b4e" stop-opacity=".35"/>
+      <stop offset="1" stop-color="#ff3b4e" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <style>
+    .bg     { fill: #faf8f4; stroke: #e5e0d6; }
+    .ink    { fill: #242220; }
+    .ink2   { fill: #4d4841; }
+    .muted  { fill: #7f796f; }
+    .accent { fill: #4a6153; }
+    .chip   { fill: #ecf1ec; }
+    .chip-t { fill: #4a6153; }
+    .devil  { fill: #e5736b; }
+    .devil2 { fill: #c4544e; }
+    .fork   { stroke: #c4544e; }
+    .face   { fill: #2a1f1e; }
+    .line   { stroke: #2a1f1e; }
+    .cheek  { fill: #ff9eb0; opacity: .75; }
+    .glyph  { fill: #4a6153; opacity: .06; }
+    .shadow { fill: #242220; opacity: .08; }
+
+    @media (prefers-color-scheme: dark) {
+      .bg     { fill: #14130f; stroke: #2d2a24; }
+      .ink    { fill: #e9e5dd; }
+      .ink2   { fill: #c5c0b6; }
+      .muted  { fill: #948d82; }
+      .accent { fill: #94b3a0; }
+      .chip   { fill: #1e241f; }
+      .chip-t { fill: #94b3a0; }
+      .devil  { fill: #ec857c; }
+      .glyph  { fill: #94b3a0; opacity: .08; }
+      .shadow { fill: #000; opacity: .35; }
+    }
+
+    /* the SVG's own width decides: small renders drop the fine print */
+    @media (max-width: 720px) {
+      .eyebrow, .chips, .alt { display: none; }
+      .name { font-size: 96px; }
+      .tagline { font-size: 34px; }
+    }
+
+    .serif { font-family: 'Source Serif 4', Georgia, 'Times New Roman', serif; }
+    .kr    { font-family: 'Gowun Batang', 'Nanum Myeongjo', AppleMyungjo, Batang, serif; }
+    .sans  { font-family: system-ui, -apple-system, 'Segoe UI', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif; }
+
+    .bob    { animation: bob 3.2s ease-in-out infinite; }
+    .shade  { transform-box: fill-box; transform-origin: center; animation: shade 3.2s ease-in-out infinite; }
+    .wing-l { transform-box: fill-box; transform-origin: 100% 40%; animation: flap-l .5s ease-in-out infinite alternate; }
+    .wing-r { transform-box: fill-box; transform-origin: 0% 40%;   animation: flap-r .5s ease-in-out infinite alternate; }
+    .tail   { transform-box: fill-box; transform-origin: 0% 100%;  animation: swish 1.8s ease-in-out infinite alternate; }
+    .eye    { transform-box: fill-box; transform-origin: center;   animation: blink 5s infinite; }
+    .fork-g { transform-box: fill-box; transform-origin: 50% 100%; animation: wave 2.4s ease-in-out infinite alternate; }
+    .spark  { transform-box: fill-box; transform-origin: center;   animation: twinkle 2.6s ease-in-out infinite; }
+    .s2 { animation-delay: .6s; } .s3 { animation-delay: 1.2s; } .s4 { animation-delay: 1.8s; } .s5 { animation-delay: .9s; }
+
+    @keyframes bob     { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-14px); } }
+    @keyframes shade   { 0%, 100% { transform: scaleX(1); opacity: .08; } 50% { transform: scaleX(.8); opacity: .05; } }
+    @keyframes flap-l  { from { transform: rotate(10deg); } to { transform: rotate(-14deg); } }
+    @keyframes flap-r  { from { transform: rotate(-10deg); } to { transform: rotate(14deg); } }
+    @keyframes swish   { from { transform: rotate(-10deg); } to { transform: rotate(12deg); } }
+    @keyframes blink   { 0%, 90%, 100% { transform: scaleY(1); } 94% { transform: scaleY(.1); } }
+    @keyframes wave    { from { transform: rotate(-6deg); } to { transform: rotate(8deg); } }
+    @keyframes twinkle { 0%, 100% { transform: scale(.4); opacity: .2; } 50% { transform: scale(1); opacity: 1; } }
+
+    /* ---- mascot (same as img/readme/mascot.svg) ---- */
+    .m-hood { fill: #6e5646; } .m-hood-d { fill: #4a3a30; }
+    .m-pants { fill: #3a2b26; } .m-boot { fill: #1f1718; }
+    .m-skin { fill: #f7d9c8; } .m-hair { fill: #7b2a35; }
+    .m-horn { fill: #8f1d2a; } .m-horn-hi { fill: #c2414f; }
+    .m-wing { fill: #8f1d2a; stroke: #5e121b; stroke-width: 3; stroke-linejoin: round; }
+    .m-vein { stroke: #c2414f; stroke-width: 2.5; fill: none; stroke-linecap: round; }
+    .m-ink { fill: #2a1a1c; } .m-line { stroke: #2a1a1c; fill: none; stroke-linecap: round; }
+    .m-lens { fill: #fff; fill-opacity: .18; stroke: #9a7550; stroke-width: 4; }
+    .m-red { fill: #c8363f; } .m-strap { stroke: #1f1718; stroke-width: 7; fill: none; stroke-linecap: round; }
+    .m-rune { stroke: #ff3b4e; fill: none; stroke-width: 2.5; }
+
+    .m-bob   { animation: m-bob 3s ease-in-out infinite; }
+    .m-wingl { transform-box: fill-box; transform-origin: 100% 60%; animation: m-flapl .55s ease-in-out infinite alternate; }
+    .m-wingr { transform-box: fill-box; transform-origin: 0% 60%;   animation: m-flapr .55s ease-in-out infinite alternate; }
+    .m-tail  { transform-box: fill-box; transform-origin: 0% 90%;   animation: m-swish 1.7s ease-in-out infinite alternate; }
+    .m-peace { transform-box: fill-box; transform-origin: 30% 100%; animation: m-peace 1.2s ease-in-out infinite alternate; }
+    .m-charm { transform-box: fill-box; transform-origin: 50% 0%;   animation: m-swing 1.5s ease-in-out infinite alternate; }
+    .m-eye   { transform-box: fill-box; transform-origin: center;   animation: m-blink 4.6s infinite; }
+    .m-heart { transform-box: fill-box; transform-origin: center;   animation: m-kiss 3s ease-out infinite; }
+    .m-circle{ animation: m-pulse 2.4s ease-in-out infinite; }
+    .m-ember { animation: m-rise 3.6s linear infinite; }
+    .e2 { animation-delay: .9s; } .e3 { animation-delay: 1.8s; } .e4 { animation-delay: 2.7s; } .e5 { animation-delay: 1.3s; }
+
+    @keyframes m-bob   { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+    @keyframes m-flapl { from { transform: rotate(8deg); } to { transform: rotate(-12deg); } }
+    @keyframes m-flapr { from { transform: rotate(-8deg); } to { transform: rotate(12deg); } }
+    @keyframes m-swish { from { transform: rotate(-8deg); } to { transform: rotate(10deg); } }
+    @keyframes m-peace { from { transform: rotate(-6deg); } to { transform: rotate(8deg); } }
+    @keyframes m-swing { from { transform: rotate(-12deg); } to { transform: rotate(12deg); } }
+    @keyframes m-blink { 0%, 92%, 100% { transform: scaleY(1); } 95% { transform: scaleY(.1); } }
+    @keyframes m-kiss  { 0% { transform: translate(0, 0) scale(.3); opacity: 0; } 15% { opacity: 1; } 100% { transform: translate(34px, -70px) scale(1.1); opacity: 0; } }
+    @keyframes m-pulse { 0%, 100% { opacity: .55; } 50% { opacity: 1; } }
+    @keyframes m-rise  { 0% { transform: translateY(0); opacity: 0; } 20% { opacity: .9; } 100% { transform: translateY(-160px); opacity: 0; } }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; }
+    }
+  </style>
+
+  <rect class="bg" x="1" y="1" width="1198" height="398" rx="28" stroke-width="2"/>
+
+  <!-- watermark -->
+  <text class="glyph kr" x="1150" y="372" font-size="330" text-anchor="end">惡</text>
+
+  <!-- ===== text ===== -->
+  <text class="eyebrow muted sans" x="80" y="112" font-size="15" letter-spacing="3.2">THE ACADEMY OF KOREAN STUDIES · CULTURAL INFORMATICS</text>
+  <text class="name ink serif" x="76" y="196" font-size="80" font-weight="600" letter-spacing="-2">Gayeon Kim</text>
+  <text class="alt muted kr" x="82" y="240" font-size="22" letter-spacing="8">김가연 · eiloppang</text>
+  <text class="tagline ink2 kr" x="80" y="296" font-size="28">이야기 속 <tspan class="accent" font-weight="700">악인</tspan>을 데이터로 읽습니다.</text>
+
+  <g class="chips sans" font-size="15" text-anchor="middle">
+    <rect class="chip" x="80"  y="324" width="132" height="32" rx="16"/><text class="chip-t" x="146" y="345">VillainScope</text>
+    <rect class="chip" x="222" y="324" width="92"  height="32" rx="16"/><text class="chip-t" x="268" y="345">K-NoTE</text>
+    <rect class="chip" x="324" y="324" width="128" height="32" rx="16"/><text class="chip-t" x="388" y="345">RAG Persona</text>
+    <rect class="chip" x="462" y="324" width="96"  height="32" rx="16"/><text class="chip-t" x="510" y="345">TEI/XML</text>
+  </g>
+
+  <!-- ===== sparkles ===== -->
+  <g class="devil">
+    <path class="spark"    transform="translate(760 92)"  d="M0-13Q2-2 13 0Q2 2 0 13Q-2 2-13 0Q-2-2 0-13Z"/>
+    <path class="spark s3" transform="translate(1102 300)" d="M0-10Q1.6-1.6 10 0Q1.6 1.6 0 10Q-1.6 1.6-10 0Q-1.6-1.6 0-10Z"/>
+  </g>
+  <g class="accent">
+    <path class="spark s2" transform="translate(1088 84)"  d="M0-11Q1.8-1.8 11 0Q1.8 1.8 0 11Q-1.8 1.8-11 0Q-1.8-1.8 0-11Z"/>
+    <path class="spark s4" transform="translate(735 288)"  d="M0-9Q1.4-1.4 9 0Q1.4 1.4 0 9Q-1.4 1.4-9 0Q-1.4-1.4 0-9Z"/>
+    <path class="spark s5" transform="translate(1010 50)"  d="M0-7Q1.1-1.1 7 0Q1.1 1.1 0 7Q-1.1 1.1-7 0Q-1.1-1.1 0-7Z"/>
+  </g>
+
+  <!-- ===== little devil Gayeon (img/readme/mascot.svg) ===== -->
+  <g transform="translate(769 32) scale(.78)">
+  <g>
+    <!-- magic circle -->
+    <ellipse cx="200" cy="432" rx="170" ry="40" fill="url(#m-floor)"/>
+    <g class="m-circle" filter="url(#m-glow)">
+      <ellipse class="m-rune" cx="200" cy="432" rx="150" ry="34"/>
+      <ellipse class="m-rune" cx="200" cy="432" rx="122" ry="27" stroke-width="1.8"/>
+      <polygon class="m-rune" stroke-width="1.8" stroke-linejoin="round"
+               points="200,405 271.7,453.8 84,423.7 316,423.7 128.3,453.8"/>
+    </g>
+
+    <!-- embers -->
+    <g fill="#ff5a68">
+      <circle class="m-ember"    cx="96"  cy="420" r="2.6"/>
+      <circle class="m-ember e2" cx="318" cy="410" r="2.2"/>
+      <circle class="m-ember e3" cx="140" cy="400" r="1.8"/>
+      <circle class="m-ember e4" cx="270" cy="424" r="2.4"/>
+      <circle class="m-ember e5" cx="345" cy="436" r="1.6"/>
+    </g>
+
+    <g class="m-bob">
+      <!-- wings -->
+      <g class="m-wingl">
+        <path class="m-wing" d="M156 262 C126 214 82 196 50 204 C62 220 64 236 60 250 C76 242 88 248 94 262 C106 252 120 256 128 272 C138 264 150 266 156 276 Z"/>
+        <path class="m-vein" d="M150 262 L60 210 M140 266 L92 230 M134 270 L118 244"/>
+      </g>
+      <g class="m-wingr">
+        <path class="m-wing" d="M244 262 C274 214 318 196 350 204 C338 220 336 236 340 250 C324 242 312 248 306 262 C294 252 280 256 272 272 C262 264 250 266 244 276 Z"/>
+        <path class="m-vein" d="M250 262 L340 210 M260 266 L308 230 M266 270 L282 244"/>
+      </g>
+
+      <!-- tail -->
+      <g class="m-tail">
+        <path d="M236 338 C292 356 326 326 306 284" stroke="#8f1d2a" stroke-width="9" fill="none" stroke-linecap="round"/>
+        <path class="m-horn" d="M303 258 L322 290 L305 282 L288 292 Z"/>
+      </g>
+
+      <!-- pants + boots -->
+      <path class="m-pants" d="M156 330 h44 v64 q0 9 -9 9 h-27 q-8 0 -8 -9 z"/>
+      <path class="m-pants" d="M200 330 h44 v64 q0 9 -8 9 h-27 q-9 0 -9 -9 z"/>
+      <rect x="160" y="352" width="16" height="14" rx="2" fill="#2c201c"/>
+      <rect x="226" y="352" width="16" height="14" rx="2" fill="#2c201c"/>
+      <path class="m-boot" d="M150 398 h50 v16 q0 9 -9 9 h-33 q-10 0 -10 -10 z"/>
+      <path class="m-boot" d="M200 398 h50 v15 q0 10 -10 10 h-31 q-9 0 -9 -9 z"/>
+      <path d="M164 402 l12 6 M164 408 l12 -6 M222 402 l12 6 M222 408 l12 -6" stroke="#c8363f" stroke-width="2" stroke-linecap="round"/>
+
+      <!-- jacket -->
+      <path class="m-hood-d" d="M150 270 Q132 296 138 334 L160 334 L162 286 Z"/>
+      <path class="m-hood" d="M148 262 Q200 248 252 262 L258 340 Q200 354 142 340 Z"/>
+      <path d="M200 262 V346" stroke="#4a3a30" stroke-width="3"/>
+      <rect x="214" y="298" width="30" height="24" rx="3" fill="#5c4739" stroke="#4a3a30" stroke-width="2"/>
+      <circle cx="229" cy="303" r="2.2" fill="#b9b1a5"/>
+      <!-- trident patch -->
+      <path d="M226 270 v20 M219 272 q0 8 7 8 q7 0 7 -8 M226 268 l0 0" stroke="#c8363f" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+      <path class="m-strap" d="M166 262 L236 340"/>
+
+      <!-- plush charm -->
+      <g class="m-charm">
+        <path d="M196 264 Q192 290 196 316" stroke="#b9b1a5" stroke-width="2" fill="none" stroke-dasharray="3 3"/>
+        <path class="m-red" d="M186 316 l-4 -9 l9 5 Z M206 316 l4 -9 l-9 5 Z"/>
+        <circle class="m-red" cx="196" cy="326" r="13"/>
+        <path d="M189 322 l5 2 M203 322 l-5 2" class="m-line" stroke-width="2"/>
+        <path d="M192 331 q4 3 8 0" class="m-line" stroke-width="1.8"/>
+      </g>
+
+      <!-- hood (back) -->
+      <path class="m-hood" d="M126 200 Q116 108 200 100 Q284 108 274 200 Q278 242 250 260 L150 260 Q122 242 126 200 Z"/>
+      <circle class="m-hood-d" cx="200" cy="192" r="70"/>
+
+      <!-- horns on the hood -->
+      <path class="m-horn" d="M152 122 Q126 96 140 60 Q148 94 172 110 Z"/>
+      <path class="m-horn" d="M248 122 Q274 96 260 60 Q252 94 228 110 Z"/>
+      <path class="m-horn-hi" d="M142 70 Q146 92 160 104 Q144 96 142 70 Z"/>
+      <path class="m-horn-hi" d="M258 70 Q254 92 240 104 Q256 96 258 70 Z"/>
+
+      <!-- elf ears -->
+      <path class="m-skin" d="M142 190 L112 172 L142 212 Z"/>
+      <path class="m-skin" d="M258 190 L288 172 L258 212 Z"/>
+      <circle cx="140" cy="214" r="3.5" fill="none" stroke="#c9a86a" stroke-width="1.8"/>
+
+      <!-- face -->
+      <circle class="m-skin" cx="200" cy="196" r="60"/>
+      <path class="m-hair" d="M140 186 Q140 132 200 128 Q260 132 260 186 Q250 166 238 174 Q232 154 214 166 Q204 148 190 166 Q176 150 166 172 Q152 162 140 186 Z"/>
+      <path d="M168 160 q4 -10 14 -10" stroke="#a23d49" stroke-width="3" fill="none" stroke-linecap="round"/>
+
+      <g class="m-eye"><ellipse class="m-ink" cx="178" cy="200" rx="6.5" ry="8"/><circle cx="180.5" cy="196.5" r="2.3" fill="#fff"/></g>
+      <g class="m-eye"><ellipse class="m-ink" cx="222" cy="200" rx="6.5" ry="8"/><circle cx="224.5" cy="196.5" r="2.3" fill="#fff"/></g>
+
+      <rect class="m-lens" x="157" y="184" width="38" height="32" rx="11"/>
+      <rect class="m-lens" x="205" y="184" width="38" height="32" rx="11"/>
+      <path d="M195 196 q5 -4 10 0" stroke="#9a7550" stroke-width="3.5" fill="none"/>
+
+      <ellipse cx="166" cy="224" rx="12" ry="7" fill="#ff8f9c" opacity=".6"/>
+      <ellipse cx="234" cy="224" rx="12" ry="7" fill="#ff8f9c" opacity=".6"/>
+
+      <!-- pouty kiss -->
+      <ellipse cx="200" cy="232" rx="7" ry="6" fill="#e0707c"/>
+      <path d="M195 232 q5 2 10 0" stroke="#b9505c" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+      <path class="m-heart" fill="#ff5a6e" d="M210 226 c-3 -5 -10 -3 -9 2 c1 4 9 9 9 9 c0 0 8 -5 9 -9 c1 -5 -6 -7 -9 -2 z"/>
+
+      <!-- raised arm: peace sign -->
+      <path class="m-hood" d="M246 268 Q298 266 304 236 L284 226 Q276 250 238 256 Z"/>
+      <path d="M284 226 L304 236" stroke="#4a3a30" stroke-width="5" stroke-linecap="round"/>
+      <g class="m-peace">
+        <path d="M288 214 L281 180 M300 213 L310 181" stroke="#d9a58f" stroke-width="12" stroke-linecap="round"/>
+        <path d="M288 214 L281 180 M300 213 L310 181" stroke="#f7d9c8" stroke-width="8" stroke-linecap="round"/>
+        <circle cx="294" cy="219" r="14" fill="#f7d9c8" stroke="#d9a58f" stroke-width="2"/>
+        <path d="M286 222 q8 5 16 0" stroke="#d9a58f" stroke-width="2" fill="none" stroke-linecap="round"/>
+      </g>
+    </g>
+  </g>
+  </g>
+</svg>

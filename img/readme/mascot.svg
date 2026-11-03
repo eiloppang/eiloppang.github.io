@@ -7,15 +7,15 @@
     </filter>
     <filter id="p-soft" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="7"/></filter>
     <radialGradient id="p-floor" cx="50%" cy="50%" r="50%">
-      <stop offset="0" stop-color="#ff3b4e" stop-opacity=".4"/>
-      <stop offset="1" stop-color="#ff3b4e" stop-opacity="0"/>
+      <stop offset="0" stop-color="#d2394a" stop-opacity=".4"/>
+      <stop offset="1" stop-color="#d2394a" stop-opacity="0"/>
     </radialGradient>
   </defs>
   <style>
     .p-float { animation: p-float 3s ease-in-out infinite; }
     .p-sway  { transform-box: fill-box; transform-origin: 50% 100%; animation: p-sway 6s ease-in-out infinite; }
     .p-shade { transform-box: fill-box; transform-origin: center; animation: p-shade 3s ease-in-out infinite; }
-    .p-ring  { stroke: #ff3b4e; fill: none; }
+    .p-ring  { stroke: #d2394a; fill: none; }
     .p-circle{ animation: p-pulse 2.4s ease-in-out infinite; }
     .p-bulb  { animation: p-bulb 1.6s ease-in-out infinite; mix-blend-mode: screen; }
     .p-heart { transform-box: fill-box; transform-origin: center; animation: p-kiss 3.2s ease-out infinite; }
@@ -62,7 +62,7 @@
       </g>
     </g>
 
-    <g fill="#ff6b7a">
+    <g fill="#c9404d">
       <path class="p-spark"    transform="translate(70 230)"  d="M0-14Q2-2 14 0Q2 2 0 14Q-2 2-14 0Q-2-2 0-14Z"/>
       <path class="p-spark k2" transform="translate(560 170)" d="M0-11Q1.8-1.8 11 0Q1.8 1.8 0 11Q-1.8 1.8-11 0Q-1.8-1.8 0-11Z"/>
       <path class="p-spark k3" transform="translate(545 560)" d="M0-9Q1.4-1.4 9 0Q1.4 1.4 0 9Q-1.4 1.4-9 0Q-1.4-1.4 0-9Z"/>

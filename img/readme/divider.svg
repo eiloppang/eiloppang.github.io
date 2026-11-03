@@ -1,10 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 40" width="1200" height="40" role="presentation">
   <style>
-    .rule  { stroke: #e5e0d6; }
-    .horn  { fill: #c4544e; }
-    .spark { fill: #e5736b; transform-box: fill-box; transform-origin: center; animation: twinkle 2.4s ease-in-out infinite; }
+    .rule  { stroke: #eadbd3; }
+    .horn  { fill: #8f2a35; }
+    .spark { fill: #c9404d; transform-box: fill-box; transform-origin: center; animation: twinkle 2.4s ease-in-out infinite; }
     .s2 { animation-delay: 1.2s; }
-    @media (prefers-color-scheme: dark) { .rule { stroke: #2d2a24; } }
+    @media (prefers-color-scheme: dark) { .rule { stroke: #33242a; } }
     @keyframes twinkle { 0%, 100% { transform: scale(.5); opacity: .3; } 50% { transform: scale(1); opacity: 1; } }
     @media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
   </style>

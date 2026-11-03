@@ -8,38 +8,32 @@
     </filter>
     <filter id="p-soft" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="7"/></filter>
     <radialGradient id="p-floor" cx="50%" cy="50%" r="50%">
-      <stop offset="0" stop-color="#ff3b4e" stop-opacity=".4"/>
-      <stop offset="1" stop-color="#ff3b4e" stop-opacity="0"/>
+      <stop offset="0" stop-color="#d2394a" stop-opacity=".4"/>
+      <stop offset="1" stop-color="#d2394a" stop-opacity="0"/>
     </radialGradient>
   </defs>
   <style>
-    .bg     { fill: #faf8f4; stroke: #e5e0d6; }
-    .ink    { fill: #242220; }
-    .ink2   { fill: #4d4841; }
-    .muted  { fill: #7f796f; }
-    .accent { fill: #4a6153; }
-    .chip   { fill: #ecf1ec; }
-    .chip-t { fill: #4a6153; }
-    .devil  { fill: #e5736b; }
-    .devil2 { fill: #c4544e; }
-    .fork   { stroke: #c4544e; }
-    .face   { fill: #2a1f1e; }
-    .line   { stroke: #2a1f1e; }
-    .cheek  { fill: #ff9eb0; opacity: .75; }
-    .glyph  { fill: #4a6153; opacity: .06; }
-    .shadow { fill: #242220; opacity: .08; }
+    /* palette taken from the little devil: cocoa hood, wine horns, cream skin */
+    .bg     { fill: #faf6f2; stroke: #eadbd3; }
+    .ink    { fill: #2b1d1a; }
+    .ink2   { fill: #4e3a33; }
+    .muted  { fill: #8a7268; }
+    .accent { fill: #8f2a35; }
+    .chip   { fill: #f4e4e0; }
+    .chip-t { fill: #8f2a35; }
+    .devil  { fill: #c9404d; }
+    .glyph  { fill: #8f2a35; opacity: .06; }
 
     @media (prefers-color-scheme: dark) {
-      .bg     { fill: #14130f; stroke: #2d2a24; }
-      .ink    { fill: #e9e5dd; }
-      .ink2   { fill: #c5c0b6; }
-      .muted  { fill: #948d82; }
-      .accent { fill: #94b3a0; }
-      .chip   { fill: #1e241f; }
-      .chip-t { fill: #94b3a0; }
-      .devil  { fill: #ec857c; }
-      .glyph  { fill: #94b3a0; opacity: .08; }
-      .shadow { fill: #000; opacity: .35; }
+      .bg     { fill: #1a1214; stroke: #33242a; }
+      .ink    { fill: #f1e6e1; }
+      .ink2   { fill: #d6c4bd; }
+      .muted  { fill: #a08a82; }
+      .accent { fill: #e07a84; }
+      .chip   { fill: #2c1b1f; }
+      .chip-t { fill: #e9a0a8; }
+      .devil  { fill: #e06a76; }
+      .glyph  { fill: #e07a84; opacity: .07; }
     }
 
     /* the SVG's own width decides: small renders drop the fine print */
@@ -76,7 +70,7 @@
     .p-float { animation: p-float 3s ease-in-out infinite; }
     .p-sway  { transform-box: fill-box; transform-origin: 50% 100%; animation: p-sway 6s ease-in-out infinite; }
     .p-shade { transform-box: fill-box; transform-origin: center; animation: p-shade 3s ease-in-out infinite; }
-    .p-ring  { stroke: #ff3b4e; fill: none; }
+    .p-ring  { stroke: #d2394a; fill: none; }
     .p-circle{ animation: p-pulse 2.4s ease-in-out infinite; }
     .p-bulb  { animation: p-bulb 1.6s ease-in-out infinite; mix-blend-mode: screen; }
     .p-heart { transform-box: fill-box; transform-origin: center; animation: p-kiss 3.2s ease-out infinite; }
@@ -157,7 +151,7 @@
       </g>
     </g>
 
-    <g fill="#ff6b7a">
+    <g fill="#c9404d">
       <path class="p-spark"    transform="translate(70 230)"  d="M0-14Q2-2 14 0Q2 2 0 14Q-2 2-14 0Q-2-2 0-14Z"/>
       <path class="p-spark k2" transform="translate(560 170)" d="M0-11Q1.8-1.8 11 0Q1.8 1.8 0 11Q-1.8 1.8-11 0Q-1.8-1.8 0-11Z"/>
       <path class="p-spark k3" transform="translate(545 560)" d="M0-9Q1.4-1.4 9 0Q1.4 1.4 0 9Q-1.4 1.4-9 0Q-1.4-1.4 0-9Z"/>

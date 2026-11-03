@@ -6,9 +6,9 @@
 
 <br />
 
-<a href="https://eiloppang.com"><img src="https://img.shields.io/badge/eiloppang.com-visit-4a6153?style=for-the-badge&logo=githubpages&logoColor=white" alt="eiloppang.com" /></a>
-<a href="https://orcid.org/0009-0005-1231-6939"><img src="https://img.shields.io/badge/ORCID-0009--0005--1231--6939-e5736b?style=for-the-badge&logo=orcid&logoColor=white" alt="ORCID" /></a>
-<a href="https://github.com/eiloppang/VillainScope_project"><img src="https://img.shields.io/badge/VillainScope-repo-c4544e?style=for-the-badge&logo=github&logoColor=white" alt="VillainScope" /></a>
+<a href="https://eiloppang.com"><img src="https://img.shields.io/badge/eiloppang.com-visit-8f2a35?style=for-the-badge&labelColor=3a2b26" alt="eiloppang.com" /></a>
+<a href="https://orcid.org/0009-0005-1231-6939"><img src="https://img.shields.io/badge/ORCID-0009--0005--1231--6939-8f2a35?style=for-the-badge&logo=orcid&logoColor=f4e4e0&labelColor=3a2b26" alt="ORCID" /></a>
+<a href="https://github.com/eiloppang/VillainScope_project"><img src="https://img.shields.io/badge/VillainScope-repo-8f2a35?style=for-the-badge&logo=github&logoColor=f4e4e0&labelColor=3a2b26" alt="VillainScope" /></a>
 
 <sub>😈 이야기 속 악인을 데이터로 읽는 사람의 작은 아지트 · <i>a tiny lair for reading the villains of narrative through data</i></sub>
 
@@ -34,12 +34,12 @@
 
 ### 🎨 Little-devil palette
 
-![Paper](https://img.shields.io/badge/Paper-%23faf8f4-faf8f4?style=flat-square)
-![Moss](https://img.shields.io/badge/Moss-%234a6153-4a6153?style=flat-square)
-![Ink](https://img.shields.io/badge/Ink-%23242220-242220?style=flat-square)
-![Devil](https://img.shields.io/badge/Devil-%23e5736b-e5736b?style=flat-square)
+![Cream](https://img.shields.io/badge/Cream-%23faf6f2-faf6f2?style=flat-square&labelColor=3a2b26)
+![Cocoa](https://img.shields.io/badge/Cocoa-%233a2b26-3a2b26?style=flat-square&labelColor=3a2b26)
+![Wine](https://img.shields.io/badge/Wine-%238f2a35-8f2a35?style=flat-square&labelColor=3a2b26)
+![Rose](https://img.shields.io/badge/Rose-%23e07a84-e07a84?style=flat-square&labelColor=3a2b26)
 
-<sub>Source Serif 4 · Gowun Batang · 라이트/다크 모드 · 한국어/English 전환</sub>
+<sub>README는 꼬마 악마에서 뽑은 색 · 사이트 본문은 Moss <code>#4a6153</code> 포인트 · Source Serif 4 · Gowun Batang</sub>
 
 <details>
 <summary><b>🗂️ Structure & running locally</b></summary>

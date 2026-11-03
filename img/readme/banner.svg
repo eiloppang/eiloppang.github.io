@@ -11,30 +11,32 @@
       <stop offset="0" stop-color="#d2394a" stop-opacity=".4"/>
       <stop offset="1" stop-color="#d2394a" stop-opacity="0"/>
     </radialGradient>
+    <linearGradient id="bg-grad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2a1519"/>
+      <stop offset=".55" stop-color="#1d0f13"/>
+      <stop offset="1" stop-color="#2c1216"/>
+    </linearGradient>
+    <filter id="smoke-blur" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="38"/></filter>
+    <clipPath id="card"><rect x="1" y="1" width="1198" height="398" rx="28"/></clipPath>
   </defs>
   <style>
-    /* palette taken from the little devil: cocoa hood, wine horns, cream skin */
-    .bg     { fill: #faf6f2; stroke: #eadbd3; }
-    .ink    { fill: #2b1d1a; }
-    .ink2   { fill: #4e3a33; }
-    .muted  { fill: #8a7268; }
-    .accent { fill: #8f2a35; }
-    .chip   { fill: #f4e4e0; }
-    .chip-t { fill: #8f2a35; }
-    .devil  { fill: #c9404d; }
-    .glyph  { fill: #8f2a35; opacity: .06; }
+    /* dark wine card, like the little devil's own smoky backdrop — same in light and dark mode */
+    .bg     { fill: url(#bg-grad); stroke: #3d2328; }
+    .ink    { fill: #f6ebe6; }
+    .ink2   { fill: #e3cfc8; }
+    .muted  { fill: #b8988f; }
+    .accent { fill: #ff8a95; }
+    .chip   { fill: #ffffff; fill-opacity: .06; stroke: #ff8a95; stroke-opacity: .35; }
+    .chip-t { fill: #f2b8bf; }
+    .devil  { fill: #ff6b7a; }
+    .glyph  { fill: #ff6b7a; opacity: .05; }
 
-    @media (prefers-color-scheme: dark) {
-      .bg     { fill: #1a1214; stroke: #33242a; }
-      .ink    { fill: #f1e6e1; }
-      .ink2   { fill: #d6c4bd; }
-      .muted  { fill: #a08a82; }
-      .accent { fill: #e07a84; }
-      .chip   { fill: #2c1b1f; }
-      .chip-t { fill: #e9a0a8; }
-      .devil  { fill: #e06a76; }
-      .glyph  { fill: #e07a84; opacity: .07; }
-    }
+    .smoke  { fill: #b3202f; filter: url(#smoke-blur); }
+    .sm1 { opacity: .45; animation: drift1 14s ease-in-out infinite alternate; }
+    .sm2 { opacity: .30; animation: drift2 18s ease-in-out infinite alternate; }
+    .sm3 { opacity: .22; animation: drift1 22s ease-in-out infinite alternate-reverse; }
+    @keyframes drift1 { from { transform: translate(0, 0); } to { transform: translate(-60px, 20px); } }
+    @keyframes drift2 { from { transform: translate(0, 0); } to { transform: translate(50px, -25px); } }
 
     /* the SVG's own width decides: small renders drop the fine print */
     @media (max-width: 720px) {
@@ -95,6 +97,13 @@
   </style>
 
   <rect class="bg" x="1" y="1" width="1198" height="398" rx="28" stroke-width="2"/>
+
+  <!-- red smoke -->
+  <g clip-path="url(#card)">
+    <ellipse class="smoke sm1" cx="930" cy="230" rx="210" ry="150"/>
+    <ellipse class="smoke sm2" cx="1130" cy="60" rx="170" ry="90"/>
+    <ellipse class="smoke sm3" cx="120" cy="380" rx="260" ry="90"/>
+  </g>
 
   <!-- watermark -->
   <text class="glyph kr" x="1150" y="372" font-size="330" text-anchor="end">惡</text>

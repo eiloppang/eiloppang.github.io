@@ -196,17 +196,27 @@ function paintStaticText() {
   document.getElementById('b').textContent = t('묻기', 'Ask');
 }
 
+async function alive(url){
+  const ctl = new AbortController();
+  const timer = setTimeout(() => ctl.abort(), 6000);
+  try{
+    const r = await fetch(url + '/health', {cache:'no-store', signal:ctl.signal});
+    return r.ok;
+  }catch(e){ return false; }
+  finally{ clearTimeout(timer); }
+}
+
 async function resolveBackend(){
   try{
     const r = await fetch(RELAY + '?t=' + Date.now(), {cache:'no-store'});
     if(!r.ok) throw 0;
     const d = await r.json();
     if(!d.url) throw 0;
-    if(d.updated){
-      const age = (Date.now() - Date.parse(d.updated))/60000;
-      if(age > STALE_MIN){ BACKEND=null; return {ok:false, reason:'stale', age}; }
-    }
-    BACKEND = d.url.replace(/\/+$/,'');
+    const url = d.url.replace(/\/+$/,'');
+    /* 주소는 Colab 시작 때 한 번만 갱신되므로, 오래된 주소라도 실제로 살아 있는지 /health로 확인한다 */
+    const age = d.updated ? (Date.now() - Date.parse(d.updated))/60000 : 0;
+    if(age > STALE_MIN && !(await alive(url))){ BACKEND=null; return {ok:false, reason:'stale', age}; }
+    BACKEND = url;
     return {ok:true, url:BACKEND};
   }catch(e){ BACKEND=null; return {ok:false, reason:'norelay'}; }
 }
